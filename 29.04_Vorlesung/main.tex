@@ -1,0 +1,56 @@
+\documentclass[a4paper]{memoir}
+
+\input{~/Desktop/modal/note.tex}
+\begin{document}
+\pagecolor{White}
+\color{Black}
+\begin{ibox}[5.2]{Korrespondenzsatz}{CTheorem}
+    Sei $ \varphi : G \to H $ surjektive Grphomo, $ U \leq G $ mit $ ker
+	\varphi \leq  U j $ und $ V \leq  H $. Dann 
+	\begin{enumerate}[label=\alph*)]
+		\item $ \varphi (U) = V \iff \varphi^{-1}(V) = U $ 
+		\item Gilt $ \varphi = V, dann: U \triangleleft G \iff V 
+			\triangleleft H
+ $ 	\end{enumerate}
+	
+\end{ibox}
+
+\para{4}{Klassifikation der endlichen abelschen Gruppen}
+
+\begin{ibox}[5.1]{Satz}{CTheorem}
+    Ist $ G $ eine endliche abelsche Gruppe, so ist $ G $ isomorph zu 
+	$ \mathbb{Z} \ n_1 \mathbb{Z} \times \mathbb{Z}  \ n_2 \mathbb{Z} 
+	\cdots \mathbb{Z} \ n \mathbb{Z} \text{ , wobei  } \left| G \right| 
+	= n_1 \cdots n_{r}$  und $ n_{i}| n_{i-1} $  
+\end{ibox}
+\begin{ibox}[5.3]{Lemma}{CLemma}
+    Sei $ G $ eindlich und abelsch und $ p $ Primzahl mit $ p | 
+	\left| G \right| $. Dann exist $ g \in G $ mit $ o(g) = p $ 
+\end{ibox}
+
+\begin{proof}
+	(Induktion nach Anzahl von Teilen von $ \left| G \right|  $ 
+	\textit{Induktionsanfang} : $ \left| G \right|  = p \leadsto G \cong
+	\mathbb{Z} \ m \mathbb{Z} $\\
+	\textit{Induktionsschritt} : Sei $ H $ max $ UG/NT $ von $ G $. Dann
+	gilt $ \left| G/H \right|  = p' $ für eine Primzahl $ p' $ 
+	gilt \\ $ p | \left| H \right|  $ , so exist $ g \in  H $ nach 
+	Induktionvoraussetzung $ \implies $ \\ Behauptung 
+	sonst $  p = \left| G/H \right|  $ , da $ G| = |H| 
+	\left| G/H \right|  $ 
+
+
+\end{proof}
+
+\begin{ibox}[4.5]{Lemma}{CLemma}
+    Ist $ G $ eine abelsche $ (p-) $ Gruppe mit einer einzigen UG N der 
+	Ordnung $ p $, so ist $ G $ zykelisch. 
+\end{ibox}
+
+\begin{proof}
+	Beweis nach $ \left| G \right|  $ . Die Abbildung $ f : G \to G $ 
+	mit $ g \mapsto g^{p} $ ist eine Gruppenhomomorphismus. \\
+	$ ker \; f $ besteht aus $ 1 $ und den Elementen der Ordnung $ p $ .
+\end{proof}
+
+\end{document}

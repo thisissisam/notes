@@ -1,0 +1,13 @@
+# for latex and pdf, ignoring temporary files
+*.aux
+*.fdb_latexmk
+*.fls
+*.idx
+*.ilg
+*.ind
+*.log
+*.log
+*.gz
+*.toc
+
+*.swp
