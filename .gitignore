@@ -9,5 +9,13 @@
 *.log
 *.gz
 *.toc
+*.upa
+*.upb
+*.upc
+
 
 *.swp
+
+# .DS_Store are temporary files created my macOS
+.DS_Store
+ 
