@@ -1,0 +1,105 @@
+
+\usepackage[ngerman]{babel}
+\usepackage{bookmark}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[T1]{fontenc}
+\usepackage{imakeidx}
+\usepackage{enumitem}
+\usepackage{mathtools}
+
+\usepackage{parskip}
+\usepackage{hyperref} % Make TOC clickable
+
+\usepackage{lipsum}
+\usepackage{fancyhdr} % Heading customization
+\usepackage{geometry} % Adjust page padding 
+\usepackage{adjustbox}
+
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+
+\definecolor{White}{HTML}{F8F8F3}
+\definecolor{Black}{HTML}{292939}
+\definecolor{CTheorem}{HTML}{FFFFFF}
+\definecolor{CLemma}{HTML}{FDFFED}
+\definecolor{CDefinition}{HTML}{EFF9F0}
+\definecolor{DarkGray}{HTML}{6B6969}
+\definecolor{ImportantBorder}{HTML}{F14747}
+
+
+% Set up page layout
+\geometry{
+    a4paper,
+    left=2.5cm,
+    right=2.5cm,
+    top=2.5cm,
+    bottom=2.5cm
+}
+\linespread{1.1}
+\makeindex
+
+\pagestyle{fancy}
+\fancyhf{} % Clear headre/footer
+\fancyheadoffset[LE,RO]{0pt} % Adjust headsep for page number and title
+\fancyhead[RE,LO]{}
+\fancyhead[RE,RO]{\rightmark} % Add pape header title
+\fancyhead[LE,LO]{\thepage}  % Add page number to the left
+\renewcommand{\headrulewidth}{0pt} % Delete the line in the header 
+
+% Define the \para command
+\newcommand{\para}[2]{
+    \clearpage % Start on a new page
+    \thispagestyle{empty}% removes the top left page number and top right chapter name
+    \begin{center} % Center the chapter title
+        \vspace*{11em}
+        \Huge   \bfseries \S #1 \quad  #2 % Chapter title with symbol and counter
+    \end{center}
+    \vspace{11em}
+    \phantomsection
+    \addcontentsline{toc}{chapter}{#1.\hspace{0.6em} #2} % Add chapter to table of contents
+    \fancyhead[RE,RO]{#2} % Add pape header title
+}
+
+\newcommand{\nsec}[2]{
+    \section*{\large  #1 \hspace{0.3em} #2}
+    \phantomsection
+    \addcontentsline{toc}{section}{#1 \hspace{0.3em} #2}
+}
+\newcommand{\smalltitle}[2][]{
+    \phantomsection
+    \subsubsection*{ #1 \hspace{0.2em} #2}
+}
+% Theorem env
+%\newenvironment{ibox}[3]{
+%    \phantomsection
+%    \addcontentsline{toc}{section}{#1 \hspace{0.3em} #2}
+%    \vspace{1.5em}
+%    \begin{tcolorbox}[
+%        enhanced jigsaw,
+%        colback=#3 ,
+%        colframe=DarkGray,
+%        drop shadow, 
+%		attach boxed title to top center={yshift=-2mm},
+%        before upper={\vspace{0.5em}},
+%        after upper={\vspace{0.5em}},
+%        \textbf{ \large #1 \hspace{0.1em} #2\hspace{0.4em}}
+%	]}{%
+%    \end{tcolorbox}
+%}
+\newtcolorbox{ibox}[3][]{
+	enhanced jigsaw,
+	colback=#3,
+	colframe=DarkGray,
+	coltitle=Black,
+	drop shadow,
+	title={\textbf{ \large  #1\hspace{0.4em}#2}},
+	before skip = 2.7em,
+	attach title to upper,
+	after title={:\quad \vspace{0.5em}\ },
+	%toc = {#1 \quad* #2}{section}
+	%IfValueTF={#1}{\addcontentsline{toc}{section}{#1 \hspace{0.3em}#2}}{}
+	code={\addcontentsline{toc}{section}{#1 \hspace{0.3em}#2}}
+}
+
