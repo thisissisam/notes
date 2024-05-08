@@ -1,0 +1,106 @@
+\begin{ibox}[21]{Definition}{CDefinition}
+    Sei $ K \subset \mathbb{R}^n  $. Dann gilt: Ist $ K $ kompakt, so ist $ K $ abgeschlossen und
+	beschränkt.
+	$$ K \subset  \mathbb{R}^n \text{ kompakt } \iff k \text{ abgeschlossen und beschränkt}  $$
+\end{ibox}
+
+\begin{proof}
+\begin{enumerate}[label=\alph*)]
+	\item \textit{ K ist beschränkt}. Wir betrachten folgende Überdeckung von $ \mathbb{R}^n  $ bei
+		offene Menge $ U_{k} := B(0,k), \; k \in \mathbb{N}  $ Dann ist $ K \subset \mathbb{R}^n 
+		= \bigcup\limits_{k = 1}^{\infty} U_{k} $. $ K $-kompakt,
+		$ \left\{ U_{k} \right\}_{k=1}^{\infty} $ eine offene Überdeckung von $ K \implies \exists 
+		k_1, k_2, \cdots k_{m} \text{ s.d. } K \subset  \bigcup\limits_{i=1}^{m} U_{k_{i}} $ .
+		Sei $ k^{*} := max \left\{ k_1, k_2, \cdots k_{m} \right\}  $. Dann ist $ K \subset B(0,k^*)$ 
+		$ \implies  d(K) < 2k^* \implies k- $beschränkt 
+	\item $ " \impliedby" $ \textit{K ist abgeschlossen (Wiederspruchbeweis!)} Sei $ K $ ist nicht
+		abgeschlossen. Dann gitb es ein Punkt $ x \in \mathbb{R}^n \setminus K $ eine Folge
+		$ \left\{ x_{i} \right\}_{i=1}^\infty $, $ x_{i} \in K \; \forall i \in  \mathbb{N}
+		, \lim_{i \to
+		\infty} x_i = x$ . Wir betrachten folgende offen Überdeckungen K:
+		$ U_i := \mathbb{R}^n  \setminus \overline{B \left( x, \frac{1}{i}  \right) ,
+		i = 1, 2 , \cdots}   $. Denn $ \bigcup\limits_{i=1}^{\infty} U_i = \mathbb{R}^n \setminus
+		{x} \supset K $ $ \implies \exists i_1,i_2, \cdots i_{m} $ s.d. $ K \subset
+		\bigcup\limits_{k=1}^{m} U_{i_{k}} $. Sei $ i^* = max \left\{ i_1,i_2, \cdots i_{m} \right\}$
+		Dann ist $ K \subset \mathbb{R}^n \setminus \overline{B \left( x, \frac{1}{i^*}  \right) } $ 
+		$ \implies K \cap B \left( x, \frac{1}{i^*}  \right) = \emptyset  $ Wiederspruch.
+\end{enumerate}
+\end{proof}
+
+\begin{ibox}[22]{Satz}{CTheorem}
+    Sei $ K \subset  \mathbb{R}^n  $ kompakt. Dann ist jede abgeschlossene Menge $ A \subset K $ 
+	ebenfalls Kompakt.
+\end{ibox}
+\begin{proof}
+	Sei $ \left\{ U_i \right\}_{i \in  I} $ eine offene Überdeckung vom $ A $. Dann ist die Familie
+	$ \left\{ \left\{ U_i \right\}_{i \in  I}, \mathbb{R}^n \setminus A \right\}  $- eine Überdeckung
+	von $ \mathbb{R}^n \supset K, K-kompakt \implies \exists U_{i_{1}}, \cdots U_{i_{k}} $ 
+	s.d. $ K \subset  \bigcup\limits_{k=1}^{m} U_{i_{k}} \cup \left( \mathbb{R}^n \setminus A \right)$
+	$ \implies A \subset  \bigcup\limits_{k=1}^{m} U_{i_{k}} \cup \left( \mathbb{R}^n \setminus
+	A \right) \implies A \subset \bigcup\limits_{k=1}^{m} U_{i_{k}}   $ (Weil $ A \cap 
+	\left( \mathbb{R}^n \setminus A \right) = \emptyset $) $ \implies A- $kompakt. 
+\end{proof}
+
+\begin{ibox}[]{Quader}{CDefinition}
+    Eine Menge in $ Q \subset \mathbb{R}^n  $ heißt \textit{abgeschlossene Quader}, wenn es 
+	beschränkt, abgeschlossene Intervalle $ I_{k} = \left[ a_{k},b_{k} \right] \subset \mathbb{R}^n $ 
+	$ , - \infty < a_{k} < b_{k}< + \infty , \; k = 1, 2, \cdots, n $ gibt, so dass   
+	$ Q = I_{1} \times I_{2} \times \cdots \times I_{n} $ $ = \left\{ x \in \mathbb{R}^n : 
+	a_{k} \leq  x_{k} \leq b_{k}, \; \forall  k = 1,2, \cdots n \right\}  $ gilt.
+\end{ibox}
+
+\begin{ibox}[23]{Satz}{CTheorem}
+    Jede abgeschlossene Quader $ Q \subset  \mathbb{R}^n  $ ist kompakt.
+\end{ibox}
+Wir werden folgende Resultat brauchen: \textit{Cantorsche Schachtelungsprinzip} : 
+
+\begin{ibox}[24]{Satz}{CTheorem}
+    Sei $ \left( A_{k} \right) $ eine Folge nicht-leerer, abgeschlossene Menge $ A_{k} \subset
+	\mathbb{R}^n  $ mit der folgende Eigenschaften:
+	\begin{enumerate}[label=\alph*)]
+		\item $ \left( A_{k} \right) $ ist absteigend, d.h es gilt $ A_{k+1} \subset A \; \forall 
+			k \in  \mathbb{N} $ 
+		\item Die Folge $ \left( d \left( A_{k} \right)  \right)  $ der Durchmesser der Menge $ A_k $ 
+			ist eine Nullfolge ( d.h $ d \left( A_k \right) \to 0 $ 
+	\end{enumerate}
+	Dann gibt es genau einen Punkt $ x \in \mathbb{R}^n  $ der allen Menge $ A_{k} $ angehört:
+	$$ \bigcap\limits_{k=1}^{\infty} A_k = \left\{ x \right\}   $$
+\end{ibox}
+\begin{proof}
+	\begin{enumerate}[label=\alph*)]
+		\item Wir zeigen dass $ \bigcap\limits_{k=1}^{\infty} A_k \neq \emptyset  $ . Sei 
+			$ \left( x_{k} \right)_{k =1}^{\infty} $ eine Folge s.d. $ x_{k} \in A_k \; \forall 
+			k \in  \mathbb{N} $. Wir wissen, dass $ d \left( A_k \right) \to 0 \text{ wenn } k \to
+			\infty $ $ \implies \forall \varepsilon >0 \exists k_0 \in N \text{ s.d. } 
+			d \left( A_k \right) < \varepsilon \; $ $ \forall k \geq k_0 $. Dann ist $ \forall 
+			k,m \geq k_0 \; \; \; \;$  $  x_{k} \in A_k \subset A_{k_{0}}, \; x_{m} \in A_{m} A_{k_0}$
+			$ \implies x_{k}, x_{m} \in A_{k_0} \implies  \|x_{k} - x_{m} \| \leq d 
+			\left( A_{k_0} \right) < \varepsilon  \implies \left( x_{k} \right)  $-eine Cauchy-Folge.
+			$ \implies \exists x \in \mathbb{R}^n  \text{ s.d. } \lim_{k \to \infty} x_{k} = x $ 
+			$ \; \forall x \in \mathbb{N}  $ ist $ x_{m} \in A_{m} \subset A_{k}, \;  m \geq k,
+			\; A_{k}$-abgeschlossen $ \implies x = \lim_{m \to \infty}x_{m} \in A_{k} \; \forall k
+			\in \mathbb{N} $ $ \implies  x \in  \bigcap\limits_{k=1}^{\infty} A_{k}  $ 
+		\item Wir zeigen, dass $ \bigcap\limits_{k=1}^{\infty} A_{k}  $ nur eine Punkt x. 
+			(Wiederspruchbeweis). Sei $ x \neq y \in \bigcap\limits_{k=1}^{\infty} A_{k} $. Dann ist 
+			$ x,y \in A_{k}, k \in \mathbb{N}  \implies \|x-y \| \leq d \left( A_k \right) \to 0  $ 
+			wenn $ k \to \infty \implies  \|x-y \| = 0 \implies x = y  $-Wiederspruch
+	\end{enumerate}
+\end{proof}
+
+Das Contorsche Schachtelungsprinzip werden wir zum Beweis des Satzes 23 auf eine geeignete absteigende
+Folge abgeschl. Quader an: 
+Es sei $ Q \subset \mathbb{R}^n  $ eine abgeschl. Quader und $ \left( U_{i} \right)  $ eine offene
+Überdeckung von $ Q $. \\
+\textit{Annahme: } Zu  $ \left( U_{i} \right)  $ gibt es keine endliche Teilüberdeckung von $ Q $. 
+Wir konstruieren induktiv eine absteigende Folge $$ Q = Q_0 \subset Q_1 \subset Q_2 \subset \cdots $$ 
+abgeschl. Quader $ Q_{m} \subset \mathbb{R}^n  $ mit der folgenden Eigenschaften:
+\begin{enumerate}[label=\alph*)]
+	\item $ \forall m \in  \mathbb{N} :  $ Es gibt keine $ \left( U_{i} \right)  $ zugehörige
+		endliche Teilüberdeckung von $ Q_{m} $ 
+	\item $ d \left( Q_{m} \right)  = \frac{1}{2^{m}} d \left( Q_{m} \right) \left( \implies 
+		\lim_{n \to \infty} d \left( Q_{m} \right) = 0 \right) $ 
+\end{enumerate}
+	 
+
+
+
