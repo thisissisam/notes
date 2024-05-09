@@ -9,9 +9,10 @@
 \usepackage{enumitem}
 \usepackage{mathtools}
 
+\usepackage{microtype}
 \usepackage{svg}
 \usepackage{parskip}
-\usepackage{hyperref} % Make TOC clickable
+%\usepackage{hyperref} % Make TOC clickable
 
 \usepackage{lipsum}
 \usepackage{fancyhdr} % Heading customization
@@ -58,18 +59,17 @@
         \Huge   \bfseries \S #1 \quad  #2 % Chapter title with symbol and counter
     \end{center}
     \vspace{11em}
-    \phantomsection
     \addcontentsline{toc}{chapter}{#1.\hspace{0.6em} #2} % Add chapter to table of contents
     \fancyhead[RE,RO]{#2} % Add pape header title
 }
 
 \newcommand{\nsec}[2]{
     \section*{\large  #1 \hspace{0.3em} #2}
-    \phantomsection
+    %\phantomsection
     \addcontentsline{toc}{section}{#1 \hspace{0.3em} #2}
 }
 \newcommand{\smalltitle}[2][]{
-    \phantomsection
+    %\phantomsection
     \subsubsection*{ #1 \hspace{0.2em} #2}
 }
 % Theorem env
@@ -101,6 +101,6 @@
 	after title={:\quad \vspace{0.5em}\ },
 	%toc = {#1 \quad* #2}{section}
 	%IfValueTF={#1}{\addcontentsline{toc}{section}{#1 \hspace{0.3em}#2}}{}
-	code={\addcontentsline{toc}{section}{#1 \hspace{0.3em}#2}}
+%	code={\addcontentsline{toc}{section}{#1 \hspace{0.3em}#2}}
 }
 
