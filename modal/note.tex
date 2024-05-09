@@ -5,14 +5,14 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage[T1]{fontenc}
-\usepackage{imakeidx}
+\usepackage{makeidx}
 \usepackage{enumitem}
 \usepackage{mathtools}
 
 \usepackage{microtype}
 \usepackage{svg}
 \usepackage{parskip}
-%\usepackage{hyperref} % Make TOC clickable
+\usepackage{hyperref} % Make TOC clickable
 
 \usepackage{lipsum}
 \usepackage{fancyhdr} % Heading customization
@@ -101,6 +101,6 @@
 	after title={:\quad \vspace{0.5em}\ },
 	%toc = {#1 \quad* #2}{section}
 	%IfValueTF={#1}{\addcontentsline{toc}{section}{#1 \hspace{0.3em}#2}}{}
-%	code={\addcontentsline{toc}{section}{#1 \hspace{0.3em}#2}}
+	code={\addcontentsline{toc}{section}{#1 \hspace{0.3em}#2}}
 }
 
