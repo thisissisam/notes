@@ -1,0 +1,91 @@
+\begin{document}
+Unsere Ausgangsquader $ Q_0 = Q $ hat die geforderten Eigenschaften. Seine 
+$ Q = Q_0 \supset Q_1 \supset Q_2 \supset \cdots$ bereits konstruiert. Es gelte $ Q_{m} = I_1 
+\times I_2 \times \cdots I_{n} \; , I_{k} = \left[ a_{k}, b_{k} \right]  \subset \mathbb{R} \; 
+\forall k = 1,2,\cdots, n$ . Wir splitten jedes der Intervalle $ I_{k} $ in der Intervalllemitte 
+auf und erhalten Unterteilung $ I_{k} = I_{k_{1}} \cup I_{k_{2}} $ mit \\
+$ I_{k_{1}} = \left[ a_{k}, \frac{a_{k}+ b_{k}}{2} \right] \; , I_{k_{2}} 
+= \left[ \frac{a_{k}+ b_{k}}{2}, b_{k} \right] \; , 1 \leq k \leq n $. Die kartesischen Produckte
+$ I_{1_{ \gamma_{1}}} \times I_{2_{ \gamma_{2}}} \times \cdots  I_{n_{ \gamma_{n}}} \; ,
+\gamma \in {1,2} \; \forall 1 \leq k \leq n $ aller Intervallhälften der $ I_{k} \; , k = 1,2, \cdots n $ unterteilen den  abgeschlossener Quader $ Q_{m} $  in 
+in insgesamt $ 2^{n} $  vielen kleinere abgeschlos. Quader  
+Nur können wir folgendes Kriterium formulieren:
+\begin{ibox}[25]{Satz von Heine-Borel}{CTheorem}
+    Für ein Menge $ K \subset  \mathbb{R}^n  $ sind folgende Ausagen äquivalent:
+	\begin{enumerate}[label=\alph*)]
+		\item $ K $ ist abgeschlossen und beschränkt
+		\item $ K $ ist kompakt
+	\end{enumerate}
+\end{ibox}
+
+\begin{proof}
+	Siehe Satz 21.
+\end{proof}
+
+\smalltitle[]{Korollar}
+Für jede kompakte Teilmenge $ \emptyset \neq A \subset \mathbb{R}  $ gilt:
+$$ sup A \in A, \; inf A \in A $$
+\begin{proof}
+	Da $ A $ als kompakte Menge insbesondere beschränkt ist, existeren $ sup A, \; inf A \in R $.
+	Weil sowohl $ sup A  $ als auch $ inf A $ Häufungspunkte geeigneter Folgen in $ A $ sind, 
+	impliziert die Abgeschlossenheit von $ A $ in Verbindung mit Satz 8, dass $ sup A \in  A
+	\text{ und } inf A \in A $ gilt.
+\end{proof}
+
+\begin{ibox}[26]{Satz}{CTheorem}
+    Ist $ U \subset  \mathbb{R}^n  $ offen $ K \subset  U $-kompakt und $ f:U \to \mathbb{R}^m $
+	-stetige Abbildung, so ist $ f(k) \subset \mathbb{R}^m $ ebenfalls kompakt.
+\end{ibox}
+
+\begin{proof}
+	Sei $ \left( U_{i} \right)_{i \in  I} $   eine offene Überdeckung von $ f(k) $. Sei 
+	$ \forall i \in  I, \; V_{i}:= f^{-1} \left( U_{i} \right) $, $ f- $stetig $ \implies i \in I$
+	$ V_{i}- $offen. Die Familie $ \left( V_{i} \right)_{i \in  I} $ ist dine Überdeckungvon $ K $
+	, $ K $-kompakt $ \implies  \exists V_{i_{1}}, V_{i_{2}} , \cdots V_{i_{n}} \text{ s.d. } K 
+	\subset \bigcup\limits_{p = 1}^{k} U_{i_{p}} \implies f(k) \subset  
+	\bigcup\limits_{p = 1}^{k} U_{i_{p}} \implies  f(k) $-kompakt
+\end{proof}
+
+\begin{ibox}[27]{Satz}{CTheorem}
+    Ist $ U \subset \mathbb{R}^n  $ offen, $ k \subset  U $ kompakt und $ f: U \to \mathbb{R}  $
+	eine stetige Funktion auf $ U $, so gibt es Punkte $ p,q \in K $ mit $ f(p) = sup \left\{ 
+f(x): x \in  K \right\}, f(q) = inf \left\{ f(x): x \in K \right\}   $ 
+\end{ibox}
+
+\begin{proof}
+	Laut Satz 26 ist $ A := f(k) \subset  \mathbb{R}  $ kompakt, also im Hinblick auf dem Korollar
+	zu Satz 25: $ sup f(k) \in  f(k), \; inf f(k) \in  f(k) $ . Deshalb können wir $ p,q \in K $ 
+	mit gewünschten Eigenschaften finden
+\end{proof}
+
+\begin{ibox}[]{Definition}{CDefinition}
+    Sei $ U \subset  \mathbb{R}^n  $ eine beliebige Teilmenge und $ f: U \to \mathbb{R}^m  $ eine 
+	Abbildung. Dann nennt man $ f $ \textit{gleichmäßig stetig} auf $ U $ wenn gilt:
+	$$ \forall \varepsilon > 0 \; \exists \delta > 0 \text{ s.d. } \left| x - y \right| < \delta , 
+	 \; x,y \in  U \implies  \left| f(x) - f(y) \right| < \varepsilon  $$
+\end{ibox}
+
+\begin{ibox}[28]{Satz}{CTheorem}
+    Sei $ R \in  \mathbb{R}^n $ kompakt und $ f: K \to \mathbb{R}^m $ eine stetige Abbildung.
+	Dann ist $ f $ gleichmäßig stetig auf $ K $ 
+\end{ibox}
+
+\begin{proof}
+	Sei $ \varepsilon > 0 $ vergegeben. $ \forall a \in  K \; \exists r(a)>0$  mit 
+	$ \left| f(x) - f(a) \right| < \frac{ \varepsilon }{2} \; \forall x \in  B(a, r(a)) \cap K $
+	(wegen der Stetigkeit von $ f $  in a) Offenbar ist $ K \subset \bigcup\limits_{a \in K}^{} 
+	B(a,\frac{r(a)}{2} ) $. $ K $-kompakt $ \implies a_1, a_2, \cdots , c_{k} $ s.d $   K \subset 
+	\bigcup\limits_{p = 1}^{} B \left( a_{p}, \frac{r \left( a_{p} \right) }{2}  \right) $.
+	Man setz nun $ \delta := \frac{1}{2} min \left\{ r \left( a_{1} \right), \cdots, 
+	\left( a_{k} \right) \right\}   $ Seien dann $ x_{1}, x_{2} \in K $ mit 
+	$ \left| x_1-x_2 \right|  < \delta $ beliebig gewählt. Wir fixieren ein
+	$ i \in  \left\{1,2,\cdots , k  \right\}  $  mit $ x_1 \in  B \left( a_{i},
+	\frac{r \left( a_{i} \right) }{2}  \right)  $; dann gilt auch $ \left| x_2 - a_{i} \right| 
+	\leq \left| x_2 - x_1 \right| + \left| x_{1}  + a_{i}\right| 
+	< \delta + \frac{r(a_i)}{2} < r(a_i) $
+	also liegt mit $ x_1 \text{ auch }  x_2 $ in $ B(a_{i}, r \left( a_{i} \right))
+	$, und wir erhalten $ \left| f \left( x_1 \right) - f \left( x_2 \right)  \right| \leq 
+	\left| f \left( x_1 \right) - f \left( a_{i} \right)   \right| + \left| f \left( a_{i} \right) 
+	- f \left( x_2 \right) \right| $ $ < \frac{ \varepsilon }{2} + \frac{ \varepsilon }{2}  $.
+	Damit ist die gleichmäßig Stetigkeit von $ f $ auf $ K $ beweisen.
+\end{proof}
