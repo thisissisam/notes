@@ -1,4 +1,6 @@
-\begin{document}
+%\documentclass[a4paper]{memoir}
+%\input{../../modal/note.tex}
+%\begin{document}
 Unsere Ausgangsquader $ Q_0 = Q $ hat die geforderten Eigenschaften. Seine 
 $ Q = Q_0 \supset Q_1 \supset Q_2 \supset \cdots$ bereits konstruiert. Es gelte $ Q_{m} = I_1 
 \times I_2 \times \cdots I_{n} \; , I_{k} = \left[ a_{k}, b_{k} \right]  \subset \mathbb{R} \; 
@@ -89,3 +91,81 @@ f(x): x \in  K \right\}, f(q) = inf \left\{ f(x): x \in K \right\}   $
 	- f \left( x_2 \right) \right| $ $ < \frac{ \varepsilon }{2} + \frac{ \varepsilon }{2}  $.
 	Damit ist die gleichmäßig Stetigkeit von $ f $ auf $ K $ beweisen.
 \end{proof}
+\para{5}{Partielle Ableitung}
+\begin{ibox}[]{Definition}{CDefinition}
+    Seien $ U \subset \mathbb{R}^n  $ offen, ferner 
+	$$ f:U \to \mathbb{R}  (x_1,x_2,\cdots,x_{n}) \mapsto f(x_1,x_2, \cdots, x_{n} $$
+     eine Funktion auf $ U $ und $ a = (a_1,a_2, \cdots, a_{n}) \in U $ 
+	 \begin{enumerate}[label=\alph*)]
+	 	\item $ f $ heißt in $ a $ \textit{partiell differenzierbar} nach $ x_i $ oder auch \textit{partiell 
+			differenzierbar bezüglich der $ i $-ten Koordinate}, wenn der Grenzwert 
+			$$	
+				 D_{i}f(a): \frac{\partial f}{\partial x_{i}} (a)_i := \\= 
+				\lim_{\substack{t \to a_{i} \\ t \neq  a_i}} \frac{f(a_1,\cdots ,
+			a_{i-1}, t, a_{i+1}, \cdots , a_n) - f(a_1,\cdots ,a_{i-1}, a_i, a_{i+1}, \cdots , a_n) }{t-a_i}  
+			$$	
+			dann $ \frac{\partial f}{\partial x_i} (a) $ die \textit{partille Ableitung von $ f $ nach $ x_i $ an der 
+			Stelle $ a $ } 
+		\item $ f $ heißt in $ a $ partiall differenzierbar, wenn $ f $ in $ a $ nach \textit{ allen} $ x_i, i = 1,\cdots,n$ 
+			partiell differenzierbarist. In diesem Fall nennt man den Vektor $ grad(f(a)) = \left( 
+			\frac{\partial f}{\partial x_1}(a), \frac{\partial f}{\partial x_2}(a), \cdots ,
+			\frac{\partial f}{\partial x_n}(a) \right)  $ den \textit{Gradient von $ f $ in $ a $ } 
+		\item $ f $ heißt auf $ U $ \textit{ partiell differenzierbar }, wenn $ f $ partiell differenzierbar in $ a $ 
+			für jedes $ a \in  U $ ist.
+		\item $ f $ heißt in $ a $ \textit{stetig partiell differenzierbar} , wenn $ f $ auf $ U $ partiell differenzierbar
+			ist und zusätzlich alle Ableitungen $ \frac{\partial f}{\partial x_{i}}  = D_i f_{i} U \to \mathbb{R} , 
+			1 \leq i \leq  n$, an der Stelle $ a $ stetig sind.
+		\item $ f $ heißt \textit{stetig partiell differenzierbar auf $ U $ }, wenn $ f  $ in jedem $ a \in  U $ stetig 
+			partiell differenzierbar ist. Für die Menge aller solcher Funktion führen wir die Bezeichnung 
+			$$ C^{1}(U) : = \{f: U \to \mathbb{R} : f \text{ ist stetig partiell differenzierbar auf } U\} $$ ein.
+	 \end{enumerate}
+\end{ibox}
+\smalltitle[]{Beispiel}
+... 
+\begin{ibox}[]{Definition}{CDefinition}
+	Seien $ U \subset \mathbb{R}^n  $ offen, ferner 
+	$ f:U \to \mathbb{R}  (x_1,x_2,\cdots,x_{n}) \mapsto f(x_1,x_2, \cdots, x_{n} $
+	eine Funktion auf $ U $ und $ a = (a_1,a_2, \cdots, a_{n}) \in U $. Seien $ k \in \mathbb{N}  $ und $ i \in {1,\cdots,n }$
+	\begin{enumerate}[label=\alph*)]
+		\item $ f $ heißt in $ a $ \textit{ $ k $-mal partiell differenzierbar nach $ x_i $  },wenn $ f \; (k-1) $ -mal partiell
+			differenzierbar auf $ U $ ist und alle partiell Ableitungen $ (k-1) $-ter Ordnung von $ f $ an der Stell $ a $ partiell
+			differenzierbar nach $ x_i $ sind.
+		\item f heißt in $ a $ \textit{$ k $-mal partiell differenzierbar}, wenn $ f $ in $ a \; k$-mal partiell differenzierbar ist.
+			Nach $ x_j $ für alle $ j \in  {1,2, \cdots, n} $ ist. Die partielle Ableitungen der Ordnung $ k $ von $ f $ in $ a $ 
+			sind dann gegeben durch 
+			\begin{align*}
+				D_{i_k}\left( D_{i_{k-1}} \left( \cdots D_{i_2} \left( D_{i_1} (f) \right) \cdots \right)  \right)(a) &:= 
+			\frac{\partial^{k} f}{\partial x_{i_{k}} \partial x_{i_{k-1}} \cdots \partial x_{i_1}} (a) \\
+			&:= D_{i_{k}} D_{i_{k-1}} \cdots D_{i_1} f(a) \\
+			&:= f_{x_{i_{k}} x_{i_{k-1}} \cdots x_{i_1}}^{\left( k \right) } (a)
+			\end{align*}
+			
+			 wobei die Indizes $ i_{1}, \cdots, i_{k} $ voneinandere unabhängig die Menge $ {1,2,\cdots,n}  $ durchlaufen. 
+		\item $ f $ heißt $ k $- \textit{mal partiell differenzierbar auf $ U $ }, wenn $ f $ in jedem $ a \in U \; k-$mal partiell
+			differenzierbar sit. Die Funktionen $ D_{i_{k}} \cdots D_{i_1} f:U \to \mathbb{R} , i_1,i_2, \cdots, i_{k} \in{1,\cdots,n}$
+			heißen \textit{partiell Ableitung $ k $-te Ordnung von f}.
+		\item $ f $ heißt \textit{$ k $-mal stetig partiell differenzierbar auf $ U $ } wenn $ f k- $mal partiell differenzierbar auf 
+			$ U $ ist und alle partiellen Ableitungen der Ordnung $ \leq  k $ auf $ U $ stetig sind. Für die Menge aller solcher 
+			Funktionen führen wir die Bezeichnung 
+			$$ C^{k}(U) : = \{f: U \to \mathbb{R} : f \text{ ist $ k $-mal stetig partiell differenzierbar auf } U \} $$ ein.
+	\end{enumerate}
+\end{ibox}
+\begin{ibox}[29]{Satz}{CTheorem}
+    Sei $ U \subset  \mathbb{R}^n  $ offen und sei $ f: U \to \mathbb{R}  $ zweimal partiell differenzierbar auf $ U $; außerhalb 
+	seien alle partiellen Ableitungen 2.Ordnung von $ f $ stetig auf $ U $. Dann gilt :
+	$$ \frac{\partial^{2} f }{\partial x_{i}  \partial x_{j} } =  \frac{\partial^{2} f }{\partial x_{j}  \partial x_{i} } 
+	\forall  i,j \in {1,\cdots, n} $$
+\end{ibox}
+
+\smalltitle[]{Korollar}
+Seien $ U \subset  \mathbb{R}^n  $ offen, $ k \geq 2 $ und sei $ f \in  C^{k}(U) $. Dann gilt für jedes $ k $-Tupel von Indizes \\
+$ \left( i_1,i_2,\cdots,i_{k} \in  {1,2,\cdots,n}^{k} \right)  $ und für jedes Permutation $ \pi: \{1,\cdots,k\} \to \{1,\cdots,k\}: $ 
+$$ D_{i_{k}} D_{i_{k-1}} \cdots D_{i_{1}} f = D_{i_{\pi(k)}} D_{i_{\pi(k-1)}} \cdots D_{i_{\pi(1)}}f  $$
+\begin{proof}
+	Der Beweis erfolgt durch vollständige Induktion über $ k $. Den Induktions Anfang bildet Satz 29 im Induktionsschluss verwendet 
+	man die Tatsache, dass sich jede Permutation als Hintereinanderausführung endliche vieler Vertauchungen benachbarter 
+	Glider darstellen lässt.
+
+\end{proof}
+
+%\end{document}
