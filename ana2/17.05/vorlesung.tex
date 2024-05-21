@@ -1,0 +1,88 @@
+%\documentclass[a4paper]{memoir}
+
+%\input{../../modal/note.tex}
+
+%\begin{document}
+\para{6}{Totale Differezierbarkeit}
+\begin{ibox}[]{Definition}{CDefinition}
+    Sei $ U \subset \mathbb{R}^n  $ offen, $ x_0 = \left( x_{0_{1}} \cdots x_{o_{n}}  \right) \in U $ und 
+	$ f : U \to \mathbb{R}  $ eine Funktion auf $ U $. $ f $ heißt \textit{(total) differenzierbar in $ x_0 $ }, 
+	wenn es reele Zahlen $ a_1, \cdots , a_{n} \in R $ und eine Funktion $ \varphi : U \to \mathbb{R}  $ mit 
+$ \lim_{x \to 0} \frac{\varphi (x)}{|x -x_0|}  = 0 $ gibt, dass
+	$$ f(x) = f(x_0) + \sum_{i=1}^{n}a_{i}(x_{i}-x_{0_{i}}) + \varphi(x) \;
+	\forall x=\left( x_1, \cdots , x_{n} \right) \in U  $$ 
+	gilt. Man bezeichnet den Vektor $ A:=\left( a_1, \cdots, a_{n} \right) $ als \textit{Differential} von $ f \text{ in } x $ 
+\end{ibox}
+\begin{ibox}[30]{Satz}{CTheorem}
+    Seien $ U \subset \mathbb{R}^n  $ offen, $ x_0 \in U $ sei ferner $ f: U \to \mathbb{R}  $ total differenz
+	in $ x_0 $ und $ A = \left( a_1, \cdots, a_{n} \right)  $ wie in der letzen Definition. Dann gilt:
+	\begin{enumerate}[label=\alph*)]
+		\item $ f $ ist stetig in $ x_0 $ .
+		\item $ f $ ist partiell differenzierbar in $ x_0 $ und es gilt $ \frac{\partial f}{\partial x_{i}} (x_0) = a_{i} 
+			 \; \forall i = 1, \cdots, n $ 
+	\end{enumerate}
+\end{ibox}
+%\begin{proof}
+%	\begin{enumerate}[label=\alph*)]
+%		\item $ f(x)= f\left( x_0 \right) + \sum_{i=1}^{n}a_{i} (x_{i}-x_{0_{i}}) + \varphi(x) \xRightarrow{x \to x_0}
+%			f(x) \to f(x_0) \implies f \text{ ist in } x_0 $ stetig. 
+%		\item 
+%			\begin{align*}
+%				$ \frac{\partial f}{\partial x_{i}} (x_0) = \lim_{x_{i}\to x_{0_{i}}} \frac{a}{b} $ 
+%		    \end{align*}
+%	\end{enumerate}
+%\end{proof}
+\begin{ibox}[31]{Satz}{CTheorem}
+    Sei $ U \subset \mathbb{R}^n  $ offen, die Funktion $ f: U \to \mathbb{R}  $ sei partiell differenzierbar auf 
+	$ U $, und alle partielle Ableitungen $ D_i \left( \text{ oder auch }  \frac{\partial f}{\partial x_i} \right)  $,
+	 $ 1 \leq i \leq n $, seien statig in $ x_0 \in U $. Dann ist $ f $ in 
+	$ x_0 $ total differenzierbar.
+\end{ibox}
+
+\smalltitle[]{Korollar}
+Sei $ U \subset \mathbb{R}^n  $ offen, $ f:U\to \mathbb{R}  $ eine Funktion auf U und $ x_0 $. Dann gilt:
+\begin{enumerate}[label=\alph*)]
+	\item Ist $ f $ stetig partiell differenzierbar in $ x_0 $, so ist $ f $ an de stelle $ x_0 $ stetig.
+	\item Ist $ f \; k$-mal partiell differenzierbar auf $ u $ und sind alle partiell Ableitungen 
+		$ k $-te Ordnung von $ f $ stetig in $ x_0 $, so sind alle partielle Ableitungen der Ordnungen 
+		$ \varphi , 0 \leq \varphi \leq k $ ebenfalls stetig in $ x_0 $  
+\end{enumerate}
+
+\begin{ibox}[]{Definition}{CDefinition}
+    Sei $ U \subset \mathbb{R}^n  $ offen, $ x_0 = \left( x_{0_{1}}, \cdots , x_{0_{n}} \right) \in  U $ und 
+	$ f: U \to \mathbb{R}^{n}  $ eine Abbildung auf $ U $, $ f $ heißt (total) differenzierbar in $ x_0 $, wenn es eine 
+	Matrix $ A = \left( a_{ij} \right)_{i = 1, \cdots,m ; \; j = 1, \cdots, n}  $ und eine Abbildung 
+	$ \varphi : U \to \mathbb{R}^m   $ mit $ \lim_{x \to 0} \frac{|\varphi(x)|}{\left( x - x_0 \right) }  = 0 $ gibt,
+	sodass 
+	$$ f(x) = f(x_0) + A(x-x_0) + \varphi (x) \; \forall x = \left( x_1, \cdots, x_{n} \right) \in U $$
+	gilt. Der Deutlichkeit halber schreiben wir die obige Gleichung einmal komponentweise auf:
+	\\
+	Ist $ f = \left( f_1, \cdots, f_{m} \right)  $ mit $ f_{i}: U \to \mathbb{R}, \; \forall i = 1, \cdots, m $
+	und entsprechend $ \varphi = \left( \varphi_{1}, \cdots \varphi_{m} \right)  $ mit $ \varphi_{i}: U \to \mathbb{R} 
+	\; \forall i = 1, \cdots, m$ so ist die Bedingung $ \lim_{x \to x_0} \frac{| \varphi (x)|}{|x - x_0|} = 0 $ 
+	gelichdeutend mit $ \lim_{x \to x_0} \frac{\varphi_i (x)}{|x - x_0|} = 0 \; \forall i = 1, \cdots, m $ und 
+	die Gleichung bedeutet ausfreülich, dass  $ \forall x = (x_1, \cdots, x_{n}) \in  U	 $ 	
+	$$ 
+		\begin{pmatrix}
+			f_1(x) \\ \vdots \\ f_{m}(x) 
+		\end{pmatrix} = \begin{pmatrix}
+			f_1(x_{0}) \\ \vdots \\ f_{m}(x_0)  
+		\end{pmatrix}+
+		\begin{pmatrix}
+			a_{11} &\dots &a_{1n}\\
+			\vdots & & \vdots \\
+			a_{m_1} & \dots	& a_{mn}
+		\end{pmatrix}
+		\begin{pmatrix}
+			x_1 - x_{0_{1}}\\
+			\vdots \\
+			x_{n} - x_{0_{n}}
+		\end{pmatrix} + 
+		\begin{pmatrix}
+			\varphi_1(x) \\
+			\vdots \\
+			\varphi_{m}(x)
+		\end{pmatrix}
+	$$
+\end{ibox}
+%\end{document}

@@ -16,6 +16,6 @@
 
 *.swp
 
-# .DS_Store are temporary files created my macOS
+# .DS_Store are temporary files created by macOS
 .DS_Store
-
+**/.DS_Store
