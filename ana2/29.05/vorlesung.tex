@@ -1,0 +1,158 @@
+%\documentclass[11pt, a4paper]{memoir}
+
+%\input{../../modal/note.tex}
+
+%\begin{document}
+Daran kann man sofort ablesen, dass folgende Satz richtig ist.
+	\begin{ibox}[32]{Definition}{CDefinition}
+	   Seien $ U \subset \mathbb{R}^n $  offen, $ x_0 \in U $ und $ f = \left( f_1, \cdots, f_{m} \right)  $  
+	   eine Abbildung $ f:U \to \mathbb{R}^m $. Dann gilt:
+	   \begin{enumerate}[label=\alph*)]
+	   	\item $ f $ ist total differenzierbar in $ x_0 $ genau dann, wenn jede der Komponentenfunktion $ f_{i}, 1 \leq i \leq m	 $
+			total differenzierbar in $ x_0 $ ist.
+		\item Wenn $ f $ in $ x_0 $ total differenzierbar ist, so ist $ f $ an der Stelle $ x_0 $ stetig.
+		\item Wenn $ f $ in $ x_0 $ total differenzierbar und die $ \left( m \times n \right)  $ Matrix $ A $ wie Definition
+			von oben gewählt ist, dann ist alle Komponentenfunktion $f_{i}, 1 \leq i \leq m in x_0 $ partiell differenzierbar
+			mit $ D_{\nu} f_{i}(x_0) = \frac{\partial f_{i}}{\partial x_{\nu}} (x_0) = a_{i \nu} \forall \nu = 1, \cdots n 
+			; \; \forall  i = 1, \cdots, m$ . 
+		\item Wenn alle Komponentenfunktion $ f_{i} $ auf $ U $ partiell differenzierbar sind und alle partiell Ableitungen
+			$ D_{\nu}f_{i} $ an der Stelle $ x_0 $ stetig sind, dann ist $ f $ in $ x_0 $ total differenzierbar.
+	   \end{enumerate}
+	\end{ibox}
+	 
+	\begin{ibox}[]{Definition}{CDefinition}
+	    Ist $ U \subset  \mathbb{R}^n  $ offen und $ f = \left( f_1, \cdots, f_{m} \right) : U \to \mathbb{R}^m $ total 
+		differenzierbar in $ x_0 \in  U $, so nennt man die Matrix $ Df(x_0) := J_{f}(x_0) := 
+		\left( \frac{\partial f_{i}}{\partial x_{j}} (x_0) \right)_{\substack{i = 1 , \cdots, m \\ j = 1, \cdots, n}}  $
+		$$ := \begin{pmatrix}
+			\frac{\partial f_1}{\partial x_1} (x_0) & \cdots & \frac{\partial f_1}{\partial x_{n}} (x_{0}) \\
+			\vdots & &\vdots\\
+			\frac{\partial f_{m}}{\partial x_{1}} (x_0) & \cdots & \frac{\partial f_{m}}{\partial x_{n}} (x_0)
+		\end{pmatrix}
+		 $$
+	das \textit{Differential} oder die \textit{Jacobi-Matrix } oder die \textit{Funktionalmatrix } von $ f  $ in $ x_0 $  	
+	\end{ibox}
+	
+	\begin{ibox}[33]{Satz}{CTheorem}
+	    Seien $ U \subset \mathbb{R}^n  $ offen, $ x_0 \subset U, c \in \mathbb{R}  $, die Abbildung $ f:U \to \mathbb{R}^m $ 
+		und $ g:U \to \mathbb{R}^m $ seien total differenzierbar in $ x_0 $. Dann gilt:
+		\begin{enumerate}[label=\alph*)]
+			\item Die Abbildung $ \left( f+g \right) : U \to \mathbb{R}^m  $ ist total differenzierbar in $ x_0 $ mit 
+				$ D \left( f+g \right) (x_0) = Df\left( x_0 \right) + Dg\left( x_0 \right)  $ 
+			\item Die Abbildung $ \left( c.f \right) : U \to \mathbb{R}^m $ ist total differenzierbar in $ x_0 $ mit 
+				$ D\left( c f \right) (x_0) = c Df(x_0) $ 
+		\end{enumerate}
+	\end{ibox}
+	\begin{proof}
+		Wie in Analysis 1 für reellwertige Funktionen. 
+	\end{proof}
+Eine \textit{Productregel} gilt in folgender Form:
+\begin{ibox}[34]{Definition}{CDefinition}
+    Seien $ U \subset \mathbb{R}^n  $ offen, $ x_0 \subset U $ die Abbildung $ f = \left( f_1, \cdots, f_{m} \right) 
+	:U \to \mathbb{R}^m$ und die Funktion $ g: U \to \mathbb{R}  $ siene total differenzierbar in $ x_0 $ . Dann gilt:
+	Die Abbildung $ \left( f \cdot g \right) : U \to \mathbb{R}^m \; x \mapsto \left( f_1(x)g(x), \cdots, f_{m}(x)g_{x} \right) $ 
+	ist in $ x_0 $ total differenzierbar mit $ \underbrace{ D \left( f \cdot g \right) (x_0)}_{(m\times n)-Matrix} =
+	\underbrace{f\left( x_0 \right)}_{(m\times 1)} \cdot \underbrace{Dg(x_0)}_{(1\times n)} +
+	g(x_0)\underbrace{ Df(x_0)}_{(m\times n )- Matrix}$
+\end{ibox}
+
+\begin{proof}
+	Die totale  
+\end{proof}
+
+\begin{ibox}[35]{Kettenregel}{CDefinition}
+    Seien $ U \subset \mathbb{R}^n \text{ und } V \subset \mathbb{R}^m  $ offen Menge, ferner $ g: U \to \mathbb{R}^m  \text{ und } 
+	f:V \to \mathbb{R}^l $ Abbildungen mit $ g(U) \subset V  $. $ g $ sie total differenzierbar an der Stelle $ x_0 \in U $ 
+	, $ f $ sie total differenzierbar in $ y_0 = g\left( x_0 \right)  $. Dann ist die Abbildung $ \left( f \cdot g \right) 
+	:U \to \mathbb{R}^l  $ total differenzierbar in $ x_0 $ mit $ \underbrace{D \left( f \cdot g \right) (x_0) }_{l\times n}= 
+	\underbrace{Df(g(x_0))}_{l \times m} \cdot \underbrace{Dg(x_0)}_{m \times n}$ 
+\end{ibox}
+
+%
+%\begin{proof}
+%	Seien $ \varphi : U \to \mathbb{R}^m \text{ und }  \psi : V \to \mathbb{R}^l $ mit 
+%	$  $ 
+%	$ \lim_{\substack{y \to y_0 \\ y \neq y_0}}\frac{\left| \psi (y) \right| }{\left| y - y_0 \right| } = 0$ 
+%	so gewählt, dass gilt  
+%		\begin{align}
+%			g(x) &= g(x_0) + Dg(x_0)(x-x_0) + \varphi(x) \; \forall x \in U \tag{5}\\
+%			f(y) &= f(y_0) + Df(y_0)(y-y_0)+ \psi(y) \; \forall y \in V \tag{6}
+%		\end{align}
+%		
+%		Dann erhält man durch Einsetzen der Gleichung 
+%		{\Huge Beweis fehlt im Handy}
+%		=========================================
+%		Wir betrachten getrennt die beiden $ \tilde{\phi} $ definiertn Summanden : Zunächst ist 
+%		$$
+%		 \lim_{x \to x_0} \frac{\left| Df(g(x_0)) \phi(x) \right| }{\left| x - x_0 \right| }  = 
+%		 \lim_{x \to x_0} \left| Df(g(x_0)) \cdot \left( \frac{\phi(x)}{}  \right)  \right| 
+%		$$
+%		
+%\end{proof}
+\smalltitle[]{Korollar}
+
+$U\subset \mathbb{R} ^n$ und $V\subset \mathbb{R} ^m$ offene Mengen, die Abbildung
+$ \left( g_1 , \cdots, g_{m} \right) : U \to \mathbb{R}^m  $ sei total differenzierbar in $ x_0 \in U $,
+es gelte $ g(U) \subset U $ und die Funktion $ f: U \to \mathbb{R}  $ sei total differenzierbar in 
+$ y_0 = g(x_0) $ . Dann ist die Funktion $ h:= (f \circ g): U \to \mathbb{R}  $ total differenzierbar in 
+$ x_0 $ mit partiellen Ableitungen 
+$$ \frac{\partial h}{\partial x_{i}} (x_0) = \sum_{j=1}^{m} \frac{\partial f }{\partial y_{i}} (y_0)
+\cdot \frac{\partial g_{i}}{\partial x_{i}} (x_0)  \;  \forall 1 \leq j \leq n$$ 
+
+
+\begin{ibox}[]{Definition}{CDefinition}
+    Sei $ U \subset  \mathbb{R}^n  $ offen, ferner $ x_0 \in U $ und $ f: U \to \mathbb{R}  $ eine 
+	Funktion auf $ U $. Dann bezeichnet man für $ \upsilon \in  \mathbb{R}^n \ \{0\} $ den Grenzwert 
+	$$ D_{\upsilon}f(x_0) := \lim_{t \to 0} \frac{f(x_0 + t \cdot \upsilon)-f(x_0)}{t}  $$
+	(im Falle siner Existenz) als \textit{Richtungsableitung von $ f $ an der Stell $ x_0 $ in Richtug $ \upsilon $ } 
+	und nennt $ f $ \textit{ an der Stell $ x_0 $ in Richtug $ \upsilon $ differenzierbar} 
+\end{ibox}
+
+\begin{ibox}[36]{Satz}{CTheorem}
+    Sei $ U \in \mathbb{R}^n  $ offen und sei $ f: U \to \mathbb{R}  $ eine in $ x_0 \in U $ total differenzierbar
+	Funktion. Dann existiert für jedes $ \upsilon =  \left( \upsilon_1 , \cdots, \upsilon_2 \right) \in \mathbb{R}^n \ \{0\} $ 
+	die Richtungsableitung $ D_{\upsilon}f(x_0) $ von $ f $ an der Stelle $ x_0 $ in Richtug $ \upsilon$ und es gilt:
+	$$ D_{\upsilon}f(x_0) = \sum_{i=1}^{n} \frac{\partial f}{\partial x_{i}} (x_0) \cdot \upsilon_1  =
+	\left<Df(x_0), \upsilon \right>$$
+	Wobei
+	$$ grad f(x_0) := \left( \frac{\partial f}{\partial x_1} (x_0) \right) , \cdots, \frac{\partial f}{\partial x_n} (x_0) $$
+\end{ibox}
+\begin{proof}
+	Sei ein beliebiger Vektor $ \upsilon \in \mathbb{R}^n \ \{0\} $ gegeben. Die Abbildung $ g: \mathbb{R}  \to \mathbb{R}^n 
+	 \; t \mapsto g(t) = x_0 + t \upsilon$  ist differenzierbar auf $ \mathbb{R}  $, und es ist $ g(0) = x_0 $. 
+	 Aufgrund der Stetigkeit von $ g $ an der stelle $ 0 $ existiert ein Intervall $ I_{\varepsilon} = \left( - \varepsilon 
+	 , \varepsilon \right) \in \mathbb{R}  $ so dass $ g \left( I_{ \varepsilon } \right) \subset  B(x_0,t) $ gilbt, hierbei
+	 sie $ r > 0 $ so gewahlt, dass $ B(x_0, r) \subset U $ erfüllt ist, was aufgrund der Offenheit von $ U $ möglich ist.
+	 Dann ist die Funktion $ h:=(f \circ g): I_{ \varepsilon } \to \mathbb{R} \; t \mapsto h(t) := f(x_0+t \upsilon) $ 
+	 differenzierbaran der Stelle $ t = 0 $, und nach dem Korollar zur Kettenregel gilt:
+	 $$ D_{\epsilon}f(x_0) = \lim_{t \to 0} \frac{f(x_0+t \upsilon) - f(x_0)}{t} = h'(0) = 
+	 \sum_{i = 1}^{n} \frac{\partial f}{\partial x_{i}} (x_0) \frac{dg_{i}}{t}(0) 
+	 $$
+	  $$ = \sum_{i=1}^{n} \frac{\partial f}{\partial x_{i}} (x_0) \cdot \upsilon_{i} = \left<Df(x_0), \upsilon \right> $$
+	   
+\end{proof}
+\para{7}{Mittelwertsatz}
+\begin{ibox}[37]{Satz}{CTheorem}
+    Seien $ U \subset  \mathbb{R}^n  $ offen und $ f: U \to \mathbb{R}  $ eine total differenzierbar Funktion. Seien $ a,b \in U $
+	zwei Punkte, deren Verbindungsstrecke $ \left| \gamma_{ab} \right| := \left\{ \gamma_{ab} := a + t(b-a); \; 
+	t \in [1,0] \right\} \subset  U \text{ in } U $ enthalten ist. Dann gibt es ein $ \xi \in \left| \gamma_{ab} \right|  $ 
+	derart dass $ f(b) = f(a)+ Df(\xi) \cdot (b-a)  $ gibt.
+\end{ibox}
+\begin{proof}
+	Die Abbildung $ \gamma_{ab}: [0,1] \to U \; t \mapsto \gamma_{ab}(t) = a + t(b-a) $ ist differenzierbar auf $ \mathbb{R}  $ 
+	mit $ D \gamma_{ab}(t) = (b-a) \; \forall t \in \mathbb{R}  $. Da $ \left| \gamma_{ab} \right| = \gamma_{ab}([0,1]) \subset  U $
+	gilt und $ f $ auf $ U $ differenzierbar ist, ist die Komposition $ \left( f \cdot \gamma_{ab} \right) : [0,1] \to \mathbb{R}  $ 
+	eine auf $ [0,1]  $ differenzierbare Funktion, auf die dier Mittelwertsatz für funktionen eine Variabel anwendbar ist. 
+	Daher $ \exists t_0 \in (0,1) $ so dass
+	\begin{equation}
+	\left( f \circ \gamma_{ab} \right) (1) = \left( f \circ \gamma_{ab} \right) (0) + 
+	\left( f \circ \gamma_{ab} \right) (t_0) \cdot (1-0)
+	\end{equation}
+	gilt. Da aber $ \gamma_{ab}(1) = b $ und $ \gamma_{ab}(0) = a $ ist,
+	ferner für $ s := \gamma_{ab}(t_0) \in \left| \gamma_{ab} \right| $ mit der Kettenregel $ \left( f \circ \gamma_{ab} \right)'
+	(t_0) = Df \left( \gamma _{ab}(t_0) \right) \cdot D \gamma _{ab}(t_0) = Df( \xi) \cdot (b-a)$ folgt, ist Gleichung (1) 
+	äquivalent zu $ f(b) = f(a) + Df(\xi)\cdot(b-a) $ 
+\end{proof}
+
+
+%\end{document}
