@@ -1,0 +1,107 @@
+\documentclass[a4paper]{memoir}
+\input{../../modal/note.tex}
+\begin{document}
+\begin{ibox}[38]{Definition}{CDefinition}
+    Seien $ U \subset \mathbb{R}^n  $ offen, $ f: U \to \mathbb{R}^m  $ eine total differenzierbare Abbildung. Seien
+	$ a, b \in U $, sodass $ \left| \gamma _{ab} \right|  \subset U $. Dann gibt es $ \phi_1 , \cdots, \phi_{m} 
+	\in \left| \gamma_{ab} \right| $, sodass :
+	$$ f \left( b \right) = f \left( a \right) + \begin{pmatrix}
+		Df_1( \phi_1) \\
+		\vdots \\
+		Df_{n}(\phi_{m})
+	\end{pmatrix} \cdot (b-a)
+	 $$
+\end{ibox}
+\begin{proof}
+	Satz 37 auf $ f_1 , \cdots, f_{n} $ anwenden. 
+\end{proof}
+\smalltitle[]{Beispiel}
+$ f: \mathbb{R} \to \mathbb{R}^{2}, \; t \mapsto (t^{2}, t^{3}) $ 
+\\
+Ist $ [a,b] \subset R $ beschränkt, $ f:[a,b] \to \mathbb{R}  $ stetig differenzierbare, so besagt der HDI:
+$$ f(b) - f(a) = \int_{a}^{b} f'(x) dx $$
+Ist wieder $ \gamma_{ab}(f) = a + t(b-a) $, so erhält man durch Substitution 
+$$ f(b) - f(a) = \int_0^{1} f'( \gamma_{ab}(t)) \gamma_{ab}'(t) dt = \left( \int_0^{1} f' \left( \gamma _{ab} (t) 
+\right) dt \right) .(b-a) $$
+\begin{ibox}[]{Definition}{CDefinition}
+    Sei $ \left[ \alpha , \beta  \right] \in  \mathbb{R}  $ und  $ A: \left[ \alpha , \beta  \right] \to 
+	\mathbb{R} ^{m \times n}, A(t) = \left( a_{ij}(t) \right)_{ \substack{ i = 1 , \cdots, m \\ j = 1 , \cdots, n }}$ 
+	mit $ a_{ij}: \left[ \alpha , \beta  \right] \to \mathbb{R}  $ stetig für $ i = 1 , \cdots, m \text{ und }  j=1 , \cdots, n $ Dann ist die Integral über die \textit{matrixwertige Abbildung} $ A $ gegeben durch:
+$$ \int_{ \alpha }^{ \beta }A(t) dt = \left( \int_{ \alpha }^{ \beta } a_{ij}(t) dt \right)_{\substack{ i=1 , \cdots, m \\
+j = 1 , \cdots, n}} $$
+\end{ibox}
+\begin{ibox}[39]{Satz}{CTheorem}
+    Seien $ U \subseteq \mathbb{R}^n  $ offen, $ f: U \to \mathbb{R}^n  $ stetig partiell differenzierbar. Seien 
+	$ a,b \in U $ sodass $ \left| \gamma _{ab} \right| \subseteq U $. Dann gilt: 
+	$$ f(b) - f(a) = \underbrace{ \left( \int_0^1 Df \left( \gamma _{ab} (t)  \right) dt \right)  }_{ \in \mathbb{R}^{
+	m \times n}} \cdot \underbrace{ (b-a)}_{ \in \mathbb{R}^n } $$
+\end{ibox}
+\begin{proof}
+	Wir wenden den HDI an auf $ g_{i}:= \left( f_i \circ \gamma_{ab} \right) \in C^{1}\left( [0,1] \right)$ für $ i = 1 , \cdots, m $ und
+	erhalten mit der Kettenregel: 
+	\begin{align*}
+		f_i(b) - f_i(a) &= g_i(1) - g_i(0) = \int_{ 0 }^{ 1 } \frac{d}{dt} g_i(t) dt \\
+						&=  \int_{ 0 }^{ 1 } \left( \sum_{j = 1}^{n} \frac{\partial f_i}{\partial x_j} ( \gamma_{ab}(t))
+						\cdot (b_j - a_j)\right) dt \\
+						&= \sum_{j=1}^{n} \underbrace{\left( \int_{ 0 }^{ 1 } \frac{\partial f_i}{\partial x_j} 
+								\left( \gamma _{ab}(t) \right) \cdot
+						dt \right)}_{v_j} \underbrace{ (b_j - a_j}_{u_j} \\
+						&=  \left< \left( \int_{ 0 }^{ 1 } Df_i ( \gamma_{ab}(t)) dt \right) , (b-a) \right>
+	\end{align*}
+	Dies zeigt die $ i- $te Zeile der gewünschte Gleichung. 
+\end{proof}
+
+\begin{ibox}[]{Halfsatz}{CDefinition}
+    Ist $ \left[ \alpha , \beta  \right] \subseteq \mathbb{R}  $ ein Kompaktes Intervall, $ v : \left[ \alpha , \beta 
+	\right] \to \mathbb{R}^n  $ stetige Abbildung. So gilt: 
+	$$ \left| \left|  \int_{ \alpha }^{ \beta } v(t) dt  \right|  \right| _{2} \leq \int_{ \alpha }^{ \beta } \|v(t)\|_{1} dt $$
+\end{ibox}
+\begin{proof}
+	Sei $ u := \int_{ \alpha }^{ \beta } v(t) dt \in \mathbb{R}^n  $ . Dann ist 
+\begin{align*}
+	\| u \|_{2}^{2} = \left<u,u \right> &= \sum_{j=1}^{n} \int_{ \alpha }^{ \beta } v_j(t) dt \cdot u_j\\
+	&= \int_{ \alpha  }^{ \beta  } \left( \sum_{j = 1}^{n}v_j(t) \cdot u_j dt \right) \\
+	&=  \int_{ \alpha  }^{ \beta  } \left<v(t), u \right> dt \\
+  & \leq \int_{ \alpha  }^{ \beta } \left| \left<v(t),u\right> \right| dt \\
+  & \stackrel{Schwz.}{ \leq } \int_{ \alpha  }^{ \beta  } \left( \| v(t) \|_{2} \cdot \|u \|_{2} \right) dt \\
+  &=  \|u \|_{2} \int_{ \alpha  }^{ \beta  } \|v(t) \|_{2}dt
+\end{align*}
+Für
+$$
+\|u \|_{2} > 0 \implies \|u \|_{2} \leq  \int_{ a }^{ b } \|v(t) \|_{2} dt
+$$
+Für
+$$
+\|u \|_{2} = 0 \implies \|u \|_{2} = 0 \leq  \int_{ a }^{ b } \|v(t) \|_{2} dt
+$$
+\end{proof}
+
+\smalltitle[]{Korollar}
+Seien $ U \subseteq \mathbb{R}^n  $ offen, $ f: u \to \mathbb{R}^m  $ stetig partiell differenzierbar. Seien 
+$ a,b \in U $ mit $ \left| \gamma _{ab} \right| \subseteq U$. Dann gilt: 
+$$ \|f(b) - f(a) \|_{2} \leq  M \|b-a\|_{2} $$
+für $ M := sup \left\{ \, \|Df(x) \| \,| \; x \in \left| \gamma _{ab} \right|  \right\}  $ Dabei ist die Matrix norm 
+$ \|A \| $ für $ A \in \mathbb{R}^{m \times n} $ gegeben durch 
+$$ \|A \| = \sup_{ v \in \mathbb{R}^n \setminus \{0\}}  \frac{\|Av \|_2}{\|v \|_{2}} 
+=\sup_{\substack{v \in \mathbb{R}^n  \\ \|v \|_{2} = 1}} \frac{\|Av \|_{2}}{\|v \|_{2}}  $$
+
+Es gilt: 
+$$ M = \sup_{ \substack{ x \in \left| \gamma _{ab} \right|  \\ v \in  \mathbb{R}^n  \\ \|v \|_{2} = 1 }} 
+\underbrace{ \frac{\| Df (x) \cdot v \|_{2}}{\|v \|_{2}} }_{G(x,v)} < \infty \text{ ,da } $$
+$$ G: \underbrace{ \| \gamma_{ab} \| \times \partial \mathbb{B}(0,1) }_{kompakt} \to \mathbb{R} \text{ stetig }  $$
+
+\begin{proof}
+	Es ist : 
+	\begin{align*}
+		\|f(b) - f(a) \|_{2} &=  \left|\left| \left( \int_{ 0 }^{ 1 } Df \left( \gamma _{ab}(t) \right) dt \right)
+		\cdot (b-a)\right|\right|_{2} \\
+		& \leq \int_{ 0 }^{ 1 } \left|\left| Df ( \gamma _{ab}(t)) \cdot (b-a) \right|\right|_{2} dt \\
+		& \leq \int_{ 0 }^{ 1 } M \cdot \|b-a \|_{2} dt \\
+		&=  M \cdot \|b-a \|_{2}
+	\end{align*}
+	
+\end{proof}
+
+
+\end{document}
+
