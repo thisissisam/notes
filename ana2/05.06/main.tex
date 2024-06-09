@@ -1,6 +1,6 @@
-\documentclass[a4paper]{memoir}
-\input{../../modal/note.tex}
-\begin{document}
+%\documentclass[a4paper]{memoir}
+%\input{../../modal/note.tex}
+%\begin{document}
 \begin{ibox}[38]{Definition}{CDefinition}
     Seien $ U \subset \mathbb{R}^n  $ offen, $ f: U \to \mathbb{R}^m  $ eine total differenzierbare Abbildung. Seien
 	$ a, b \in U $, sodass $ \left| \gamma _{ab} \right|  \subset U $. Dann gibt es $ \phi_1 , \cdots, \phi_{m} 
@@ -18,7 +18,7 @@
 \smalltitle[]{Beispiel}
 $ f: \mathbb{R} \to \mathbb{R}^{2}, \; t \mapsto (t^{2}, t^{3}) $ 
 \\
-Ist $ [a,b] \subset R $ beschränkt, $ f:[a,b] \to \mathbb{R}  $ stetig differenzierbare, so besagt der HDI:
+Ist $ [a,b] \subset R $ beschränkt, $ f:[a,b] \to \mathbb{R}  $ stetig differenzierbare, so besagt der HDI:%
 $$ f(b) - f(a) = \int_{a}^{b} f'(x) dx $$
 Ist wieder $ \gamma_{ab}(f) = a + t(b-a) $, so erhält man durch Substitution 
 $$ f(b) - f(a) = \int_0^{1} f'( \gamma_{ab}(t)) \gamma_{ab}'(t) dt = \left( \int_0^{1} f' \left( \gamma _{ab} (t) 
@@ -102,6 +102,93 @@ $$ G: \underbrace{ \| \gamma_{ab} \| \times \partial \mathbb{B}(0,1) }_{kompakt}
 	
 \end{proof}
 
+\para{8}{Die Taylorformel}
 
-\end{document}
+\begin{ibox}[]{Definition}{CDefinition}
+    Seien $ U \subset \mathbb{R}^n  $ offen, $ x_0 \in U $ und $ f: U \to \mathbb{R}  $ eine $ k $-mal stetig partiell differenzierbar
+	Funktion ( $ c^{k} $ ). Dann bezeichnet man für $ 0 \leq  m \leq k $ das duch
+	$$ T_{f, x_0, m} \left(x\right) : \sum_{i=0}^{m} \left( \, \sum_{ \substack{ |\alpha| = L \\ \alpha \in \mathbb{N}_{0}^{n} }}
+	\frac{D^{\alpha }f \left(x_0\right) }{\left( x - x_0 \right) ^{\alpha }} \right) $$ 
+		definiert Polynom $ T_{f,x_0,m} $ als \textbf{ $ m $-tes Taylorpolynom von $ f \text{ in } x_0 $ }. Hierbei wird mit 
+	$ |\alpha| : = \alpha_1 +  \cdots + \alpha_n $ die \textbf{Länge des Multiindex} $ \alpha := \left( \alpha_1, \cdots,  \alpha_{n} \right) \in \mathbb{N}_{0}^{n} $ und mit $ \alpha ! $ das Produkt $ \alpha ! := \alpha_1 ! , \cdots,  \alpha_{n} ! $ bezeichnet. Der 
+	\textbf{Differentialoperator} $ D^{\alpha } $ ist für $ \alpha  \in \mathbb{N}_{0}^{n} $ gegeben durch $ D^{\alpha }f = 
+	D_1^{\alpha } \cdots  D_n^{\alpha_n} f \in C^{|\alpha |}$ dabei ist $ D_{\gamma }^{\alpha r} := \underbrace{ D_{\gamma } 
+	D_{\gamma }, \cdots,  D_{\gamma }}_{\alpha \gamma \text{ -mal } } \; \gamma = 1, \cdots,  n \text{ für } y = \left( y_1
+, \cdots,  y_n\right) \in \mathbb{R}^n $	ist mit  $ y^{\alpha } $ die reele Zahl $ y^{\alpha } = y_1^{\alpha_1},
+\cdots,  y_n^{\alpha_n} $  gemeint. Wie im Kapitel 7 werde für $ x,x_0 \in \mathbb{R}^n  $ mit $ \upgamma_{x_0x} $ die $ c^{ \infty } $
+-Ableitung $ \upgamma_{x_0x}: \mathbb{R}  \to \mathbb{R}^n  $, $ t \mapsto \upgamma_{x_0x} \left(t\right) := x_0 + t(x-x_0)$ und mit
+$  \left| \upgamma_{x_0x} \right| = \upgamma_{x_0x} \left( \left[ 0,1 \right]  \right)  $ die Verbindugsstrecke von $ x_0 \text{ und }
+x $ bezeichtent. Die Taylorformel für $ C^{k+1} $ Fkten mehrerer veränderlichen lautet dann wie folgt:
+\end{ibox}
+\begin{ibox}[40]{Taylor}{CTheorem}
+	Seien $ U \subset \mathbb{R}^n  $ offen, $ x_0 \in U $ und $ f:U \xrightarrow{c^{k+1}}$ eine $ (k+1) $-mal stetig 
+	partiell differenzierbare Funktion. Ist dann $ x \in  U $ win Punkt mit $ \| \upgamma_{x_0x} \| \in U $, so existiert ein 
+	$ \xi \in \left| \upgamma_{x_0x} \right|  $ mit 
+	$$ f \left(x\right) = \sum_{l=0}^{k} \left( \, \sum_{ \substack{ |\alpha | = l \\ \alpha \in \mathbb{N}_{0}^{n} }} 
+	\frac{D^{\alpha }f \left(x_0\right) }{\alpha !} \left( x - x_0 \right) ^{\alpha } \right) + \sum_{ \substack{ |\alpha | = l \\ 
+\alpha  \in  \mathbb{N}_{0}^{n}}} \frac{D_{\alpha }f \left(x_0\right) }{\alpha !} \left( x-x_0 \right) ^{\alpha } $$
+\end{ibox}
+ 
+\smalltitle[]{Bemerkung:}
+Unter den Voraussetzungen von Satz 40 wird die Funktion $ f $ an der Stell x durch das $ k $-te Taylorpolynom von $ f $ in $ x_0 $ 
+approximiert. Der Fehler $ R_{k+1} \left(x\right)  := f \left(x\right) - T_{f, x_0, k} \left(x\right)  $ dier Approximation, das 
+\textbf{$ k $-te Restglied} in $ x  $ kann in de Form
+$$
+R_{k+1}\left(x\right)  =\sum_{ \substack{ |\alpha | = k+1 \\ \alpha \in \mathbb{N} _{0}^{n} }} \frac{D_{\alpha }f \left(x_0\right) }{
+\alpha !} \left( x -x_0 \right) ^{\alpha }
+$$ dargestellt werden, wobei $ \xi \in  \left| \upgamma_{x_0x}  \right|  $  geeignet zu wählen ist.
+\begin{proof}
+	Wir werden den Taylorschen Satz für Funktionen einer veränderlichen auf die Funktion $ g: \left( f \circ \upgamma_{x_0x} \right) 
+	: [0,1] \xrightarrow{c^{k+1}} \mathbb{R} $ an. Danach existiert ein $ t_0 \in  (0,1) $ mit
+	$$
+	g (1) = g \left(0\right) + \sum_{l=1}^{k} \frac{g' \left(0\right) }{l !} \left(  1 - 0 \right) ^{l} + \frac{g^{k+1} \left(t_0\right) 
+	}{\left( k+1 \right) !} \left( 1-0  \right) ^{k+1}.
+	$$
+Dies ist gleichbedeutend mit $ f \left(x\right)  = f \left(x_0\right) \sum_{l=1}^{n} \frac{g' \left(0\right) }{l !} + \frac{g^{k+1}
+\left(t_0\right) }{\left( k+1 \right) !}  $ Zum Beweis der Taylorformel genügt es also zu zeigen: 
+\end{proof}
+\smalltitle[]{Behauptung:}
+$ \forall  t \in  [0,1], \, l = 1 , \cdots,  k +1 :  $ 
+\begin{equation}
+	g^{\left(l\right) } \left(t\right) = \sum_{ \substack{ |\alpha | = l \\ \alpha  \in \mathbb{N}_{0}^{n}}} l! \frac{D^{\alpha}f 
+	\left( \upgamma_{x_0x} \left(t\right)  \right) }{\alpha !} \left( x - x_0 \right) ^{\alpha } 
+\end{equation}
+Also Satz 40 für $ \xi := \upgamma_{x_0x} \left(t\right)  $ 
+\begin{proof}
+	Nach der Kettenregel ist $ g' \left(t\right) = \sum_{i=1}^{m}D_i f \left( \upgamma_{x_0x} \left(t\right)  \right) \cdot 
+	\left( x_i-x_0 \right) \; \forall t \in [0,1]$ durch Induktion über $ l $ folgt ebenso mit Hilfe der Kettenregel, dass 
+	\begin{equation}
+		g^{\left(l\right) } \left(t\right) = \sum_{i_1, \cdots,  i_l = 1}^{n} D_{i_{l}} , \cdots,  D_{i_{1}} f \left( \upgamma_{x_0x}
+		\left(t\right) \right) \cdot \left( x_{i_1} - x_{0i_1} \right) \cdots \left( x_{i_{l}} - x_{0i_{l}} \right) 
+	\end{equation}
+	für alle $ t \in [0,1] $ gilt zum Beweis von (1) müssen wir nur noch die Summanden in (2) geeignet zusammenfassen. Dabei nutzen wir:
+\smalltitle[]{Hilfssatz}
+Seien $ U \in \mathbb{R}^n  $ offen, $ 2 \leq  k \in \mathbb{N}, f \in C^{k} \left(U\right)  \text{ und }  \left( i_1 , \cdots,  i_{n} 
+\right) \in \left\{ 1, \cdots,  n \right\} ^{k} $. Dann gilt für jede Permutation $ \pi : \left\{ 1, \cdots,  k \right\} \to 
+\left\{ 1, \cdots,  k \right\} : \; D_{i_{n}} D_{i_{n-1}}  \cdots \; D_{i_2} D_{i_1} f = D_{i \pi \left(k\right) } D_{i \pi (k-1)} 
+ \cdots D_{i \pi (1)} f  $ 
+ \parskip=3pt
+ Der Beweis ist leicht durch Induktion über $ k $ zu führen. Für $ k=2 $ geht der Hilfssatz in Satz 29 über, nach Induktionsvoraussetzung
+ ist die Vertauschung benachbarter $ D_{\gamma } \cdot D_{\mu}$ erlaubt, der Induktionsschritte kann also vollzogen werden, wenn man 
+ berücksichtig, dass sich jede Permutaion als Hintereinanderausführung solcher Vertauschungen beschreiben lässt
+\end{proof}
+
+Der Hilfssatz besagt, dass in Gl (2) alle Summanden $ D_{i_{l}} \cdots D_{i_1} f \left( \upgamma_{x_0x} \left(t\right)  \right) 
+\cdot \left( x_{i_1} x_{0i_1} \right) \cdots \left( x_{i_{l}} - x_{0i_{l}} \right)   $ in denen jeder index $ \gamma  $ genau 
+$ a_{\gamma }$-mal auftritt. $ \left( 1 \leq  \gamma  \leq n , \alpha_1 + \cdots + \alpha_n = l, \alpha = 
+\left( \alpha_1 , \cdots,  \alpha_n \right) \in  \mathbb{N} _{0}^{n}\right)  $ folgt aus (2): $ \forall t \in [0,1] $ 
+
+\begin{align*}
+	g^{\left(l\right) }\left(t\right)  &= \sum_{i_1 , \cdots,  i_{l} = 1}^{n} D_{i_{l}} \dots D_{i_1} f \left( \upgamma_{x_0x}(t)\right) 
+	\cdot \prod_{\alpha  = 1}^{n} \left( x_{\gamma } - x_{0 \gamma } \right) ^{\alpha _{\gamma }} \\
+	&= \sum_{ \substack{ |\alpha | = l \\ \alpha \in \mathbb{N}_{0}^{n} }} \frac{l !}{\alpha_1 ! \cdots \alpha_n !} D_{1}^{\alpha_1}
+	\cdots D_{n}^{\alpha_n} f \left( \upgamma_{x_0x} \left(t\right)  \right) \cdot \prod_{\alpha = 1}^{n} \left( 
+		x_\gamma - x_{0 \gamma }\right)^{\alpha_{\gamma }}  \\
+		&= \sum_{ \substack{ |\alpha | = l \\ \alpha \in \mathbb{N}_{0}^{n} }} l ! \frac{D^{\alpha }f \left( \upgamma_{x_0x} 
+		\left(t\right) \right) }{\alpha !} \left( x - x_0 \right)^{\alpha }
+\end{align*}
+Damit ist sowohl (1), als auch der Taylorsche Satz bewiesen.
+
+
+%\end{document}
 
