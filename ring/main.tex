@@ -1,0 +1,91 @@
+\documentclass[12pt]{article}
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\title{Ringe}
+\author{Sisam Khanal}
+\date{\today}
+\begin{document}
+\maketitle
+
+\newtheorem{theorem}{Theorem}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newcommand{\iu}{{i\mkern1mu}}
+\newcommand{\defn}[2]{
+	\begin{definition} \textbf{ #1}
+  #2
+  \end{definition}
+}
+
+
+\defn{Ring}{
+	$ \left( R, +, \cdot \right)  $ mit inneren Verknüpffung $ + : R \times R \to R  $ (der Addition) und 
+	$ \cdot : R \times R \to R $ (der Multiplikaion heißt \textbf{Ring}, wenn gilt:
+	\begin{itemize}
+		\item $ (R, +)  $ ist eine ablesche Gruppe,
+		\item $ (R,\cdot) $ ist eine Halbgruppe (ohne Identität)
+		\item $ a(b+c) = ab +ac \text{ und } (a+b)c = ac+bc $ für alle $ a,b,c \in R $ (Distributivgesetze).
+	\end{itemize}
+}
+%Im Fall $ ab = ba $ gilt für alle $ n \in  \mathbb{N}  $ die binomische Formel.
+\defn{Einheitengruppe}{
+	Sei $ R $ ein Ring mit 1. Ein Element $ a \in R $ heißt \textit{invertierbar} oder eine \textit{Einheit},
+	wenn es ein $ b \in R $ gibt mit $ ba = 1 = ab $. Die Einheiten bilden eine Gruppe 
+	$$ R^{\times} = \left\{ a \in R | \;  a \text{ ist invertierbar  } \right\}  $$
+}
+Beachte, dass $ R^{\times} $ kein Teilring ist.
+\subsubsection*{Beispiel}
+\begin{itemize}
+	\item $ \mathbb{Z}^{\times} = \left\{ \pm 1 \right\}  $
+	\item $ \mathbb{R}^{\times} = \mathbb{R} \setminus \{0\} $ 
+\end{itemize}
+\defn{Nullteiler}{
+	Ein Element $ a \neq 0 $ eines Ringes $ R $ heißt \textbf{Nullteiler} von $ R $ genannt, wenn ein 
+	$ b \neq 0 $ in R existiert mit $ a b = 0 \text{ oder } b a=0	$. 
+}
+\defn{Integritätsringe}{
+	Ein kommutativer, nullteilerfreier Ring mit 1 heißt \textbf{Integritätsringe} oder \textbf{Integritätsbereich}.
+}
+	Hiervon folgt für $ a b=0 \implies a = 0 \text{ oder } b = 0$ und für $ ac = bc \implies a = b $ 
+\subsubsection*{Beispiel}
+\begin{itemize}
+	\item  $ \mathbb{Z}  $ ist ein Integritätsring
+	\item Der Teilring $ \mathbb{Z}[i] := \left\{ a + \iu b \; | \; a, b \in  \mathbb{Z}\right\} $ 
+		der \textit{ganze Gauß'schen Zahlen} ist Integritäts-\\bereich.
+	\item Der Restklassenring $ \mathbb{Z} / p \mathbb{Z}  $ ist genau dann ein Integritätsring, wenn 
+		$ p $ prim ist.
+	\item $ R[X] $ ist ein Integritätsring. Es gilt weiterhin $ R[X]^{\times} = R^{\times} $ 
+\end{itemize}
+
+\defn{Ideale}{
+	Eine Untergruppe A von $ \left( R , + \right)  $ heißt \textbf{Ideal} von $ R $, wenn gilt:
+	\begin{itemize}
+		\item $ a \in A, r \in R \implies r a \in  A \; : R A \subseteq A $  
+		\item $ a \in A, r \in R \implies a r \in  A \; : A R \subseteq A $  
+	\end{itemize}
+	Gilt nur $ R A \subseteq A \text{ bzw. } A R \subseteq A $ für eine Untergruppe $ A \text{ von } 
+	\left( R, + \right) $, so nennt man \textbf{Links-} bzw. \textbf{Rechtsideal}. Wenn ein Ring Links- und 
+	Rechtsideal ist, dann ist der Ring \textbf{Ideal} von $ R $. Alle Ideale sind Teilring
+}
+
+\subsubsection*{Beispiel}
+\begin{itemize}
+	\item $ \left\{ 0 \right\} \text{ und } R $ sind die trivialen Ideale des Ringes R.
+	\item Die Ideale von $ \mathbb{Z}  $ sind genau die Mengen $ n \mathbb{Z}  \text{ mit } n \in \mathbb{N}_{0}$ 
+	\item Sei $ 1 \in A $ ein Ideal, dann $ A = R $ 
+	\item $ \left\{ \begin{pmatrix}x &0 \\ y &0 \end{pmatrix} | \; x, y \in \mathbb{R} \right\}  $ ist ein 
+		\textit{Linksideal} aber kein \textit{Rechtsideal} 
+	\item $ \left\{ \begin{pmatrix}x &y \\ 0 &0 \end{pmatrix} | \; x, y \in \mathbb{R} \right\}  $ ist 
+		\textit{Rechtsideal} aber kein \textit{Linksideal} 
+\end{itemize}
+
+\begin{theorem}
+	Für jede Familie $ \left( A_{i} \right)_{i \in I} $ von Idealen $ A_{i} $ von $ R $ ist auch 
+	$ A := \bigcap\limits_{ i \in  I}^{ } A_{i}  $ ein Ideal von $ R $ .
+\end{theorem}
+\subsubsection*{Beispiel}
+$ \left( 2 \mathbb{Z}  \right) \cap \left( 3 \mathbb{Z}  \right) \cap \left( 4 \mathbb{Z}  \right) = 12 \mathbb{Z}  $
+ 
+\end{document}
