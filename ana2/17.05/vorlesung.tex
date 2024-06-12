@@ -35,7 +35,7 @@ $ \lim_{x \to 0} \frac{\varphi (x)}{|x -x_0|}  = 0 $ gibt, dass
 \begin{ibox}[31]{Satz}{CTheorem}
     Sei $ U \subset \mathbb{R}^n  $ offen, die Funktion $ f: U \to \mathbb{R}  $ sei partiell differenzierbar auf 
 	$ U $, und alle partielle Ableitungen $ D_i \left( \text{ oder auch }  \frac{\partial f}{\partial x_i} \right)  $,
-	 $ 1 \leq i \leq n $, seien statig in $ x_0 \in U $. Dann ist $ f $ in 
+	 $ 1 \leq i \leq n $, seien stetig in $ x_0 \in U $. Dann ist $ f $ in 
 	$ x_0 $ total differenzierbar.
 \end{ibox}
 
@@ -52,7 +52,7 @@ Sei $ U \subset \mathbb{R}^n  $ offen, $ f:U\to \mathbb{R}  $ eine Funktion auf 
     Sei $ U \subset \mathbb{R}^n  $ offen, $ x_0 = \left( x_{0_{1}}, \cdots , x_{0_{n}} \right) \in  U $ und 
 	$ f: U \to \mathbb{R}^{n}  $ eine Abbildung auf $ U $, $ f $ heißt (total) differenzierbar in $ x_0 $, wenn es eine 
 	Matrix $ A = \left( a_{ij} \right)_{i = 1, \cdots,m ; \; j = 1, \cdots, n}  $ und eine Abbildung 
-	$ \varphi : U \to \mathbb{R}^m   $ mit $ \lim_{x \to 0} \frac{|\varphi(x)|}{\left( x - x_0 \right) }  = 0 $ gibt,
+	$ \varphi : U \to \mathbb{R}^m   $ mit $ \lim_{x \to 0} \frac{|\varphi(x)|}{\left| x - x_0 \right| }  = 0 $ gibt,
 	sodass 
 	$$ f(x) = f(x_0) + A(x-x_0) + \varphi (x) \; \forall x = \left( x_1, \cdots, x_{n} \right) \in U $$
 	gilt. Der Deutlichkeit halber schreiben wir die obige Gleichung einmal komponentweise auf:
@@ -61,7 +61,7 @@ Sei $ U \subset \mathbb{R}^n  $ offen, $ f:U\to \mathbb{R}  $ eine Funktion auf 
 	und entsprechend $ \varphi = \left( \varphi_{1}, \cdots \varphi_{m} \right)  $ mit $ \varphi_{i}: U \to \mathbb{R} 
 	\; \forall i = 1, \cdots, m$ so ist die Bedingung $ \lim_{x \to x_0} \frac{| \varphi (x)|}{|x - x_0|} = 0 $ 
 	gelichdeutend mit $ \lim_{x \to x_0} \frac{\varphi_i (x)}{|x - x_0|} = 0 \; \forall i = 1, \cdots, m $ und 
-	die Gleichung bedeutet ausfreülich, dass  $ \forall x = (x_1, \cdots, x_{n}) \in  U	 $ 	
+	die Gleichung bedeutet ausfrülich, dass  $ \forall x = (x_1, \cdots, x_{n}) \in  U	 $ 	
 	$$ 
 		\begin{pmatrix}
 			f_1(x) \\ \vdots \\ f_{m}(x) 

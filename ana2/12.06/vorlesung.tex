@@ -1,0 +1,101 @@
+\documentclass[11pt, a4paper]{memoir}
+
+\input{../../modal/note.tex}
+
+\begin{document}
+\begin{ibox}[41]{Satz}{CTheorem}
+    Seien $ U \in \mathbb{R}^n  $ offen $ x_0 \in U $ und $ f: U \to \mathbb{R}  $ eine $ k $-mal stetig partiell differenzierbare 
+	Funktion. Für $ r>0 $ gelte $ B(x_0,r) \subset U$  Dann gibt es eine Funktion $ \eta : B \left( x_0, r \right) \to \mathbb{R}  $ 
+	mit $ \eta \left(x_0\right)  = 0 $ und $ \lim_{ x \to x_0} \frac{\eta \left(x\right) }{|x-x_0|^{k}}  = 0 $. Sodass $ \forall  x \in 
+	B \left( x_0, r \right) $ 
+	$$ f(x) = \sum_{l=0}^{n} \left(\, \sum_{\substack{ |\alpha| = l \\ \alpha \in \mathbb{N}_{0}^{n} }} \frac{D^{\alpha }f
+	\left(x_0\right) }{\alpha !} \cdot \left( x - x_0 \right) ^{\alpha }  \right) \eta \left(x\right)   $$
+\end{ibox}
+\smalltitle[]{Spezialfall für $ k =2 $ }
+Sei $ U \in \mathbb{R}^n  $ offen, $ x_0 \in U $ und $ f \in  C^{2} \left(U\right)  $ Dann gibt es $ c \in \mathbb{R} , a \in \mathbb{R}^n $
+$ A \in \mathbb{R}^{n \times n}  $ symmetrisch, sodass die durch 
+$$ f \left(x\right)  = c + \left< a, \left( x - x_0 \right)  \right> + \frac{1}{2} \left<(x-x_0), A \cdot (x-x_0) \right> + 
+\eta \left(x\right) \; \forall x \in U	$$ 
+definierte Funktion $ \eta : U \to \mathbb{R}  $ die Eigenschaften 
+$$ \eta \left(x_0\right)  = 0 , \; \lim_{ \substack{ x \to x_0 \\x \neq x_0 } } \frac{\eta \left(x\right) }{ |x - x_0|^{2}} = 0  $$
+hat.
+\begin{ibox}[]{Hesse Matrix}{CDefinition}
+    Sind $ U \subset \mathbb{R}^n  $ offen, $ x_0 \in U $ und $ f: U \to \mathbb{R}  $ ist 2-mal stetig partiell differenzierbare, so
+	heißt die symmetrische Matrix : 
+	$$ \text{ Hess}f \left(x_0\right) := \begin{pmatrix}
+		\frac{\partial ^{2} f}{\partial x_0 \partial x_1} \left(x_0\right) & \cdots    
+	 	&\frac{\partial ^{2} f}{\partial x_n \partial x_1} \left(x_0\right) \\
+		\vdots & & \vdots \\
+		\frac{\partial ^{2} f}{\partial x_n \partial x_1} \left(x_0\right) & \cdots    
+	 	&\frac{\partial ^{2} f}{\partial x_n \partial x_n} \left(x_0\right) \\
+	\end{pmatrix}
+	  $$
+\textbf{Hessesche Matrix von} $ f \text{ in } x_0 $ 	
+\end{ibox}
+\para{9}{Lokale Extrema}
+\begin{ibox}[]{Definition}{CDefinition}
+    Seien $ U \subset \mathbb{R}^n  $ offen, $ x_0 \in U $ und $ f: U \to \mathbb{R}  $ eine Funktion 
+	\begin{enumerate}[label=\alph*)]
+		\item f hat in $ x_0 $ eine \textit{lokales Minimum (bzw lokales Maximum)}, wenn es eine offene Umgebung $ x_0 \in V \subset U $ 
+			gibt mit $ \forall x \in V : f \left(x\right) \geq  f \left(x_0\right) \; \left( \text{ bzw. } \leq  \right)  $ 
+			Falls man sogar $ V $ so wählen dann, dass 
+			$$ \forall x \in V : \; f \left(x\right)  > f \left(x_0\right) \; \left( \text{ bzw. } <  \right)  $$
+			so spricht man von einem \textit{isoliertes lokal Minimum ( bzw. Maximum)} von $ f $ 
+		\item Die Bezeichnung \textit{ (isoliertes) lokales Extremum } bezeichnet sowohl Minima als auch Maxima 
+	\end{enumerate}
+\end{ibox}
+				
+\begin{ibox}[42]{Satz}{CTheorem}
+    Sei $ U \subset \mathbb{R}^n  $ offen. Die Funktion $ f: U \to \mathbb{R}  $ habe in $ x_0 \in U$ ein lokales Extremum und sei 
+	partiell differenzierbar in $ x_0 $ . Dann gilt grad $ f \left(x_0\right) = \left( \frac{\partial f}{\partial x_1} \left(x_0\right)
+	, \cdots, \frac{\partial f}{\partial x_n} \left(x_0\right)  \right) = 0 $ 
+\end{ibox}
+\begin{proof}
+	Sei $ r>0 $ sodass $ B \left( x_0, r \right) \subset U $ gilt. Sei ferner $ \left\{ e_1 , \cdots, e_n \right\}  $  die 
+	Standardbasis. Dann sit für jedes $ j \in  \left\{ 1 , \cdots,  n \right\}  $ die Funktion $ g_{i j}: (-r, r) \to \mathbb{R} , \;$
+	$ t \mapsto f \left( x_0 + t \cdot e_j \right)  $ in der Stelle $ t = 0 $ durch $ g_j' \left(0\right)  = 
+	\frac{\partial f}{\partial x_j} \left(x_0\right)  $ differenzierbar und nimmt dort ein Extremum an. Aus Analysis 1 : $ g_{j}' 
+	\left(0\right)  = 0$  
+\end{proof}
+\begin{ibox}[]{Definition}{CDefinition}
+    Ist $ A \in \mathbb{R} ^{n \times n} $ eine symmetrische Matrix und $ Q_A $ die durch $ A $  gegebene quadratische Form auf 
+	$ \mathbb{R}^n  $ so nennt man $ A $: 
+	\begin{enumerate}[label=\alph*)]
+		\item \textbf{positiv definit} ( $ A \gg 0 $ ), falls 
+			$$ Q_{A} \left(\zeta\right) : = \left< \zeta, A \cdot \zeta \right> > 0 \; \forall \zeta \in \mathbb{R}^n \ \{0\} $$
+			\item \textbf{positiv semidefinit},  falls 
+			$$ Q_{A} \left(\zeta\right) : = \left< \zeta, A \cdot \zeta \right> \geq  0 \; \forall \zeta \in \mathbb{R}^n \ \{0\} $$
+	\item \textbf{negativ definit} ( $ A \ll 0 $ ), falls 
+			$$ Q_{A} \left(\zeta\right) : = \left< \zeta, A \cdot \zeta \right> < 0 \; \forall \zeta \in \mathbb{R}^n \ \{0\} $$
+			\item \textbf{negativ semidefinit},  falls 
+			$$ Q_{A} \left(\zeta\right) : = \left< \zeta, A \cdot \zeta \right> \leq  0 \; \forall \zeta \in \mathbb{R}^n \ \{0\} $$
+		\item \textbf{indefinit}, falls Vektoren $ \zeta, \overline{ \zeta} \in \mathbb{R}^n \ \{0\} $ existieren mit: 
+			$$ Q_{A} \left( \zeta \right) < 0 \, ; \; Q_{A} \left( \overline{ \zeta}  \right) > 0 $$
+			
+	\end{enumerate}
+Zu jeder symmetrischen Matrix $ A \in \mathbb{R}^{n \times n} $ gibt es $ \lambda_1 , \cdots,  \lambda_n \in \mathbb{R}  $ und 
+$ v_1 , \cdots,  v_n \in \mathbb{R}^n  $ mit 
+\begin{enumerate}[label=\alph*)]
+	\item $ A \cdot v_j = \lambda_j \cdot v_j \; \forall j = 1 , \cdots,  n $ 
+	\item $ \forall  i,j = 1 , \cdots,  n: \; \left<v_i, v_j \right> = \delta_{i j} $ 
+\end{enumerate}
+\end{ibox}
+Die Zahlen $ \lambda_j $ heißen \textit{Eigenwerte von $ A $ }, die $ x_i $ sind \textit{ Eigenvektoren von $ A $ } zum Eigenwert 
+$ \lambda_j $. Bezüglich einer Orthonormalbasis hat, die durch $ A $ gegebene quadratische Form die Gestalt:
+\begin{align*} 
+	\zeta = \sum_{j=1}^{n} \alpha_j v_j \implies Q_{A} \left(\zeta\right)  &= \left< \sum_{i = 1}^{n} \alpha_i v_i, A \left(
+\sum_{j=1}^{n} \alpha_j v_j\right)  \right>\\
+	&=  \sum_{i,j = 1}^{n} \alpha_i \alpha_j \left<v_i, \underbrace{ A v_j}_{= \lambda_j v_j} \right> \\
+	&= \sum_{i,j = 1}^{n} \alpha_i \alpha_j \lambda_{j} \delta_{ij} \\
+	&= \sum_{i=1}^{n} \lambda_i \alpha_{i}^{n}
+\end{align*}
+ \smalltitle[]{Lemma}
+ Sei $ A \in  \mathbb{R}^{n \times n} $ eine symmetrische Matrix mit Eigenwerten $ \lambda_{1} , \cdots,  \lambda_{n} $. Dann gilt:
+ \begin{enumerate}[label=\alph*)]
+ 	\item A ist positiv definit genau dann, wenn $ \lambda_j > 0 \; \forall j = 1 , \cdots,  n $ 
+ 	\item A ist positiv semidefinit genau dann, wenn $ \lambda_j \geq 0 \; \forall j = 1 , \cdots,  n $ 
+ 	\item A ist negativ definit genau dann, wenn $ \lambda_j < 0 \; \forall j = 1 , \ldots,  n $ 
+ 	\item A ist negativ semidefinit genau dann, wenn $ \lambda_j \leq  0 \; \forall j = 1 , \cdots,  n $ 
+ 	\item A ist  indefinit genau dann, wenn es $ i,j \in  \left\{ 1, \cdots,  n \right\}  $ gibt mit $ \lambda_i , \cdots, \lambda_j < 0 $ 
+ \end{enumerate}
+\end{document}

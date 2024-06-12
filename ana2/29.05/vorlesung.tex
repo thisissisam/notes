@@ -4,7 +4,7 @@
 
 %\begin{document}
 Daran kann man sofort ablesen, dass folgende Satz richtig ist.
-	\begin{ibox}[32]{Definition}{CDefinition}
+	\begin{ibox}[32]{Satz}{CTheorem}
 	   Seien $ U \subset \mathbb{R}^n $  offen, $ x_0 \in U $ und $ f = \left( f_1, \cdots, f_{m} \right)  $  
 	   eine Abbildung $ f:U \to \mathbb{R}^m $. Dann gilt:
 	   \begin{enumerate}[label=\alph*)]
@@ -12,8 +12,8 @@ Daran kann man sofort ablesen, dass folgende Satz richtig ist.
 			total differenzierbar in $ x_0 $ ist.
 		\item Wenn $ f $ in $ x_0 $ total differenzierbar ist, so ist $ f $ an der Stelle $ x_0 $ stetig.
 		\item Wenn $ f $ in $ x_0 $ total differenzierbar und die $ \left( m \times n \right)  $ Matrix $ A $ wie Definition
-			von oben gewählt ist, dann ist alle Komponentenfunktion $f_{i}, 1 \leq i \leq m in x_0 $ partiell differenzierbar
-			mit $ D_{\nu} f_{i}(x_0) = \frac{\partial f_{i}}{\partial x_{\nu}} (x_0) = a_{i \nu} \forall \nu = 1, \cdots n 
+			von oben gewählt ist, dann ist alle Komponentenfunktion $f_{i}, 1 \leq i \leq m$ in $x_0 $ partiell differenzierbar
+			mit $ D_{\nu} f_{i}(x_0) = \frac{\partial f_{i}}{\partial x_{\nu}} (x_0) = a_{i \nu}; \; \forall \nu = 1, \cdots n 
 			; \; \forall  i = 1, \cdots, m$ . 
 		\item Wenn alle Komponentenfunktion $ f_{i} $ auf $ U $ partiell differenzierbar sind und alle partiell Ableitungen
 			$ D_{\nu}f_{i} $ an der Stelle $ x_0 $ stetig sind, dann ist $ f $ in $ x_0 $ total differenzierbar.
@@ -50,10 +50,13 @@ Eine \textit{Productregel} gilt in folgender Form:
 \begin{ibox}[34]{Definition}{CDefinition}
     Seien $ U \subset \mathbb{R}^n  $ offen, $ x_0 \subset U $ die Abbildung $ f = \left( f_1, \cdots, f_{m} \right) 
 	:U \to \mathbb{R}^m$ und die Funktion $ g: U \to \mathbb{R}  $ siene total differenzierbar in $ x_0 $ . Dann gilt:
-	Die Abbildung $ \left( f \cdot g \right) : U \to \mathbb{R}^m \; x \mapsto \left( f_1(x)g(x), \cdots, f_{m}(x)g_{x} \right) $ 
-	ist in $ x_0 $ total differenzierbar mit $ \underbrace{ D \left( f \cdot g \right) (x_0)}_{(m\times n)-Matrix} =
+	Die Abbildung $ \left( f \circ g \right) : U \to \mathbb{R}^m \; x \mapsto \left( f_1(g_1(x)), \cdots, f_{m}(g_{x}(x_m)) \right) $ 
+	ist in $ x_0 $ total differenzierbar mit
+	$$
+	\underbrace{ D \left( f \circ g \right) (x_0)}_{(m\times n)-Matrix} =
 	\underbrace{f\left( x_0 \right)}_{(m\times 1)} \cdot \underbrace{Dg(x_0)}_{(1\times n)} +
-	g(x_0)\underbrace{ Df(x_0)}_{(m\times n )- Matrix}$
+	g(x_0)\underbrace{ Df(x_0)}_{(m\times n )- Matrix}
+	$$
 \end{ibox}
 
 \begin{proof}
@@ -64,33 +67,11 @@ Eine \textit{Productregel} gilt in folgender Form:
     Seien $ U \subset \mathbb{R}^n \text{ und } V \subset \mathbb{R}^m  $ offen Menge, ferner $ g: U \to \mathbb{R}^m  \text{ und } 
 	f:V \to \mathbb{R}^l $ Abbildungen mit $ g(U) \subset V  $. $ g $ sie total differenzierbar an der Stelle $ x_0 \in U $ 
 	, $ f $ sie total differenzierbar in $ y_0 = g\left( x_0 \right)  $. Dann ist die Abbildung $ \left( f \cdot g \right) 
-	:U \to \mathbb{R}^l  $ total differenzierbar in $ x_0 $ mit $ \underbrace{D \left( f \cdot g \right) (x_0) }_{l\times n}= 
+	:U \to \mathbb{R}^l  $ total differenzierbar in $ x_0 $ mit $ \underbrace{D \left( f \circ g \right) (x_0) }_{l\times n}= 
 	\underbrace{Df(g(x_0))}_{l \times m} \cdot \underbrace{Dg(x_0)}_{m \times n}$ 
 \end{ibox}
 
-%
-%\begin{proof}
-%	Seien $ \varphi : U \to \mathbb{R}^m \text{ und }  \psi : V \to \mathbb{R}^l $ mit 
-%	$  $ 
-%	$ \lim_{\substack{y \to y_0 \\ y \neq y_0}}\frac{\left| \psi (y) \right| }{\left| y - y_0 \right| } = 0$ 
-%	so gewählt, dass gilt  
-%		\begin{align}
-%			g(x) &= g(x_0) + Dg(x_0)(x-x_0) + \varphi(x) \; \forall x \in U \tag{5}\\
-%			f(y) &= f(y_0) + Df(y_0)(y-y_0)+ \psi(y) \; \forall y \in V \tag{6}
-%		\end{align}
-%		
-%		Dann erhält man durch Einsetzen der Gleichung 
-%		{\Huge Beweis fehlt im Handy}
-%		=========================================
-%		Wir betrachten getrennt die beiden $ \tilde{\phi} $ definiertn Summanden : Zunächst ist 
-%		$$
-%		 \lim_{x \to x_0} \frac{\left| Df(g(x_0)) \phi(x) \right| }{\left| x - x_0 \right| }  = 
-%		 \lim_{x \to x_0} \left| Df(g(x_0)) \cdot \left( \frac{\phi(x)}{}  \right)  \right| 
-%		$$
-%		
-%\end{proof}
 \smalltitle[]{Korollar}
-
 $U\subset \mathbb{R} ^n$ und $V\subset \mathbb{R} ^m$ offene Mengen, die Abbildung
 $ \left( g_1 , \cdots, g_{m} \right) : U \to \mathbb{R}^m  $ sei total differenzierbar in $ x_0 \in U $,
 es gelte $ g(U) \subset U $ und die Funktion $ f: U \to \mathbb{R}  $ sei total differenzierbar in 
@@ -115,7 +96,7 @@ $$ \frac{\partial h}{\partial x_{i}} (x_0) = \sum_{j=1}^{m} \frac{\partial f }{\
 	$$ D_{\upsilon}f(x_0) = \sum_{i=1}^{n} \frac{\partial f}{\partial x_{i}} (x_0) \cdot \upsilon_1  =
 	\left<Df(x_0), \upsilon \right>$$
 	Wobei
-	$$ grad f(x_0) := \left( \frac{\partial f}{\partial x_1} (x_0) \right) , \cdots, \frac{\partial f}{\partial x_n} (x_0) $$
+	$$ grad f(x_0) := \left( \frac{\partial f}{\partial x_1} (x_0)  , \cdots, \frac{\partial f}{\partial x_n} (x_0) \right)$$
 \end{ibox}
 \begin{proof}
 	Sei ein beliebiger Vektor $ \upsilon \in \mathbb{R}^n \ \{0\} $ gegeben. Die Abbildung $ g: \mathbb{R}  \to \mathbb{R}^n 
