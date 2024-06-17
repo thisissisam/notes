@@ -18,31 +18,31 @@
 \para{1}{Der $ \mathbb{R}^{n}$ und seine Topologie  }
 
 Erklärt man auf der Menge $ R^{n} := \left\{ \alpha = \left( x_1,x_2,x_3 \dots  \right) | x_{i} \in \mathbb{R} \forall i = 1, \dots n \right\}  $ 
-\index{Vecktorraum}
-aller geordneten $ n $-Tupel reeller Zahlen eine Addition komponenteweise 
+\index{Vektorraum}
+aller geordneten $ n $-Tupel reeller Zahlen eine Addition komponentenweise 
 durch  $ x+y = x_1+y_1, x_2+y_2, \dots x_{n} + y_{n}$  für 
 $ x = \left( x_1,x_2, \dots, x_{n} \right), y = \left( y_1,y_2\dots y_{n} \right)
 \in \mathbb{R}^{n} $ und eine Multiplikation mit reellen Skalaren. So erhält
-$ \mathbb{R}^{n} $ die Structure eines $ n $-dimensionalen Vecktorraums über
+$ \mathbb{R}^{n} $ die Structure eines $ n $-dimensionalen Vektorraums über
 $ \mathbb{R} $; eine Basis des $ \mathbb{R}^{n} $ ist durch die Vektoren
 $ e_1 = \left( 1, 0, \dots , 0 \right) \dots e_{n} = \left( 0, \dots, 0, 1\right)
-$ gegeben. Man bezeichent die Familie $ \left\{ e_1, e_2, \dots e_{n} \right\} $
+$ gegeben. Man bezeichnet die Familie $ \left\{ e_1, e_2, \dots e_{n} \right\} $
 als \textit{Standardbasis} oder auch kanonische Basis des $ \mathbb{R}^{n} $ 
    
-\begin{ibox}{euklidisches Skalarproduckt}{CDefinition}
-    Das euklidisches Skalarproduckt auf $ \mathbb{R}^{n} $ ist die Abbildung
+\begin{ibox}{euklidisches Skalarprodukt}{CDefinition}
+    Das euklidisches Skalarprodukt auf $ \mathbb{R}^{n} $ ist die Abbildung
     $ \left< \circ , \circ \right> : \mathbb{R}^{n} \times \mathbb{R}^{n}
     \to \mathbb{R} \left( x, y \right) \mapsto \left<x, y \right> = 
     \sum_{1=1}^n x_{i}y_{i}$ die je zwei Vektoren $ x, y \in \mathbb{R}^{n} $
     die reellen Zahl $ \left<x,y \right> $zugeordnet, welsche man 
-    \textit{euklidisches} Skalarproduckt  von $ x \text{ und } y $ nennt. 
+    \textit{euklidisches} Skalarprodukt  von $ x \text{ und } y $ nennt. 
 \end{ibox}
-    \index{Skalarproduckt}
+    \index{Skalarprodukt}
 
-Eine weitere gebräuchliche Schreibweise für das euklidische Skalarproduckt zwei
+Eine weitere gebräuchliche Schreibweise für das euklidische Skalarprodukt zwei
 Vektor ist $ \left<x,y \right> =: x \cdot y $ \\
-Die wichtigsten Eigenschaft des euklidische Skalarproduckt nennt der folgende
-Satz, auf dessen trivialen Beweis wir versichten werden.
+Die wichtigsten Eigenschaft des euklidische Skalarprodukt nennt der folgende
+Satz, auf dessen trivialen Beweis wir verzichten werden.
 
 \begin{ibox}{Satz}{CTheorem}
     Für alle $ x, y, z \in \mathbb{R}^{n} $ und jedes $ \alpha \in  \mathbb{R} $ gilt:
@@ -67,10 +67,10 @@ Satz, auf dessen trivialen Beweis wir versichten werden.
    \end{enumerate}
 \end{ibox}
 
-\begin{ibox}{Schwarzsche Ungleichung}{CTheorem}
+\begin{ibox}{Schwarzsehe Ungleichung}{CTheorem}
     Für alle $ x, y \in \mathbb{R}^{n} $ gilt: $ \left< \left| x,y \right| \right>
     \leq \left| x \right| \left| y \right| $  
-    \\ (wurde in LA2 beweiesen)
+    \\ (wurde in LA2 bewiesen)
 \end{ibox}
 \smalltitle[]{Eigenschaft von Norm auf Vektorraum}
 Allgemein nennt man jede Abbildung $ \| \cdot \| : V \to \mathbb{R} $ auf einem $
@@ -134,7 +134,7 @@ definiert durch $$ p(x,y) := \begin{cases}
      Sei $ a \in \mathbb{R}^{n} $ und sei $ r>0 $ . Dann heißt die Menge $ 
      B(a,r) := \left\{ x \in \mathbb{R}^{n} :\left| x-a \right|< r\right\} $ als die \textit{Kugel um a mit dem Radius } $ r $ .
  \end{ibox}
-\begin{ibox}{Offene und abgeschlosse Menge}{CDefinition}
+\begin{ibox}{Offene und abgeschlossene Menge}{CDefinition}
     Sei $ \mathcal{S} \subset \mathbb{R}^{n}$ eine Menge
     \begin{enumerate}[label=\alph*)]
         \item $ \mathcal{S}  $ heißt  \textit{offen}, wenn $ \forall a \in
@@ -177,7 +177,7 @@ definiert durch $$ p(x,y) := \begin{cases}
              abgeschlossen
          \item Sei $ J \neq \emptyset $ eine beliebige Indexmenge und sei 
              $ \left\{ A_{i} : i \in J \right\}  $ eine Familie
-             abgeschlossner Menge $ A_{i} \subset \mathbb{R}^n $ .Dann ist
+             abgeschlossener Menge $ A_{i} \subset \mathbb{R}^n $ .Dann ist
              die Menge $ A := \bigcap\limits_{i \in J}^{} A_{i} \subset 
              \mathbb{R}^n$ ebenfalls abgeschlossen.
          \item Sei $ m \in \mathbb{N}  $ und seien $ A_1, A_2, \dots A_{m}$
@@ -198,7 +198,7 @@ definiert durch $$ p(x,y) := \begin{cases}
 \begin{ibox}{Definition}{CDefinition}
     \begin{enumerate}[label=\alph*)]
         \item Man bezeichnet die Menge $ \overline{A}:= \bigcap B $ mit $ A \subset B \subset \mathbb{R}^n$ , $ B-abgeschlossen $ als den
-            \textit{Abschlüß} oder \textit{abgeschlossene Hülle von A}
+            \textit{Abschluss} oder \textit{abgeschlossene Hülle von A}
         \item Die Menge $ \mathring{A} \stackrel{\text{u}}{=} uU $ mit $ u \in U$ und $ U-offen $ heißt \textit{offener Kern} von $ A $
         \item Der Rand von $ A $ ist gegeben durch $ \partial A := \overline{A} \setminus \mathring{A} $ 
     \end{enumerate}
@@ -206,8 +206,8 @@ definiert durch $$ p(x,y) := \begin{cases}
 
 \smalltitle[]{Bemerkung}
 Nach Satz 1.10 und 1.11 ist $ \overline{A} $ stets abgeschlossen und $ \mathring{A} $ stets offen. $ \mathring{A} $ ist die kleinste
-abgeschlossene Menge, die $ \overline{A} $ enthält, $ \mathring{A} $ ist die größte in $ A $ enthälte offene Teilmenge von $ A $ .
-Insbosendere gilt $ \mathring{A} \subset A \subset \overline{A} $ 
+abgeschlossene Menge, die $ \overline{A} $ enthält, $ \mathring{A} $ ist die größte in $ A $ enthaltene offene Teilmenge von $ A $ .
+Insbesondere gilt $ \mathring{A} \subset A \subset \overline{A} $ 
 
 \smalltitle[]{Beisiele}
 \begin{enumerate}[label=\alph*)]
@@ -222,8 +222,8 @@ Insbosendere gilt $ \mathring{A} \subset A \subset \overline{A} $
     \newline
     Sei $ A \subset \mathbb{R}^n $ und sei $ x \in \mathbb{R}^n $. Dann gilt:
     \begin{enumerate}[label=\alph*)]
-        \item $ x \in \partial A \iff $ jede offene Umgebug des Punktes $ x $ sowhol $ A $ als auch $ \mathbb{R}^n \setminus A $ trifft.
-            (Das heißt sowhol mit A, als auch mit $ \mathbb{R}^n \setminus A $ einen nicht leeren Durchschnitt hat.)
+        \item $ x \in \partial A \iff $ jede offene Umgebung des Punktes $ x $ sowohl $ A $ als auch $ \mathbb{R}^n \setminus A $ trifft.
+            (Das heißt sowohl mit A, als auch mit $ \mathbb{R}^n \setminus A $ einen nicht leeren Durchschnitt hat.)
         \item $ A \setminus \partial A = \mathring{A}$
         \item $ A \bigcup \partial = \overline{A} $ 
         \item $ \partial A $ ist abgeschlossen.
@@ -235,12 +235,12 @@ Insbosendere gilt $ \mathring{A} \subset A \subset \overline{A} $
    \begin{enumerate}[label=\alph*)]
    	\item Man nennt $ x \in A $ einen inneren Punkt der Menge $ A $ , wenn es eine offene Umgebung $ U = U(x) $ des Punktes $ x $ gibt,
 		so dass $ U \subset A $ gilt.
-    \item Mann nennt $ y \in \mathbb{R}^n $ einen Häufungsspunkt der Menge $ A $, wenn in jeder offenen Umgebung $ U = U(y) $ des
+    \item Mann nennt $ y \in \mathbb{R}^n $ einen Häufungspunkt der Menge $ A $, wenn in jeder offenen Umgebung $ U = U(y) $ des
 		Punktes $ y $ ein von $ y $ verschiedener Punkt der Menge $ A $ liegt, dass heißt wenn gilt:
 		$$ \forall U = U(y) \text{ offen } \exists x \in A \bigcup U : x \neq y $$
 		
    \end{enumerate}
-  Die Menge der Häufungsspunkt von $ A $ wird $ HP(A) $ 
+  Die Menge der Häufungspunkt von $ A $ wird $ HP(A) $ 
 \end{ibox}
 \index{innerer Punkt}
 \index{Häufungsspunkt}
@@ -248,7 +248,7 @@ Insbosendere gilt $ \mathring{A} \subset A \subset \overline{A} $
 \begin{ibox}[8]{Satz}{CTheorem}
     Sei $ A \subset \mathbb{R}^n $ , dann gilt:
 	\begin{enumerate}[label=\alph*)]
-		\item $ \mathring{A} = \left\{ x \in A : x \text{ ist inerer Punkt con A} \right\}  $ 
+		\item $ \mathring{A} = \left\{ x \in A : x \text{ ist innerer Punkt con A} \right\}  $ 
 		\item $ \overline{A} = A \bigcup HP(A) $ 
  	\end{enumerate}
 \end{ibox}
@@ -256,13 +256,13 @@ Insbosendere gilt $ \mathring{A} \subset A \subset \overline{A} $
 	\begin{enumerate}[label=\alph*)]
 		\item Ist $ x \in \mathring{A} $ so it definitions gemäß $ x \in U \bigcup : U \subset A, U-\text{offen} $ 
 			also existiert mindestens eine offene Umgebung $ V = V(x) $ des Punktes $ x  $ mit $ V \subset A \implies x $ innerer Punkt
-			von $ A $ ist. Ist anderseites $ x $ innerer Punkt von $ A $ , so existiert eine offene Umgebung $ V = V(x) $ des 
+			von $ A $ ist. Ist anderseits $ x $ innerer Punkt von $ A $ , so existiert eine offene Umgebung $ V = V(x) $ des 
 			Punktes x mit $ x \in V \subset A \implies $ insbesondere $ x  $ ist dann Element der Vereinigung. 
 			$ \bigcup U : U \subset A, U- $ offen, das heißt $ x \in \overline{A} $ .
 		\item Wegen $ \overline{A} A \bigcup \partial A = A \bigcup \left( \partial A \setminus A \right) \text{ und } HP(A) \bigcup 
 			= A \bigcup (HA(A)\setminus A) $  folgt die Behauptung aus der einfachen Beobachtung, dass alle nicht in $ A $ gelegene
-			Randpunkte von $ A $ zwangsläufig Häufungsspunkt von $ A $ sind und umgekehrt alle nicht in $ A $ gelegenen Häufungsspunkt 
-			von $ A $ naturliche Randpunkte von $ A $ sind. 
+			Randpunkte von $ A $ zwangsläufig Häufungspunkt von $ A $ sind und umgekehrt alle nicht in $ A $ gelegenen Häufungspunkt 
+			von $ A $ natürliche Randpunkte von $ A $ sind. 
 	\end{enumerate}
 	 
 \end{proof}
@@ -275,12 +275,12 @@ Insbosendere gilt $ \mathring{A} \subset A \subset \overline{A} $
 \smalltitle[]{Bemerkung}
 Definition $ \iff \forall \varepsilon > 0 \exists k_0 \in \mathbb{N} \text{ sodass } x_k \in B(a, \varepsilon)	\forall k \geq k_0 $ 
 \begin{ibox}[9]{Satz}{CTheorem}
-    Sei $ \left( x_k \right) \subset \mathbb{R}^n $ eine Folge und sei $ a \in \mathbb{R}^n $ ; es seien Komponentschreibweise 
+    Sei $ \left( x_k \right) \subset \mathbb{R}^n $ eine Folge und sei $ a \in \mathbb{R}^n $ ; es seien Komponentenschreibweise 
 $ x_k = \left( x_{k_1}, x_{k_2} \cdots x_{k_n} \right) \forall k \in \mathbb{N}, a = (a_1,a_2 \cdots a_{n})  $ , Dann gilt 
 $$ \lim_{k \to \infty} x_{k} = a \iff \lim_{k \to \infty}x_{k_{j}} a_{j} \forall j = 1,2 \cdots, n$$
 \end{ibox}
 \begin{proof}
-	"$ \implies $" $\;\; \forall \varepsilon >0  $ sei $ k_0 \in \mathbb{N} $ so gesählt, dass $ x_{k} \in B(a, \varepsilon) \forall k \geq k_0$
+	"$ \implies $" $\;\; \forall \varepsilon >0  $ sei $ k_0 \in \mathbb{N} $ so gezählt, dass $ x_{k} \in B(a, \varepsilon) \forall k \geq k_0$
 	gilt. Für beliebiges $ j \in \left\{ 1, 2, \cdots n \right\}  $ ist dann
 	\begin{align*}
 		\left| x_{k_{j}} - a_{j} \right| &= \sqrt{\left( x_{k_{j}} - a_{j} \right)^2}\\ 
@@ -289,7 +289,7 @@ $$ \lim_{k \to \infty} x_{k} = a \iff \lim_{k \to \infty}x_{k_{j}} a_{j} \forall
 		 & < \varepsilon \implies \lim_{ k \to \infty} x_{j} = a  
 	\end{align*}
 	
-$"\impliedby"$ $ \forall \varepsilon > 0 $ wähle mann $ \forall j \in \left\{  1,2, \cdots n \right\}$ , so gilt $ \forall k \geq k_0$
+$"\impliedby"$ $ \forall \varepsilon > 0 $ wähle man $ \forall j \in \left\{  1,2, \cdots n \right\}$ , so gilt $ \forall k \geq k_0$
 \begin{align*}
 	 \left| x_{k_{j}} - a_{j} \right| &= \sqrt{ \left(  x_{k_{1}} - a _{1} \right)^2 +  \left(  x_{k_{2}} - a _{2}\right)^2 \cdots 
 \left(  x_{k_{n}} - a _{n}\right)^2} \\
@@ -302,13 +302,13 @@ $"\impliedby"$ $ \forall \varepsilon > 0 $ wähle mann $ \forall j \in \left\{  
 \end{proof}
 	
 \begin{ibox}{Definition}{CDefinition}
-     Sei $ \left( x_k \right) \subset \mathbb{R}^n $ eine Folge. Man nennt $ a \in \mathbb{R}^n $ einen Häufungsspunkt der Folge
+     Sei $ \left( x_k \right) \subset \mathbb{R}^n $ eine Folge. Man nennt $ a \in \mathbb{R}^n $ einen Häufungspunkt der Folge
 	 $ \left( x_{k} \right)  $, falls es eine Teilfolge $ \left( x_{k_{y}} \right) \subset \left( x_{k} \right)  $ mit 
 	 $ \lim_{y \to \infty }x_{k_{y}} = a  $ gibt.
 \end{ibox}
-\index{Häufungsspunkt}
+\index{Häufungspunkt}
 \begin{ibox}[10]{Satz}{CTheorem}
-    Für eine Mengne $ A \subset \mathbb{R}^n $ sind folgende Aussagen äquivalent:
+    Für eine Mengen $ A \subset \mathbb{R}^n $ sind folgende Aussagen äquivalent:
 	\begin{enumerate}[label=\alph*)]
 		\item $ A $ ist abgeschlossen.	
 		\item Der Grenzwert einer jeden Folge $ \left( x_{k} \right) \subset A $ , die als Punktfolge in $ \mathbb{R}^n $ konvergiert,
@@ -317,15 +317,15 @@ $"\impliedby"$ $ \forall \varepsilon > 0 $ wähle mann $ \forall j \in \left\{  
 \end{ibox}
 \begin{proof}
 	$ 1) \implies 2) $ Sei $ A $ abgeschlossen und sei $  \left( x_{k} \right) \subset A $ eine Folge mit $ \lim_{k \to \infty } x_k =
-	a \in \mathbb{R}^n	$ . Falls $  x_n $ eine konsatante Teilfolge $\left(  x_{k_{ \gamma} } \right) \subset \left( x_k \right)  $,
+	a \in \mathbb{R}^n	$ . Falls $  x_n $ eine konstante Teilfolge $\left(  x_{k_{ \gamma} } \right) \subset \left( x_k \right)  $,
 	so gilt $ x_{k_{ \gamma}} = a \forall \gamma \in \mathbb{N} $, und es folgt $ a \in A $ wegen $ \left( x_{k_{ \gamma}} \right) 
 	\subset A  \implies a \in A $ \\
-	Hat $ \left( x_k \right) $ keine konsatante Teilfolge, so gibt es ein $ k_0 \in \mathbb{N} $ derart, dass $ x_k \neq a \; \forall
+	Hat $ \left( x_k \right) $ keine konstante Teilfolge, so gibt es ein $ k_0 \in \mathbb{N} $ derart, dass $ x_k \neq a \; \forall
 	k \geq k_0$ gilt, offenbar ist $ a $  ein Häufungspunkt der Menge $ \left\{ x_{k}: k \geq k_0 \right\} \subset A $ und deshalb auch
 	$ a \in HP(A) $ . Nach Satz 8 ist $ HP(A) \subset \overline{A} $, aber $ \overline{A} = A  $, denn $ A  $ is abgeschlossen. 
 	Deshalb $ a \in A $ \\
 	$ 2) \implies 1) $ Sei $ x \in HP(A) $. Dann gibt es eine Folge $ \left( x_k \right) \subset A, x_k \neq x \; \forall x \in \mathbb{N} $
-	, so dass $ x = \lim_{k \to \infty}x_k $ gilt. Nach Voraussetzung liegt der Grenzwert jeder jonvergente Folge von Punkten aus $ A $ 
+	, so dass $ x = \lim_{k \to \infty}x_k $ gilt. Nach Voraussetzung liegt der Grenzwert jeder convergente Folge von Punkten aus $ A $ 
 	ebenfalls in $ A $, und es folgt $ x \in A $. Dann ist $ HP(A) \subset A $ gezeigt, also ist $ A = A \cup HP(A) = \overline{A} $,
 	das heißt $ A-abgeschlossen $ 
 \end{proof}
@@ -355,10 +355,10 @@ $"\impliedby"$ $ \forall \varepsilon > 0 $ wähle mann $ \forall j \in \left\{  
 \end{proof}
 
 \begin{ibox}[13]{Satz}{CTheorem}
-    Jede Cauchy-Folge im $ \mathbb{R}^n  $ ist konvergent, das heißt $ \mathbb{R}^n  $ ist vollstandig.
+    Jede Cauchy-Folge im $ \mathbb{R}^n  $ ist konvergent, das heißt $ \mathbb{R}^n  $ ist vollständig.
 \end{ibox}
 
-\para{3}{Funktionen, Abhildungen, Stetigkeit}
+\para{3}{Funktionen, Abbildungen, Stetigkeit}
 
 \begin{ibox}[]{Definition}{CDefinition}
     Eine Funktion $ f: U \to \mathbb{R}  $ heißt \textit{stetig} and der Stell $ a \in  U $, wenn gilt: $ \forall  \varepsilon >0 
@@ -377,7 +377,7 @@ Wir verallgemeinern diese Stetigkeitsdefinition sogleich auf Abbildungen mit Wer
 
 \begin{ibox}[14]{Satz}{CTheorem}
     Seien $ U \subset \mathbb{R}^n  $ offen, $ a \in  U $ und $ f=(f_1,f_2,\cdots, f_m): U \to \mathbb{R}^m  $ ein Abbildung. $ f $ ist 
-	stetig in a, genau dann, wenn jede der Komponentenfunktionen $ f_{j} :U \to \mathbb{R} , j = 1,2, \cdots, m $ stetig in $ a $ ist.
+	stetig in a, genau dann, wenn jede der Komponenten Funktionen $ f_{j} :U \to \mathbb{R} , j = 1,2, \cdots, m $ stetig in $ a $ ist.
 \end{ibox}
 
 \begin{proof}
@@ -389,7 +389,7 @@ Wir verallgemeinern diese Stetigkeitsdefinition sogleich auf Abbildungen mit Wer
 \end{proof}
 \begin{ibox}[15]{Satz}{CTheorem}
     Sei $ U \subset  \mathbb{R}^n  $ offen, sei $ a \in  U $. Eine Abbildung $ f: U \to \mathbb{R}^m $ ist genau dann in a stetig,
-	wenn zu jeder offenen umgebung $ F=V(f(a)) \subset \mathbb{R}^m $ des Punktes $ f(a) \in \mathbb{R}^m $ eine offene Umgebug
+	wenn zu jeder offenen Umgebung $ F=V(f(a)) \subset \mathbb{R}^m $ des Punktes $ f(a) \in \mathbb{R}^m $ eine offene Umgebung
 	$ W = W(a) \subset  \mathbb{R}^n  $ des Punktes $ a \in  V$ existiert, so dass $ f(W) = \left\{ f(x) |\, x \in U \cap W \right\} 
 	\subset  V$ gilt. 
 \end{ibox}
@@ -439,7 +439,7 @@ analog zu beweisen sind:
 
 \smalltitle[]{Bemerkung}
 Die Übertragung des Sates 17 auf dem Fall $ \mathbb{R}^m  $-wertiger Abbildungen ist nicht uneingeschränkt möglich. Folgende Version auf 
-deren Beweis wie ebenfalls versichten können, ist aber gültig. 
+deren Beweis wie ebenfalls verzichten können, ist aber gültig. 
 
 \begin{ibox}[18]{Satz}{CTheorem}
 	Sei $ U \subset \mathbb{R}^n  $ offen, die Abbildung $ f : U \to \mathbb{R}^m $ sei stetig in $ a $. Dann gilt:
@@ -464,7 +464,7 @@ Auch die Komposition stetiger Abbildungen liefert wieder eine stetige Abbildung:
 
 \begin{proof}
 	Ist $ W = W \left( \left( g \cdot f \right) \left( x_0 \right)  \right)  $ eine offene Umgebung des Punktes $ \left| g \cdot f\right| 
-	= g(y_0) \in \mathbb{R}^k $, so gibt es wegen der Stetigkeitvon $ g $ an der Stell $ y_0 $ nach Satz 15 eine offene $ y_0 $ -Umgebung
+	= g(y_0) \in \mathbb{R}^k $, so gibt es wegen der Stetigkeit von $ g $ an der Stell $ y_0 $ nach Satz 15 eine offene $ y_0 $ -Umgebung
 	$ W_1 = W(y_0) = W \left( f \left( x_0 \right)  \right) \subset  \mathbb{R}^m $ mit $ g \left( w_1 \right) \subset W $. Ebenso 
 	impliziert die Stetigkeit von $ f $ in $ x_0 $ die Existenz einer offenen Umgebung $ W_2 = W_2 \left( x_0 \right) $ mit
 	$ f \left( W_2 \right) \subset W_1 $ . Offenbar ist dann $ \left( g \cdot f \right) \left( W_2 \right) \subset g \left( f 
@@ -540,5 +540,6 @@ lokal-gleichmäßig konvergiert gegen $ 0 $, aber nicht gleichmäßig.
 \input{17.05/vorlesung.tex}
 \input{29.05/vorlesung.tex}
 \input{05.06/main.tex}
+\input{12.06/vorlesung.tex}
 \printindex
 \end{document}

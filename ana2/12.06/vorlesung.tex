@@ -1,8 +1,8 @@
-\documentclass[11pt, a4paper]{memoir}
-
-\input{../../modal/note.tex}
-
-\begin{document}
+%\documentclass[11pt, a4paper]{memoir}
+%
+%\input{../../modal/note.tex}
+%
+%\begin{document}
 \begin{ibox}[41]{Satz}{CTheorem}
     Seien $ U \in \mathbb{R}^n  $ offen $ x_0 \in U $ und $ f: U \to \mathbb{R}  $ eine $ k $-mal stetig partiell differenzierbare 
 	Funktion. Für $ r>0 $ gelte $ B(x_0,r) \subset U$  Dann gibt es eine Funktion $ \eta : B \left( x_0, r \right) \to \mathbb{R}  $ 
@@ -85,7 +85,7 @@ $ \lambda_j $. Bezüglich einer Orthonormalbasis hat, die durch $ A $ gegebene q
 \begin{align*} 
 	\zeta = \sum_{j=1}^{n} \alpha_j v_j \implies Q_{A} \left(\zeta\right)  &= \left< \sum_{i = 1}^{n} \alpha_i v_i, A \left(
 \sum_{j=1}^{n} \alpha_j v_j\right)  \right>\\
-	&=  \sum_{i,j = 1}^{n} \alpha_i \alpha_j \left<v_i, \underbrace{ A v_j}_{= \lambda_j v_j} \right> \\
+	&=  \sum_{i,j = 1}^{n}\alpha_i\alpha_j\left<v_i,\underbrace{A v_j}_{=\lambda_j v_j} \right> \\
 	&= \sum_{i,j = 1}^{n} \alpha_i \alpha_j \lambda_{j} \delta_{ij} \\
 	&= \sum_{i=1}^{n} \lambda_i \alpha_{i}^{n}
 \end{align*}
@@ -98,4 +98,100 @@ $ \lambda_j $. Bezüglich einer Orthonormalbasis hat, die durch $ A $ gegebene q
  	\item A ist negativ semidefinit genau dann, wenn $ \lambda_j \leq  0 \; \forall j = 1 , \cdots,  n $ 
  	\item A ist  indefinit genau dann, wenn es $ i,j \in  \left\{ 1, \cdots,  n \right\}  $ gibt mit $ \lambda_i , \cdots, \lambda_j < 0 $ 
  \end{enumerate}
-\end{document}
+
+ \begin{ibox}[43]{Satz}{CTheorem}
+     Seien $ U \in  \mathbb{R}^n  $ offen, $ x_0 \in U $ und $ f: U \to \mathbb{R}  $ eine $ C^{2} $ Funktion, also zwei Mal
+		 stetig differenzierbar mit $ \text{grad} f \left(x_0\right)  = 0 $ 
+		 Dann gilt:
+		 \begin{enumerate}[label=\alph*)]
+			 \item Ist $ \text{Hess} f \left(x_0\right) \gg 0	 $, so hat $ f $ an der Stelle $ x_0 $ ein isoliertes lokales Minimum
+			 \item Ist $ \text{Hess} f \left(x_0\right) \ll 0	 $, so hat $ f $ an der Stelle $ x_0 $ ein isoliertes lokales Maximum
+			 \item Ist $ \text{Hess} f \left(x_0\right) $ indefinit, so hat $ f $ an der Stelle $ x_0 $ kein lokales Maximum
+		 \end{enumerate}
+ \end{ibox}
+ \begin{proof}
+	 Sei $ A := \text{Hess} f \left(x_0\right) \in  \mathbb{R}^{n \times n}; \; D_{a} f    $ eine $ C^{2} $ Funktion ist, ist $ A $ 
+	 symmetrisch, welsche nach Voraussetzung ist $ A $ positiv definit. \\
+	 Die durch $ A $ gegebene quadratische Form $ Q_{A} $ eine stetige Funktion auf $ \mathbb{R}^n  $. Nimmt also auf dem Kompaktum: 
+	 $$ S := \partial B \left( 0, 1 \right) = \left\{ \zeta \subset \mathbb{R}^n : | \zeta| = 1 \right\}  $$
+		ein Minimum an. Es gibt also $ \xi \in  S $ mit $ Q_{A} \left(\xi\right)  \leq  Q_{A} \left(\zeta\right) \; \forall  \zeta \in S $,
+		wobei positiv Definitheit bedeutet: $ 4 \varepsilon  = Q_{A} \left(xi\right) > 0 $ 
+		Daraus folgt
+		\begin{equation}
+			Q_{A} \left(\zeta\right) \geq 4 \varepsilon |\zeta|^{2} \; \forall \zeta \in  \mathbb{R}^n
+			\tag{1}
+		\end{equation}
+		da: 
+		\begin{align*}
+			Q_{A} \left(S\right)  &= Q_{A} \left( \frac{|\zeta|}{|\zeta|} \zeta  \right)  \\
+			&= |\zeta|^{2} \underbrace{Q_{A} \left( \frac{\zeta}{|\zeta|}  \right) }_{ \geq 4 \varepsilon  } \geq |\zeta|^{2} 4 \varepsilon 
+		\end{align*}
+	Aus  dem Korollar zum Satz 4.1 folgt:
+	\begin{align*}
+		f \left(x\right)  = f \left(x_0\right)  &+ \left< \text{grad} f \left(x_0\right) , \left( x - x_0 \right)  \right> \\
+		&+ \frac{1}{2} \underbrace{ \left< x- x_0, A \left( x - x_0 \right)  \right>}_{= Q_{A}\left( x-x_0 \right)} + \eta \left(x\right)
+	\end{align*}
+	\begin{enumerate}[label=\alph*)]
+		\item Siehe oben 
+		\item Ist $ \text{Hess} f \left(x_0\right)  \ll 0 $, so ist 
+			$$ - \text{Hess} f \left(x_0\right)  = \text{Hess} \left( -f \right) \left(x_0\right) \ll 0 $$
+		Aus a folgt : $ -f $ hat in $ x_0  $ ein isoliertes lokales Minimum 	
+	\item Ist $ A : \text{Hess}f \left(x_0\right) $ indefinit, so gibt es $ \zeta,  \overline{\zeta} \in  \mathbb{R}^n  $ mit 
+	$ |zeta| = | \overline{\zeta}| = 1 $ und $ Q_{A} \left(\zeta\right) =: \alpha > 0  \text{ und } Q_{A} ( \overline{\zeta}) =: 
+	\beta < 0$ 
+	\end{enumerate}
+	Für genügende kleine $ |t| \ll 1 $ liegen die die Punkte $ x_0 + t \zeta_{1} x_0 + t \overline{\zeta} \in U $ und es gilt: 
+	$$ \left| \eta \left( x_0 + t \zeta \right) \right| $$
+ \end{proof}
+
+ \para{10}{Implizite Funktionen}
+Die zentrale Fragestellung dieses Paragraphen ist Folgende: Gegeben sei eine Gleichung (bzw. ein System von $ m $ Gleichung)
+$ F (x,y) = 0 $ durch die Abbildung $ F: U_1 \times U_2 \subset \mathbb{R}^{k} \times \mathbb{R}^m  \to \mathbb{R}^m  $ sowie 
+eine Lösung $ (a,b) $: $ F \left( a,b \right) = 0 $ Gibt es dann eine Umgebung $ V_1 \times V_2 \ni (a,b)  $ in $ U_1 \times U_2 $ 
+und eine Abbildung $ g: V_1 \to V_2 $ mit $ F \left( x, g \left(x\right)  \right) = 0 \; \forall x \in  V_1 $ ? Und wenn ja, ist 
+dieses $ g $ eindeutig? In diesem Fall sagen wir, dass die Abbildung $ g $ durch die Gleichung $ F (x,y) = 0 $ \textit{implizit
+ definiert} ist. 
+ \begin{ibox}[44]{Satz}{CTheorem}
+     Seien $ U_1 \subset \mathbb{R}^{k},\, U_2 \subset \mathbb{R}  $ offene Mengen, $ a \in U_1, b \in U_2 $ und sei 
+		 $ F: U_{1} \times U_2 \to \mathbb{R} \; (x,y) \mapsto F (x,y) $ eine differenzierbar Funktion mit 
+		 $$ \frac{\partial F}{\partial y} (a,b) = 0 $$
+		 Es gebe eine differenzierbare Funktion $ g: U_1 \to U_2  $ mit $ g (a) = b $ und $ F \left( x,g (x) \right) = 0 \; x \in U_1 $ 
+		 Dann gilt: $ \forall j = 1, \cdots,  k $ 
+		 $$ \frac{\partial g}{\partial x_j} (a) = \frac{ - \frac{\partial F}{\partial x_j} (a,b)}{ \frac{\partial F}{\partial y} (a,b)}  $$
+ \end{ibox}
+\begin{proof}
+	Bezeichne mit $ \phi $ die differenzierbare Funktion 
+	\begin{align*} \phi: U_1 &\to U_1 \times U_2 \\ x &\mapsto (x, g(x)) \end{align*}
+So ist die Verkettung $ F \circ \phi $ die konstante Nullfunktion ist. Aus der Kettenregel:
+\begin{align*}
+	0 &= D \left( F \circ \phi \right)(x) \\
+		&= D F (\phi(x)) \cdot D \phi \left(x\right)\\
+		&= \left( \frac{\partial F}{\partial x_1} (x, g(x)) , \cdots, \frac{\partial F}{\partial x_k}  (x, g(x)), 
+		\frac{\partial F}{\partial g}  (x, g(x))\right) \cdot \begin{pmatrix}
+			1 &0 &0 &\cdots &0\\
+			0 &1 &0 &\cdots &0\\
+			\vdots & &\ddots &\cdots &0\\
+			\frac{\partial g}{\partial x_1} (x) &\frac{\partial g}{\partial x_2} (x) &\cdots & &\frac{\partial g}{\partial x_k} (x) 
+		\end{pmatrix}\\
+		&= \left( \frac{\partial F}{\partial x_1} (x,g(x))+ \frac{\partial F}{\partial g} (x,g(x)) \cdot \frac{\partial g}{\partial x_1} 
+		(x), \cdots, \frac{\partial F}{\partial x_k} (x,g(x))+ \frac{\partial F}{\partial g} (x,g(x)) \cdot \frac{\partial g}{\partial x_k}
+		(x), \right) 	
+ \end{align*}
+Für $ x = a $ hat man aus $ g(a) = b $ und $ \frac{\partial F}{\partial y} (a,b) \neq 0  $ also: $ \forall j = 1, \cdots,  k $ 
+$$ \frac{\partial g}{\partial x_j} (a) = - \frac{ \frac{\partial F}{\partial x_j} (a,b)}{ \frac{\partial F}{\partial y} (a,b)} \cdot
+(\text{die obige Matrix})$$
+\end{proof}
+In Verbindung mit der nicht-Entartungsbedingung $ \frac{\partial F}{\partial g} (a,b) \neq 0 $, kann man bereits aus der Stetigkeit
+der impliziert definition Funktion $ g $ auf $ f $ die Differenzierbarkeit schließen. Denn es gilt: 
+\begin{ibox}[45]{Satz}{CTheorem}
+    Seien $ a \in \mathbb{R}^{k}, b \in \mathbb{R}, a, r_{2} > 0 $ sowie $ U_1 = B (a,r_1) \subset \mathbb{R}^{k}, U_2 := B(b,r_2) $
+		Sei ferner $ F: U_1 \times U_2 \to \mathbb{R}  $ eine in $ (a,b) $ differenzierbare Funktion mit $ F (a,b) = 0, 
+		\frac{\partial F}{\partial y} (a,b) \neq 0$ Ist dann $ g: U_1 \to \mathbb{R}  $ ein stetige Funktion mit $ g (a) = b $ 
+		$ g \left(U_1\right) \subset U_2:  F (x,g (x)) = 0 $ so folgt: $ g $ ist an der Stelle $ a $ differenzierbar und es gilt: 
+		$ \forall j = 1 , \cdots,  k $ 
+		$$ \frac{\partial g}{\partial x_j} \left(a\right) = - \frac{ \frac{\partial F}{\partial x_j} (a,b)}{ \frac{\partial F}{\partial y} (a,b)}   $$
+		
+\end{ibox}
+ 
+
+%\end{document}
