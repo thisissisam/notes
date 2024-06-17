@@ -106,19 +106,19 @@ $$ G: \underbrace{ \| \gamma_{ab} \| \times \partial \mathbb{B}(0,1) }_{kompakt}
 
 \begin{ibox}[]{Definition}{CDefinition}
     Seien $ U \subset \mathbb{R}^n  $ offen, $ x_0 \in U $ und $ f: U \to \mathbb{R}  $ eine $ k $-mal stetig partiell differenzierbar
-	Funktion ( $ c^{k} $ ). Dann bezeichnet man für $ 0 \leq  m \leq k $ das duch
+	Funktion ( $ c^{k} $ ). Dann bezeichnet man für $ 0 \leq  m \leq k $ das durch
 	$$ T_{f, x_0, m} \left(x\right) : \sum_{i=0}^{m} \left( \, \sum_{ \substack{ |\alpha| = L \\ \alpha \in \mathbb{N}_{0}^{n} }}
-	\frac{D^{\alpha }f \left(x_0\right) }{\left( x - x_0 \right) ^{\alpha }} \right) $$ 
+	\frac{D^{\alpha }f \left(x_0\right) }{\alpha !} \left( x - x_0 \right) ^{\alpha }\right) $$ 
 		definiert Polynom $ T_{f,x_0,m} $ als \textbf{ $ m $-tes Taylorpolynom von $ f \text{ in } x_0 $ }. Hierbei wird mit 
 	$ |\alpha| : = \alpha_1 +  \cdots + \alpha_n $ die \textbf{Länge des Multiindex} $ \alpha := \left( \alpha_1, \cdots,  \alpha_{n} \right) \in \mathbb{N}_{0}^{n} $ und mit $ \alpha ! $ das Produkt $ \alpha ! := \alpha_1 ! , \cdots,  \alpha_{n} ! $ bezeichnet. Der 
 	\textbf{Differentialoperator} $ D^{\alpha } $ ist für $ \alpha  \in \mathbb{N}_{0}^{n} $ gegeben durch $ D^{\alpha }f = 
 	D_1^{\alpha } \cdots  D_n^{\alpha_n} f \in C^{|\alpha |}$ dabei ist $ D_{\gamma }^{\alpha r} := \underbrace{ D_{\gamma } 
 	D_{\gamma }, \cdots,  D_{\gamma }}_{\alpha \gamma \text{ -mal } } \; \gamma = 1, \cdots,  n \text{ für } y = \left( y_1
-, \cdots,  y_n\right) \in \mathbb{R}^n $	ist mit  $ y^{\alpha } $ die reele Zahl $ y^{\alpha } = y_1^{\alpha_1},
+, \cdots,  y_n\right) \in \mathbb{R}^n $	ist mit  $ y^{\alpha } $ die reelle Zahl $ y^{\alpha } = y_1^{\alpha_1},
 \cdots,  y_n^{\alpha_n} $  gemeint. Wie im Kapitel 7 werde für $ x,x_0 \in \mathbb{R}^n  $ mit $ \upgamma_{x_0x} $ die $ c^{ \infty } $
 -Ableitung $ \upgamma_{x_0x}: \mathbb{R}  \to \mathbb{R}^n  $, $ t \mapsto \upgamma_{x_0x} \left(t\right) := x_0 + t(x-x_0)$ und mit
-$  \left| \upgamma_{x_0x} \right| = \upgamma_{x_0x} \left( \left[ 0,1 \right]  \right)  $ die Verbindugsstrecke von $ x_0 \text{ und }
-x $ bezeichtent. Die Taylorformel für $ C^{k+1} $ Fkten mehrerer veränderlichen lautet dann wie folgt:
+$  \left| \upgamma_{x_0x} \right| = \upgamma_{x_0x} \left( \left[ 0,1 \right]  \right)  $ die Verbindungsstrecke von $ x_0 \text{ und }
+x $ bezeichnet. Die Taylorformel für $ C^{k+1} $ Fkten mehrerer veränderlichen lautet dann wie folgt:
 \end{ibox}
 \begin{ibox}[40]{Taylor}{CTheorem}
 	Seien $ U \subset \mathbb{R}^n  $ offen, $ x_0 \in U $ und $ f:U \xrightarrow{c^{k+1}}$ eine $ (k+1) $-mal stetig 
@@ -131,7 +131,7 @@ x $ bezeichtent. Die Taylorformel für $ C^{k+1} $ Fkten mehrerer veränderliche
  
 \smalltitle[]{Bemerkung:}
 Unter den Voraussetzungen von Satz 40 wird die Funktion $ f $ an der Stell x durch das $ k $-te Taylorpolynom von $ f $ in $ x_0 $ 
-approximiert. Der Fehler $ R_{k+1} \left(x\right)  := f \left(x\right) - T_{f, x_0, k} \left(x\right)  $ dier Approximation, das 
+approximiert. Der Fehler $ R_{k+1} \left(x\right)  := f \left(x\right) - T_{f, x_0, k} \left(x\right)  $ die Approximation, das 
 \textbf{$ k $-te Restglied} in $ x  $ kann in de Form
 $$
 R_{k+1}\left(x\right)  =\sum_{ \substack{ |\alpha | = k+1 \\ \alpha \in \mathbb{N} _{0}^{n} }} \frac{D_{\alpha }f \left(x_0\right) }{
@@ -172,7 +172,7 @@ Seien $ U \in \mathbb{R}^n  $ offen, $ 2 \leq  k \in \mathbb{N}, f \in C^{k} \le
  \parskip=3pt
  Der Beweis ist leicht durch Induktion über $ k $ zu führen. Für $ k=2 $ geht der Hilfssatz in Satz 29 über, nach Induktionsvoraussetzung
  ist die Vertauschung benachbarter $ D_{\gamma } \cdot D_{\mu}$ erlaubt, der Induktionsschritte kann also vollzogen werden, wenn man 
- berücksichtig, dass sich jede Permutaion als Hintereinanderausführung solcher Vertauschungen beschreiben lässt
+ berücksichtigt, dass sich jede Permutation als Hintereinanderausführung solcher Vertauschungen beschreiben lässt
 \end{proof}
 
 Der Hilfssatz besagt, dass in Gl (2) alle Summanden $ D_{i_{l}} \cdots D_{i_1} f \left( \upgamma_{x_0x} \left(t\right)  \right) 
@@ -189,7 +189,7 @@ $ a_{\gamma }$-mal auftritt. $ \left( 1 \leq  \gamma  \leq n , \alpha_1 + \cdots
 		&= \sum_{ \substack{ |\alpha | = l \\ \alpha \in \mathbb{N}_{0}^{n} }} l ! \frac{D^{\alpha }f \left( \upgamma_{x_0x} 
 		\left(t\right) \right) }{\alpha !} \left( x - x_0 \right)^{\alpha }
 \end{align*}
-Damit ist sowohl (1), als auch der Taylorsche Satz bewiesen.
+Damit ist sowohl (1), als auch der Taylorschen Satz bewiesen.
 
 
 %\end{document}
