@@ -116,8 +116,8 @@ $$ \frac{\partial h}{\partial x_{i}} (x_0) = \sum_{j=1}^{m} \frac{\partial f }{\
 \begin{ibox}[37]{Satz}{CTheorem}
     Seien $ U \subset  \mathbb{R}^n  $ offen und $ f: U \to \mathbb{R}  $ eine total differenzierbar Funktion. Seien $ a,b \in U $
 	zwei Punkte, deren Verbindungsstrecke $ \left| \gamma_{ab} \right| := \left\{ \gamma_{ab} := a + t(b-a); \; 
-	t \in [1,0] \right\} \subset  U \text{ in } U $ enthalten ist. Dann gibt es ein $ \xi \in \left| \gamma_{ab} \right|  $ 
-	derart dass $ f(b) = f(a)+ Df(\xi) \cdot (b-a)  $ gibt.
+	t \in [0,1] \right\} \subset  U \text{ in } U $ enthalten ist. Dann gibt es ein $ \xi \in \left| \gamma_{ab} \right|  $ 
+	derart, dass $ f(b) = f(a)+ Df(\xi) \cdot (b-a)  $.
 \end{ibox}
 \begin{proof}
 	Die Abbildung $ \gamma_{ab}: [0,1] \to U \; t \mapsto \gamma_{ab}(t) = a + t(b-a) $ ist differenzierbar auf $ \mathbb{R}  $ 

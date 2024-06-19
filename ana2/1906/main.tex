@@ -1,0 +1,83 @@
+%	\documentclass[12pt, a4paper]{memoir}
+%	
+%	\input{../../modal/note.tex}
+%	
+%	\begin{document}
+\begin{proof}
+	Es seien $ A := \frac{\partial F}{\partial x} (a,b) := \left( \frac{\partial F}{\partial x_i} (a,b) , \cdots,  \frac{\partial F}{\partial x_k} (a,b) \right)   $  und $ B := \frac{\partial F}{\partial y} (a,b) \neq 0 $ 
+	Nach Definition der Differenzierbarkeit von $ F $ in $ (a,b) $ hat die durch 
+	\begin{equation}
+		F (x,y) = F (a,b) + A \cdot (x-a) + B \cdot (y-b) + \varphi (x,y) \; ; \forall x,y \in U_1 \times U_2
+		\tag{1}
+	\end{equation}
+	definiert Fehlerfunktion $ \varphi : U_1 \times U_2 \to \mathbb{R}  $ die Eigenschaft 
+	\begin{equation}
+	\varphi (a,b) = 0 ; \; \lim_{ \substack{ a \neq x \to a \\ b \neq y \to b} } \frac{\varphi(x,y)}{ |x-a| + |y-b|} = 0  
+	\tag{2}
+\end{equation}
+
+Wegen $ F (x, g (x) ) = 0 $ auf $ U_1 $  folgt aus (1) in Verbindung mit $ F (a,b) = 0 $ die Gleichung  
+\begin{equation}
+g (x) = b - \frac{1}{B} \cdot A \cdot (x-a) - \frac{1}{B} \cdot \varphi( x,g (x) ) \; \forall x \in U_1	
+	\tag{3}
+\end{equation}
+so dass, wegen $ g (a) = b $ zum Beweis des Satzes nur noch zu zeigen ist:\\
+\textbf{Behauptung 1: }
+Die durch $ \psi := = \frac{1}{B} \varphi \left( x, g (x)  \right)  $ definiert Fehlerfunktion $ \psi : U_1 \to \mathbb{R}  $ hat die 
+Eigenschaft $ \lim_{ \substack{ x \to a \\ x \neq a } }\frac{\varphi (x) }{|x-a|} = 0   $ 
+Wir werden den Beweis der Behauptung 1 auf folgendes Resultat zurückführen:\\
+\textbf{Behauptung 2:} Die Funktion $ g $ ist Lipschitz-stetig in $ a $, das heißt
+$$
+\exists 0 < \delta < r_1, \, \exists L > 0 : \; 
+| g (x)  - g (a)| \leq L \cdot | x - a | \; \forall x \in B(a,\delta) \subset U_1
+$$
+\textit{\textbf{Beweis der Behauptung 2:} } Sei $ c_1 := \frac{|A|}{|B|}  $ die euklidische Länge des Vektors  $ \frac{1}{B} \cdot A 
+\in \mathbb{R}^k$ und sei $ c_2 := \frac{1}{|B|}  $. Wegen (2) existiert ein $ 0 < \delta_1 < \text{ min} \left\{ r_1,r_2 \right\}   $ 
+derart, dass $ | \varphi (x,y)| \leq  \frac{1}{2 c_2}  \left( |x-a| + |y-b| \right) \; \forall x \in  B(a, \delta) $ und 
+$ \forall y \in  B(b,\delta_1) $ gilt. Da die Funktion $ g $ mit $ g (a) = b  $ an der Stelle $ a $ stetig ist, können wir ein 
+$ 0< \delta < delta_1 $, so wählen, dass $ g (x)  \in B(b, \delta_1) \; \forall x \in B (a,\delta) $ erfüllt ist, Daraus folgt dann
+$ |\varphi(x, g (x) ) | \leq  \frac{1}{2 c_2}  \left( |x-a| + |g(x) - g (a) | \right) \; \forall x \in B (a,\delta) $ und in 
+Verbindung mit (3) erhält man $ |g (x) - g (a) | \leq  c_1 |x-a|+ c_2 |\varphi \left( x, g (x)  \right)| \leq 
+c_1 |x-a| + \frac{1}{2} \left( |x-a| + |g (x) - g (a) | \right) \; \forall x \in  B (a, \delta) $  
+Was zu $ |g (x) - g (a) | \leq (2c_1 + 1) |x - a| =: L |x-a| \; \forall x \in  B (a, \delta ) $.
+\textit{\textbf{Beweis der Behauptung 1:} } Wir fixieren $ \delta > 0 \text{ und }  L > 0  $ wie in Behauptung 2. Ist $ \varepsilon > 0$ 
+beliebig vorgegeben, so können wir wie beim Beweis der Behauptung 2 im Hinblick auf (2) und die Stetigkeit von $ g $ ein 
+$ 0 < \delta' < \delta $ so wählen, dass die Abschätzung 
+$$ | \psi (x) | = c_2 \left| \varphi \left( x, g(x)\right) \right| < \frac{\varepsilon }{1 + L} \left( |x-a| + |g (x) - g (a)|\right)
+ \; \forall x \in B \left( a, \delta' \right)  $$
+gültig ist. Wegen der Lipschitz-Stetigkeit von $ g $ in $ a $ ergibt sich sofort 
+$$ | \psi|<  \frac{\varepsilon }{1 + L} \left( |x-a| + |g (x) - g (a)|\right) \leq  \frac{\varepsilon }{1 + L} 
+\left( |x-a| + L|x-a|\right) \varepsilon |x-a| \; \forall x \in B (a, \delta') $$
+womit sowohl Behauptung 1 als auch Satz 45 bewiesen wären.
+\end{proof}
+Ist in der Situation des Satzes 45 die Funktion $ F $ sogar \textit{stetig differenzierbar} auf $ U_1 \times U_2 $, so impliziert das 
+Nicht-Verschwinden von $ \frac{\partial F}{\partial y} (a,b) $ die Existenz einer offenen Umgebung $ (a,b) \subset   V_1 \times V_2
+\subset  U_1 \times U_2$ des Punktes $ (a,b) $ mit $ \frac{\partial F}{\partial y} (x,y) \neq 0 \; \forall  (x,y) \in  V_1 \times V_2	$.
+In diesem Fall ist die implizit definierte Funktion $ g $ aufgrund der Stetigkeit der partiellen Ableitungen von $ F $ \textit{sogar 
+differenzierbar auf }$ V_1 = V_1 (a)  $! In erster Linie bemerkenswert ist allerdings eine andere Tatsache: Die stetige
+Differenzierbarkeit von $ F $ auf $ U_1 \times U_2 $ in Verbindung mit der Nicht-Entartungsbedingung $ \frac{\partial F}{\partial y} 
+\neq 0$ garantiert \textit{die lokale Existenz} stetiger durch $ F \left( x,y \right) = 0 $ implizit definierte Funktion wie in 
+Satz 45.
+
+\begin{ibox}[46]{Satz}{CTheorem}
+    Seien $ a \in \mathbb{R}^{k}, b \in R, r_1, r_2 > 0	$ sowie $ U_1 := B (a,r_1), U_2 := B (a,r_2) \subset \mathbb{R}  $ Sei ferner
+		\begin{align*}
+			F: U_1 \times U_2 & \to \mathbb{R} \\
+			(x,y) & \mapsto F(x,y)
+		\end{align*}
+	eine stetig differenzierbar Funktion mit $ F (a,b)  = 0, \; \frac{\partial F}{\partial y} (a,b) \neq 0 $. Dann gibt es offene 
+	Umgebung $ V_1 = V_1 (a)  \subset U_1, \; V_2 = V_2 (b)  \subset U_2 $ und eine stetige Funktion $ g: V_1 \to V_2 $ mit 
+	$ g (a) = b, \; F \left( x, g(x) \right) = 0 \; \forall  x \in V_1 $, welsche die Auflösung der Gleichung $ F (x,y) = 0 $ nach $ y $ 
+	auf $ V_1 \times V_2 $ ermöglicht, insofern als gilt $ \forall (x,y) \in  V_1 \times V_2 $ mit $ F (x,y) = 0 $ folgt $ y = g (x)  $.
+\end{ibox}
+\smalltitle[]{Bemerkung}
+Wie oben erklärt, kann man durch eventuelle Verkleinerung von $ V_1 = V_1 (a)  $ erreichen, dass $ g $ auf $ V_1 $ stetig
+differenzierbar ist. Nach Satz 44 ist das Differential von $ g $ in $ x \in V_1 $ durch 
+$$ \frac{\partial g}{\partial x_j} (x) = - \frac{ \frac{\partial F}{\partial x_j}( x, g (x))  }{ \frac{\partial F}{\partial y} 
+(x, g(x))} $$
+$ \forall j = 1, \cdots,  k  $ festgelegt.
+\begin{proof}
+	Unser Beweis enthält den Kern Newton Verfahrens und den Kern des Fixpunkterhaltes dynamische System.
+\end{proof}
+
+%\end{document}
