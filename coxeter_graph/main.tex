@@ -1,0 +1,197 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper, margin=1.2in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm} 
+\usepackage{svg}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{import}
+\usepackage{float}
+\usepackage{mathrsfs}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+
+\title{Coxeter Graphs}
+\author{Sisam Khanal}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\section*{Introduction}
+There are infinitely many finite Coxeter systems. Our goal is to classify them (up to isomorphism), reduce them 
+into irreducible components and study them.
+\section{Group Theory}
+\begin{theorem}
+	Let $ G $ be a group with normal subgroups $ H  $ and $ K $ satisfying the following conditions:
+	\begin{itemize}
+		\item $ G = H K = \left\{ h k : h \in H , \; k \in K \right\}  $,
+		\item $ H \cap K = \left\{ e \right\}  $,
+	\end{itemize}
+then $ G \cong H \times K $ 
+\end{theorem}
+\begin{proof}
+Let $ \phi : G \to H \times K; \; g \mapsto (h,k)  $. To show that $ \phi $ is an isomorphism, we need to show $ \phi $ 
+is well defined, preserves group operation and is bijective.  \vspace{0.8em} \\
+\emph{Well defined}. Since $ G = H K $ let $ g = h k \text{ and } g = h' k' $ where $ g \in G, \; h, h' \in H  $ and
+$ k, k' \in K $. $ \implies h k = h' k' \implies \underbrace{ h'^{-1} h}_{ \in H} = \underbrace{ k' k^{-1}}_{ \in K} $
+But since $ H \cap K = \left\{ e \right\}  $ it follows that $ h'^{-1} h = e \implies h = h' $ likewise $ k = k' $. 
+With that $ \phi $ is well defined.\\
+\smallbreak
+\noindent \emph{Preserves group operation.} 
+Consider the product $ h k h^{-1} k^{-1} $ 
+$$ h \underbrace{ \left( k h^{-1} k^{-1} \right) }_{ \in H} \in  H \; \;  \text{ and } \; \; 
+\underbrace{ \left( h k h^{-1} \right) }_{ \in  K} k^{-1} \in K$$
+$ \implies h k h^{-1} k^{-1} = e \implies  h k = k h  $. The subgroups $ H $ and $ K $ commute.\\
+And now
+\begin{align*}
+	\phi (g_1 g_2) &= \phi \left( h_1 k_1 h_2 k_2 \right) \\
+								 &= \phi \left( h_1 h_2 k_1 k_2 \right) && \text{since $ h_2 $ and $ k_1 $ commute }\\ 
+								 &= \left( h_1 h_2, k_1 k_2 \right) \\
+								 &= (h_1,k_1) (h_2,k_2) \\
+								 &=  \phi (g_1) \phi (g_2) 
+\end{align*}
+\bigbreak
+\noindent \emph{Bijection.} 
+It is clear that $ \left| H \times K \right| = \left| \phi \left( G \right)  \right| = \left| G \right| $. Thus bijection. 
+\end{proof}
+
+\section{Coxeter Graphs}
+$ W $ is determined up to isomorphism by the set of integers $ m \left( \alpha , \beta \right)  $ where
+$ \alpha, \beta \in \Delta$. We construct a weighted graph whose vertices are the element of $ \Delta $. We lable the edge between the vertex $ \alpha  $ and $ \beta \in \Delta $ with $ m \left(\alpha, \beta \right)$, if $ m \left( \alpha ,\beta  \right) \geq 3 $.  Since the weight 3 occurs frequently, we shall omit it while drawing the graph. For a pair of vertices not joined by an edge, it is understood that $ m \left( \alpha ,\beta  \right) = 2$. Such a weighted graph is called \textbf{Coxeter Graph} and denoted by $ \Gamma $.
+\vspace{0.6em} \\
+\emph{Examples.}
+\begin{itemize}
+	\item For a coxeter system $ \left( W, S \right)$, subject only to $ m \left( \alpha ,\beta  \right) = 2 \text{ for } \alpha , \beta \in \Delta $ we have the following graph:
+		\begin{figure}[H]
+			\centering
+			\includesvg[height = 1.3em]{./path1.svg}
+		\end{figure}
+		This is the coxeter graph consisting of the orthogonal transformations which preservers the symmetries a triangle. 
+	\item When $ S_{n} $ acts on $ \mathbb{R}^n $, it permutes the basis vectors resulting in reflections. As an example, 
+		$ S_2 $ acting on $ \mathbb{R}^{2} $ it switches the $ y$-axis with the $ x$-axis resulting a reflection about 
+		$ H_{\left( 1, -1 \right) } $. Every element of $ S_n $ can be represented with $ n-1 $ transpositions, which 
+		act like reflections. Hence the coxeter graph for $ S_n $ contains $ n-1 $ vertices.
+		\begin{figure}[h]
+			\centering
+			\includesvg[height = 1.3em]{./An.svg}
+		\end{figure}
+\end{itemize}
+\section{Isomorphism}
+Here we give a more precise criterion for reflection groups to be isomorphic. 
+
+\begin{theorem}
+	For $ i = 1,2 $ let $ W_i $ be finite reflection groups acting on the euclidean space $ V_i $. Assume $ W_i $ is 
+	essential, meaning it reflects every non-zero point in $ V_i $. If $ W_1 \text{ and  } W_2 $ have the same 
+	Coxeter graph, then there is an isometry (distance and angle preserving transformation) of $ V_1 $ onto $ V_2 $ 
+	inducing an isomorphism of $ W_1 \text{ onto } W_2 $. In particular, if $ V_1 = V_2 $, the subgroups $ W_1 \text{ and }
+	W_2 $ are conjugate in $ O (V)  $ 
+\end{theorem}
+
+\begin{proof}
+	First we fix a simple system $ \Delta_i \text{ for } W_i $. $ \Delta_i $ is a basis of $ V_i $ and all roots are of
+	unit length. Let $ \varphi: \Delta_1 \to \Delta_2 $, such that the Coxeter graph remains unchanged. This means that
+	$ m \left( \alpha , \beta  \right)  = m \left( \varphi (\alpha), \varphi (\beta) \right)$. $ \varphi $  
+	then extends to a vector space isomorphism of $ V_1 $ onto $ V_2 $. Let $ \alpha  \neq \beta , \alpha \in \Delta $ then
+	the angel between them is $ \theta = \pi - \frac{\pi}{m (\alpha,\beta) }  $, because $ \left( \alpha ,\beta \right)
+	\leq 0 $. Then
+	$$
+	\left( \alpha ,\beta \right) = \cos \theta = \cos \left( \pi - \frac{\pi}{m  
+	\left( \alpha ,\beta \right)}  \right) = - \cos \left(  \frac{\pi}{m  \left( \alpha ,\beta \right)} \right)
+	$$
+	The same calculations applies to the scalar product of the roots in $ \Delta_2 $ corresponding to $ \alpha , \beta  $ 
+	since the same $ m (\alpha,\beta) $. The scalar product is preserved, hence making $ \varphi $ an isometry. Which 
+	induces an isomorphism of $ W_1  $ onto $ W_2 $. 
+	\\
+	When $ V_1 = V_2 $ we get $ \varphi w_1 \varphi ^{-1} \in W_2 $ where $ \varphi \in O(V) $ 
+\end{proof}
+
+\section{Irreducible components}
+We say that the Coxeter system $ \left( W, S \right) $ is \textbf{irreducible} if the Coxeter graph $ \Gamma $ is
+connected. We also say that the root system $ \Phi $ is irreducible in this case. Let $ \Gamma  $ be a Coxeter 
+graph and  $ \Gamma_1, \ldots, \Gamma_r$ it's connected (to themselves) components, and let $ \Delta_i, S_i $ be the corresponding set 
+of simple roots and simple reflections.
+\vspace{0.6em}\\
+If two roots $ \alpha \in \Delta_i, \beta \in \Delta_j $, since we assumed that $ \Delta_i \in S_i, \Delta_j \in S_j $ to be 
+irreducible, we have $ m \left( \alpha ,\beta  \right) = 2 $ and therefore $ s_{\alpha } s_{\beta } = s_{\beta } s_{\alpha } $. 
+The theorem below tells that, all Coxeter systems can be broken down into irreducible components and studied independently.
+
+\begin{theorem}
+	Let $ \left( W, S \right) $ have Coxeter graph $ \Gamma  $, with connected components $ \Gamma_1, \ldots, \Gamma_r $ and let 
+	$ S_1, \ldots, S_r $ be the corresponding subsets of $ S $. Then $ W $ is the direct product of the parabolic subgroups 
+	$ W_{S_1}, \ldots, W_{S_r} $ and each Coxeter system $ \left( W_{S_i}, S_i \right)  $ is irreducible.
+\end{theorem}
+
+\begin{proof}
+	We divide the proof into 2 parts. In the first part (I), we prove the theorem for the Coxeter graph $ \Gamma $  to the Coxeter system 
+	$ \left( W,S \right) $ containing two components namely $ \Gamma_1 \text{ and } \Gamma_2 $, for which $ S_1 \text{ and } S_2 \subset S $.
+	Then in the second part (II), using the result of the first part we induce on r. 
+\paragraph{I.} As we have seen before, the elements of $ S_1 \text{ and } S_2 $ commute. $ \forall \alpha \in S_1, \forall \beta \in S_2: $
+	$$
+	s_{\alpha } s_{\beta } = s_{\beta } s_{\alpha } \iff s_{\alpha } s_{\beta } s_{\alpha }^{-1} = s_{\beta } \implies 
+	s_{\alpha } W_{S_2} s_{\alpha }^{-1} = W_{S_2}
+	$$
+
+Making $ W_{S_1} \text{ and } W_{S_2}  $ normal in $ W $. Moreover the $ S = S_1S_2 = \left\{ 
+	s_1 s_2 |\, s_1 \in S_1, s_2 \in S_2\right\}  $. As $ S_1 $ is the generator of $ W_{S_1} $ and $ S_2 $ of $ W_{S_2} $, we get $ W = W_{S_1} W_{S_2} $. 
+	Since the graph has two components $ \Gamma_1 \text{ and } \Gamma_2 $ corresponding to $ W_{S_1} \text{ and } W_{S_2} $, making their 
+	intersection trivial. $ W_{S_1} \cap W_{S_2} = \left\{ e \right\} $. The subgroups $ W_{S_1} \text{ and } W_{S_2}$ fulfill all the conditions of 
+	the theorem 1.1, making $ W $ isomorphic to the direct product of $ W_{S_1} \text{ and } W_{S_2} $. 
+	$$ W \cong W_{S_1} \times W_{S_2} $$
+	\paragraph{II}
+	Inducing on $ r $. $ r -1 \to r $: For $ i = 1 , \cdots,  r-1   $   we have, $ S_i $ commutes with $ S_r \implies W_i $ normal to $ W_r \; $ and $ W = \left( W_1 W_2 \ldots _{r-1} \right) W_{r} $ and their intersection is trivial. Resulting in: 
+	$$ W \cong W_1 \times W_2 \times \cdots \times W_{r}$$
+\end{proof}
+\section{Some positive definite Coxeter graphs}
+To every Coxeter graph $ \Gamma  $  we define a Matrix  $n \times n $ symmetric Matrix $  A $ called \textit{schläfli matrix}  with the following entries:
+$$ a (s,s' )  := \left( s, s' \right) = - \cos \frac{\pi}{m \left( s, s' \right) }  $$
+We call $ \Gamma  $ positive definite or positive semidefinite when the associated schläfli matrix $ A $ has corresponding property. 
+When $ \Gamma  $ represents a finite reflection group $ W $ the associated matrix $ A $ is positive definite as we will see 
+in the examples following. 
+\\\smallbreak
+\noindent\begin{minipage}[b]{0.3\textwidth}
+    \textbf{$I_2 (m) $:}
+\end{minipage}%
+\begin{minipage}[b]{0.2\textwidth}
+    \includesvg[height=1.4em]{./I2m.svg}
+\end{minipage}
+\\\smallbreak
+\noindent\begin{minipage}[b]{0.3\textwidth}
+ \textbf{$A_n \, (S_{n-1}) $:}
+\end{minipage}%
+\begin{minipage}[b]{0.2\textwidth}
+    \includesvg[height=1.3em]{./An.svg}
+\end{minipage}
+\\\smallbreak
+\noindent\begin{minipage}[b]{0.3\textwidth}
+\textbf{$B_n \left( n \geq 2 \right) $:}
+\end{minipage}%
+\begin{minipage}[b]{0.2\textwidth}
+    \includesvg[height=1.6em]{./Bn.svg}
+\end{minipage}
+\\\smallbreak
+\noindent \textbf{$D_n \left( n \geq 4 \right) $:} \hspace{5.7em}
+\begin{minipage}[h]{1em}
+\includesvg[height=5.6em]{./Dn.svg}
+\end{minipage}
+\paragraph{$ I_2 (m)$:} 
+The corresponding schläfli matrix is 
+$$ 2A = \begin{pmatrix}
+	2 & -2\cos \left( \frac{\pi}{m}  \right)\\
+	-2\cos \left( \frac{\pi}{m}  \right) & 2
+\end{pmatrix}
+ $$
+The determinant: $ \text{det}2A = 4 \sin ^{2}\left( \frac{\pi}{m}  \right) \geq 0  \implies $ positive definite.\\
+\smallbreak
+\paragraph{ \textbf{$ A_n $}:}The corresponding schläfli Matrix is
+$$ 2A = \begin{pmatrix}
+	2 & -1 &0 &0 &\cdots &0 \\
+	-1 &2 &-1 &0 & \cdots &0 \\
+	0 & -1 & 2 &1 & \cdots &0 \\
+	\vdots & & & \ddots  & &0 \\
+	0 & \cdots & &-1 &2 &-1
+\end{pmatrix} $$
+$ \text{det} 2A = 2 d_{n-1} -  d_{n-2} = n+1 $ 
+\end{document}

@@ -46,16 +46,16 @@ Daran kann man sofort ablesen, dass folgende Satz richtig ist.
 	\begin{proof}
 		Wie in Analysis 1 für reellwertige Funktionen. 
 	\end{proof}
-Eine \textit{Productregel} gilt in folgender Form:
+Eine \textit{Produktregel} gilt in folgender Form:
 \begin{ibox}[34]{Definition}{CDefinition}
     Seien $ U \subset \mathbb{R}^n  $ offen, $ x_0 \subset U $ die Abbildung $ f = \left( f_1, \cdots, f_{m} \right) 
-	:U \to \mathbb{R}^m$ und die Funktion $ g: U \to \mathbb{R}  $ siene total differenzierbar in $ x_0 $ . Dann gilt:
-	Die Abbildung $ \left( f \circ g \right) : U \to \mathbb{R}^m \; x \mapsto \left( f_1(g_1(x)), \cdots, f_{m}(g_{x}(x_m)) \right) $ 
+	:U \to \mathbb{R}^m$ und die Funktion $ g: U \to \mathbb{R}  $ seine total differenzierbar in $ x_0 $ . Dann gilt:
+	Die Abbildung $ \left( f \cdot g \right) : U \to \mathbb{R}^m \; x \mapsto \left( f_1(g_1(x)), \cdots, f_{m}(g_{x}(x_m)) \right) $ 
 	ist in $ x_0 $ total differenzierbar mit
 	$$
-	\underbrace{ D \left( f \circ g \right) (x_0)}_{(m\times n)-Matrix} =
+	\underbrace{ D \left( f \cdot g \right) (x_0)}_{(m\times n)-Matrix} =
 	\underbrace{f\left( x_0 \right)}_{(m\times 1)} \cdot \underbrace{Dg(x_0)}_{(1\times n)} +
-	g(x_0)\underbrace{ Df(x_0)}_{(m\times n )- Matrix}
+	g(x_0)\underbrace{ Df(x_0)}_{(m\times n )}
 	$$
 \end{ibox}
 
@@ -85,8 +85,8 @@ $$ \frac{\partial h}{\partial x_{i}} (x_0) = \sum_{j=1}^{m} \frac{\partial f }{\
     Sei $ U \subset  \mathbb{R}^n  $ offen, ferner $ x_0 \in U $ und $ f: U \to \mathbb{R}  $ eine 
 	Funktion auf $ U $. Dann bezeichnet man für $ \upsilon \in  \mathbb{R}^n \ \{0\} $ den Grenzwert 
 	$$ D_{\upsilon}f(x_0) := \lim_{t \to 0} \frac{f(x_0 + t \cdot \upsilon)-f(x_0)}{t}  $$
-	(im Falle siner Existenz) als \textit{Richtungsableitung von $ f $ an der Stell $ x_0 $ in Richtug $ \upsilon $ } 
-	und nennt $ f $ \textit{ an der Stell $ x_0 $ in Richtug $ \upsilon $ differenzierbar} 
+	(im Falle sinner Existenz) als \textit{Richtungsableitung von $ f $ an der Stell $ x_0 $ in Richtung $ \upsilon $ } 
+	und nennt $ f $ \textit{ an der Stell $ x_0 $ in Richtung $ \upsilon $ differenzierbar} 
 \end{ibox}
 
 \begin{ibox}[36]{Satz}{CTheorem}
@@ -103,9 +103,9 @@ $$ \frac{\partial h}{\partial x_{i}} (x_0) = \sum_{j=1}^{m} \frac{\partial f }{\
 	 \; t \mapsto g(t) = x_0 + t \upsilon$  ist differenzierbar auf $ \mathbb{R}  $, und es ist $ g(0) = x_0 $. 
 	 Aufgrund der Stetigkeit von $ g $ an der stelle $ 0 $ existiert ein Intervall $ I_{\varepsilon} = \left( - \varepsilon 
 	 , \varepsilon \right) \in \mathbb{R}  $ so dass $ g \left( I_{ \varepsilon } \right) \subset  B(x_0,t) $ gilbt, hierbei
-	 sie $ r > 0 $ so gewahlt, dass $ B(x_0, r) \subset U $ erfüllt ist, was aufgrund der Offenheit von $ U $ möglich ist.
+	 sie $ r > 0 $ so gewählt, dass $ B(x_0, r) \subset U $ erfüllt ist, was aufgrund der Offenheit von $ U $ möglich ist.
 	 Dann ist die Funktion $ h:=(f \circ g): I_{ \varepsilon } \to \mathbb{R} \; t \mapsto h(t) := f(x_0+t \upsilon) $ 
-	 differenzierbaran der Stelle $ t = 0 $, und nach dem Korollar zur Kettenregel gilt:
+	 differenzierbar der Stelle $ t = 0 $, und nach dem Korollar zur Kettenregel gilt:
 	 $$ D_{\epsilon}f(x_0) = \lim_{t \to 0} \frac{f(x_0+t \upsilon) - f(x_0)}{t} = h'(0) = 
 	 \sum_{i = 1}^{n} \frac{\partial f}{\partial x_{i}} (x_0) \frac{dg_{i}}{t}(0) 
 	 $$
@@ -123,7 +123,7 @@ $$ \frac{\partial h}{\partial x_{i}} (x_0) = \sum_{j=1}^{m} \frac{\partial f }{\
 	Die Abbildung $ \gamma_{ab}: [0,1] \to U \; t \mapsto \gamma_{ab}(t) = a + t(b-a) $ ist differenzierbar auf $ \mathbb{R}  $ 
 	mit $ D \gamma_{ab}(t) = (b-a) \; \forall t \in \mathbb{R}  $. Da $ \left| \gamma_{ab} \right| = \gamma_{ab}([0,1]) \subset  U $
 	gilt und $ f $ auf $ U $ differenzierbar ist, ist die Komposition $ \left( f \cdot \gamma_{ab} \right) : [0,1] \to \mathbb{R}  $ 
-	eine auf $ [0,1]  $ differenzierbare Funktion, auf die dier Mittelwertsatz für funktionen eine Variabel anwendbar ist. 
+	eine auf $ [0,1]  $ differenzierbare Funktion, auf die der Mittelwertsatz für Funktionen eine Variabel anwendbar ist. 
 	Daher $ \exists t_0 \in (0,1) $ so dass
 	\begin{equation}
 	\left( f \circ \gamma_{ab} \right) (1) = \left( f \circ \gamma_{ab} \right) (0) + 
