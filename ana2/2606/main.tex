@@ -1,26 +1,37 @@
-\documentclass[a4paper]{memoir}
-\input{../../modal/note.tex}
-\begin{document}
+%\documentclass[a4paper]{memoir}
+%\input{../../modal/note.tex}
+%\begin{document}
 \begin{ibox}[46]{Satz}{CTheorem}
     $ F: U_1 \times U_2 \in \mathbb{R}^{k} \times \mathbb{R}  \to \mathbb{R}  $ stetig differenzierbar. $ F \left( a,b \right) = 0, 
-		\frac{\partial F}{\partial y} (a,b) \neq 0 \implies\\  \exists! g: \underbrace{V_1}_{U_1} \to \underbrace{V_2}_{U_2}$. 
+		\frac{\partial F}{\partial y} (a,b) \neq 0 \implies\\  \exists!  g  : V_1 \in U_1 \to V_2 \in U_2$. 
 		$ \forall (x,y) \in V_1 \times V_2$:
 		$$ F (x,y) = 0 \iff y = g (x)  $$
 \end{ibox}
 \begin{ibox}[47]{Satz}{CTheorem}
-	Sei $ F  $ wie in (A) differenzierbar mit $ \text{det} \left( \frac{\partial F}{\partial y } (a,b) \right) \neq 0 $ und sei $ g $  
+	Seien $ U_1 \in \mathbb{R}^k, U_2 \in \mathbb{R}^m  $ offen, $ a \in U_1, b \in  U_2 \text{ und }  F = \left( F_1 , \cdots,  F_m \right) 
+	: U_1 \times U_2 \to \mathbb{R}^m $ differenzierbar mit 
+	$$ F (x,y) = \begin{pmatrix}
+		F_1 (x,y) \\
+		\vdots \\
+		F_m (x,y) 
+	\end{pmatrix}$$
+	eine Abbildung mit $ F (a,b) = 0 \in \mathbb{R}^m  $ 
+	 und sie $ \text{det} \left( \frac{\partial F}{\partial y } (a,b) \right) \neq 0 $ und sei $ g  = \left( g_1 , \cdots,  g_{m} \right): 
+	 U_1 \to U_2$ eine Abbildung d.h $ g (U_1) = U_2 $ mit $ g(a) = b \text{ und } f \left( x, g (x)  \right) = 0 \; \forall x \in U_1 $ 
 	wie in (B) differenzierbar. Dann gilt:
 	$$
 	\text{Dg} (a) = - \left( \frac{\partial F}{\partial y} (a,b)  \right)^{-1} \cdot \left( \frac{\partial F}{\partial x} (a,b)  \right) 
 	$$
 \end{ibox}
-\begin{ibox}[45]{Satz}{CTheorem}
-	Sei $ F $ wie in (A) differenzierbar in $ (a,b)  $ mit $ U_1 = B (a, \tau_1) \subseteq \mathbb{R}^{k}, U_2 = B (a, \tau_2) \subseteq \mathbb{R}^{m} $ und $ \text{det} \left( \frac{\partial F}{\partial y} (a,b)  \right) \neq 0 $. Sei $ g $ wie in (B) stetig. Dann ist 
+\begin{ibox}[48]{Satz}{CTheorem}
+	Sei $ F $ wie in Satz 47 definiert und  differenzierbar in $ (a,b)  $ mit $ U_1 = B (a, \tau_1) \subseteq \mathbb{R}^{k}, U_2 = B (a, \tau
+	_2) \subseteq \mathbb{R}^{m} $ und $ \text{det} \left( \frac{\partial F}{\partial y} (a,b)  \right) \neq 0 $. Sei $ g $ wie in Satz 47 
+	stetig. Dann ist 
 	$ g $ differenzierbar in $ a $ mit 
 	$$ \text{Dg} (a) = - \left( \frac{\partial F}{\partial y} (a,b)  \right) ^{-1} \cdot \left( \frac{\partial F}{\partial x}(a,b)\right)$$
 \end{ibox}
 \begin{ibox}[49]{Satz über implizite Abbildungen}{CTheorem}
-    Sei $ F $ wie in A stetig differenzierbar mit $  U_1 = B (a, \tau_1) \subseteq \mathbb{R}^{k}, U_2 = B (a, \tau_2) 
+    Sei $ F $ wie in Satz 47 stetig differenzierbar mit $  U_1 = B (a, \tau_1) \subseteq \mathbb{R}^{k}, U_2 = B (a, \tau_2) 
 		\subseteq \mathbb{R}^{m} $ und $ \text{det} \left( \frac{\partial F}{\partial y } (a,b)  \right) \neq 0  $  
 		Dann gibt es offene Umgebungen $ V_1 \subseteq U_1 $ von $ a $, $ V_2 \subseteq U_2 $ von $ b $ und $ g: V_1 \to V_2 $ stetige 
 		Abbildung, sodass: $ \forall (x,y) \in V_1 \times V_2 $ 
@@ -33,4 +44,63 @@
  $  \left( f | _{W_2} \right) \circ g = \text{id}_{W_2} $ 
 \end{ibox}
 
-\end{document}
+\para{11}{Methode der Langrange'schen Multiplikatoren}
+\begin{ibox}[]{Parametergebiet}{CDefinition}
+	Ein beschränktes Gebiet $ P \subseteq \mathbb{R}^n  $ heißt \textit{Parametergebiet}, wenn $ \partial P = \partial ( \overline{P}) $ 
+\end{ibox}
+
+\begin{ibox}[]{Parametrisiertes Flächenstück}{CDefinition}
+    Sei $ P \subseteq \mathbb{R}^p $ ein Parametergebiet. Ein parametrisiertes Flächenstück über $ P $ ist eine stetig 
+		differenzierbar Abbildung $ \varphi : P \to \mathbb{R}^n  $, sodass: 
+		\begin{itemize}
+			\item $ \varphi  $ injektiv
+			\item rang $ D \varphi (x) = p \; \forall x \in  P$ 
+			\item Ist $ x_0 \in P \text{ und }  \left( x_{y} \right)_{y} \text{ s.d. } \lim_{ y \to 0} \varphi_{y} = \varphi (x_0) $.
+				so ist $ \lim_{ y \to \infty x_{y} = x_0}  $ 
+		\end{itemize}
+	Die Zahl $ p $ heißt die Dimension des Flächenstücks. Für $ p = 1 $ heißt $ \varphi  $ auch \textit{glatter Weg} 	
+\end{ibox}
+
+\begin{ibox}[]{Glatte Fläche, Untermannigfaltigkeit}{CDefinition}
+    Eine Menge $ M \subset \mathbb{R}^n  $ heißt $ p- $dimensionale glatte Fläche (Untermannigfaltigkeit), falls es zu jedem 
+		$ x_0 \in M $ eine Umgebung $ U = U (x_0) \subseteq \mathbb{R}^n  $ und ein glattes parametrisiertes Flächenstück 
+		$ \varphi P \to \mathbb{R}^n  $ mit $ \varphi (\zeta) = x_0 $ für ein $ \zeta_0 $ und $ \varphi (P) = U \cap M $ $ \varphi  $ heißt
+		dann \textit{lokale Parametrisierung} von $ M $ in $ x_0 $. Für $ p = n-1 $ nennen wir $ M $ eine \textit{Hyperfläche}.
+\end{ibox}
+
+\begin{ibox}[51]{Satz}{CTheorem}
+    Sei $ C \subseteq \mathbb{R}^n  $ offen, $ M \subseteq B, 0 \leq q \leq n $. Es gebe stetige differenzierbar Funktion 
+		$ f_1 , \cdots,  f_{q}: B \to \mathbb{R}  $, sodass 
+		\begin{enumerate}
+			\item $ M = \left\{ x \in B | f_1 (x)  = \cdots = f_{q} (x)  = 0 \right\}  $ 
+			\item Die Vektoren grad $ \left( f_1 (x)  \right) , , \cdots, \text{ grad} \left( f_{q} (x)  \right)   $ sind $ \forall x \in M $ 
+				linear unabhängig.
+		\end{enumerate}
+	Dann ist $ M $ eine $ p$-dimensionale Untermannigfaltigkeit mit $ p = n -q $ 	
+\end{ibox}
+\begin{ibox}[]{Definition}{CDefinition}
+    Sei $ M $ eine $ U $-dimensionale Untermannigfaltigkeit in $ \mathbb{R}^n $. Eine Funktion $ h : M \to \mathbb{R} $ heißt 
+		differenzierbar, falls für jede Parametrisierung $ \varphi : P \to \mathbb{R}^n $ von $ M $ $ h \circ \varphi : P \to \mathbb{R} $ 
+		differenzierbar ist
+\end{ibox}
+
+\begin{ibox}[]{Definition}{CDefinition}
+    Sei $ B \subseteq \mathbb{R}^n $ offen, $ g = \left( g_1 , \cdots,  g_{m} \right) B : \mathbb{R}^m $ stetig differenzierbar mit 
+		$ \operatorname{rang} \left( Dg (x)  \right) \; \forall x \in B $. Weiter sei $ H \left\{ x \in B | g (x)  = 0\right\}, a \in M  
+		U = U (a) \subseteq S$ offene Umgebung, $ f: U \to \mathbb{R} $ stetig differenzierbar. $ f $ hat eine \textit{relatives Maximum (bzw.
+		Minimum)} in $ a $ unter der Nebenbedingungen $ g_1 (x)  = \cdots = g_{m} (x)  = 0 	$, falls $ f (x) \leq f (a) \; \forall x 
+		\in M \cap U  (\text{ bzw. } f (x) \geq f (a) \; \forall x \in U \cap M ) $ 
+
+\end{ibox}
+
+\begin{ibox}[52]{Methode der Langrange'schen Multiplikatoren}{CTheorem}
+   Hat $ f $ in $ a $ ein relatives Extremum unter den Nebenbedingungen $ g_1 (x)  = \cdots = g_{m} (x)  = 0 $, so gibt es 
+	 $ \lambda_1 , \cdots,  \lambda_m \in \mathbb{R}  $ sodass 
+	 \begin{equation}
+		 \text{grad} f (a) = \lambda_1 \text{grad} (g_1 (a) ) + \cdots + \lambda_m \text{grad} (g_m (a) )
+		 \tag{$\star$}
+	 \end{equation}
+	Die Zahlen $ \lambda_1 , \cdots,  \lambda_{m} $  
+\end{ibox}
+
+%\end{document}

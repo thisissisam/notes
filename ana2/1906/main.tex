@@ -1,8 +1,8 @@
-%	\documentclass[12pt, a4paper]{memoir}
-%	
-%	\input{../../modal/note.tex}
-%	
-%	\begin{document}
+%\documentclass[12pt, a4paper]{memoir}
+	
+%\input{../../modal/note.tex}
+	
+%\begin{document}
 \begin{proof}
 	Es seien $ A := \frac{\partial F}{\partial x} (a,b) := \left( \frac{\partial F}{\partial x_i} (a,b) , \cdots,  \frac{\partial F}{\partial x_k} (a,b) \right)   $  und $ B := \frac{\partial F}{\partial y} (a,b) \neq 0 $ 
 	Nach Definition der Differenzierbarkeit von $ F $ in $ (a,b) $ hat die durch 
@@ -60,14 +60,15 @@ Differenzierbarkeit von $ F $ auf $ U_1 \times U_2 $ in Verbindung mit der Nicht
 Satz 45.
 
 \begin{ibox}[46]{Satz}{CTheorem}
-    Seien $ a \in \mathbb{R}^{k}, b \in R, r_1, r_2 > 0	$ sowie $ U_1 := B (a,r_1), U_2 := B (a,r_2) \subset \mathbb{R}  $ Sei ferner
+    Seien $ a \in \mathbb{R}^{k}, b \in R, r_1, r_2 > 0	$ sowie $ U_1 := B (a,r_1) \in \mathbb{R}^k, U_2 := B (a,r_2) \subset \mathbb{R} 
+		$ Sei ferner
 		\begin{align*}
 			F: U_1 \times U_2 & \to \mathbb{R} \\
 			(x,y) & \mapsto F(x,y)
 		\end{align*}
 	eine stetig differenzierbar Funktion mit $ F (a,b)  = 0, \; \frac{\partial F}{\partial y} (a,b) \neq 0 $. Dann gibt es offene 
 	Umgebung $ V_1 = V_1 (a)  \subset U_1, \; V_2 = V_2 (b)  \subset U_2 $ und eine stetige Funktion $ g: V_1 \to V_2 $ mit 
-	$ g (a) = b, \; F \left( x, g(x) \right) = 0 \; \forall  x \in V_1 $, welsche die Auflösung der Gleichung $ F (x,y) = 0 $ nach $ y $ 
+	$ g (a) = b, \; F \left( x, g(x) \right) = 0 \; \forall  x \in U_1 $, welsche die Auflösung der Gleichung $ F (x,y) = 0 $ nach $ y $ 
 	auf $ V_1 \times V_2 $ ermöglicht, insofern als gilt $ \forall (x,y) \in  V_1 \times V_2 $ mit $ F (x,y) = 0 $ folgt $ y = g (x)  $.
 \end{ibox}
 \smalltitle[]{Bemerkung}
@@ -76,8 +77,17 @@ differenzierbar ist. Nach Satz 44 ist das Differential von $ g $ in $ x \in V_1 
 $$ \frac{\partial g}{\partial x_j} (x) = - \frac{ \frac{\partial F}{\partial x_j}( x, g (x))  }{ \frac{\partial F}{\partial y} 
 (x, g(x))} $$
 $ \forall j = 1, \cdots,  k  $ festgelegt.
-\begin{proof}
-	Unser Beweis enthält den Kern Newton Verfahrens und den Kern des Fixpunkterhaltes dynamische System.
-\end{proof}
+
+\begin{ibox}[]{Fixpunkt}{CDefinition}
+    Sei $ U \subseteq \mathbb{R}, f: U \to \mathbb{R}  $ eine Funktion. Dann heißt $ x^{n} \in U $ \textit{Fixpunkt} von $ f $, falls 
+		$ f (x^n)  = x^{n} $. Ein Fixpunkt $ x^{n} $ von $ f $ heißt anziehend, falls es eine Umgebung $ V = V (x^n) \subseteq  $ gibt,
+		sodass für jedes $ x_0 \in V $, die Folge $ (x_0) \subseteq U  $ mit $ x_{n+1} = f (x_0)  = f^{n+1} (x_0) = \underbrace{  f \circ \cdots 
+		\circ f (x_0) }_{n+1 \text{ mal } }$ gegen $ x^{n} $ konvergiert. 
+\end{ibox}
+\begin{ibox}[]{Kontoaktionssatz}{CLemma}
+    Seien $ a,b \in \mathbb{R} , a < b, f : \left[ a,b \right] \to \left[ a,b \right]  $ eine Kontraktion, d.h $ \exists c \in (0,1) 
+		\text{ s.d. } \left| f (x) - f (y)  \right| \leq  c \left| x-y \right| \; \forall x,y \in \left[ a,b \right] $. Dann hat $ f $ einen
+		eindeutigen Fixpunkt. $ x^{n} \in \left[ a,b \right] \text{ und } \forall x_0 \in [a,b] $ gilt $ \lim_{ n \to \infty  } f^{n} (x_0) =x $ 
+\end{ibox}
 
 %\end{document}
