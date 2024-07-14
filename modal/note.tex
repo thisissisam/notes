@@ -72,23 +72,6 @@
     %\phantomsection
     \subsubsection*{ #1 \hspace{0.2em} #2}
 }
-% Theorem env
-%\newenvironment{ibox}[3]{
-%    \phantomsection
-%    \addcontentsline{toc}{section}{#1 \hspace{0.3em} #2}
-%    \vspace{1.5em}
-%    \begin{tcolorbox}[
-%        enhanced jigsaw,
-%        colback=#3 ,
-%        colframe=DarkGray,
-%        drop shadow, 
-%		attach boxed title to top center={yshift=-2mm},
-%        before upper={\vspace{0.5em}},
-%        after upper={\vspace{0.5em}},
-%        \textbf{ \large #1 \hspace{0.1em} #2\hspace{0.4em}}
-%	]}{%
-%    \end{tcolorbox}
-%}
 \newtcolorbox{ibox}[3][]{
 	enhanced jigsaw,
 	colback=#3,
@@ -101,6 +84,5 @@
 	after title={:\quad \vspace{0.5em}\ },
 	%toc = {#1 \quad* #2}{section}
 	%IfValueTF={#1}{\addcontentsline{toc}{section}{#1 \hspace{0.3em}#2}}{}
-	code={\addcontentsline{toc}{section}{#1 \hspace{0.3em}#2}}
 }
 
