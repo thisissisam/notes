@@ -1,6 +1,6 @@
-\documentclass[a4paper]{memoir}
-\input{../../modal/note.tex}
-\begin{document}
+%\documentclass[a4paper]{memoir}
+%\input{../../modal/note.tex}
+%\begin{document}
 \para{12}{Riemannsches Integral in $ \mathbb{R}^n $ }
 \begin{ibox}[]{Definitionen}{CDefinition}
 	Eine Menge $ Q = [a_1,b_1] \times \cdots \times [a_n, b_n] = \left\{ x = \left( x_1 , \cdots,  x_n \right) 
@@ -9,13 +9,100 @@
 	$$ \delta (Q) = \sqrt{(b_1-a_1)^{2} + \cdots + (b_n-a_n)^{2} } $$
 	heißt \textit{Durchmesser} des Quaders. Eine Zerlegung des gegebenen Quaders $ Q $ bauen wir aus Zerlegungen der Intervalle $ [a_i,b_i] $ 
 	mit $ a_i = x_i^{(0)} < \cdots < x_i^{(p_i)} = b_i \; \left(  i = 1 , \cdots,  n \right)$. Daraus werden alle möglichen Teilquader der 
-	Form $ \left[ x^{(k_1) }, x^{(k+1) } \right] \times \cdots \times \left[ x^{(kn) }, x^{(kn+1) } \right]  $ gebildet. Diese werden in 
+	Form $ \left[ x^{(k_1)}, x^{(k+1) } \right] \times \cdots \times \left[ x^{(kn) }, x^{(kn+1) } \right]  $ gebildet. Diese werden in 
 	irgendeiner Reihenfolge durchnummeriert und mit $ Q_1 ,\cdots , Q_{m} $ bezeichnet. Die Menge $ Z = \left\{ Q_1, , \cdots,  Q_{m} \right\}$ 
 	Die Menge $ Z = \left\{ Q_1 , \cdots,  Q_{m} \right\}  $ heißt \textit{Zerlegung von $ Q $ } und
 	$$
 	\|Z \| := max \left\{ \delta (Q_k) : k = 1 , \cdots,  m \right\} 
-	$$ heißt die \textit{Feinheit der Zerlegung}. Für jedes 
+	$$ heißt die \textit{Feinheit der Zerlegung}. Für jedes $ \xi^{(k) } \in Q_k $ gilt dann mit $ m^{(k) } = \inf \left\{ f (x) | x \in Q_k \right\} , M^{(k) } = \sup \left\{ 
+	f (x) | x \in Q_k \right\}  $ die Ungleichhungskette $ m^{(k) } \geq f (\xi^{(k)}) \geq M ^{(k) } $. Wir bilden die Obersumme und die Untersumme wie folgt
+	$$
+	\overline{S_{z}} (f) : = \sum_{k=1}^{m}  M ^{(k)} \left| Q_k \right| \qquad \qquad 
+	\underline{S_{z}} (f) : = \sum_{k=1}^{m}  m ^{(k)} \left| Q_k \right| 
+	$$ und die Riemann'sche Summe $ \xi = \left( \xi^{(1) } , \cdots,  \xi^{(m)} \right)  $ 
+	$$
+ \sum_{k=1}^{m} f \left( \xi ^{(k)} \right) \left| Q_k \right| 
+$$
+Offenbar gilt: $ \underline{S}_z \leq S_z (\xi,f) \leq \overline{S_{z}} (f)  $. Dann nennt man $ \overline{S} (f) = \inf \left\{ \overline{S_{z}}
+(f)  : Z \text{ Zerlegung}\right\}  $ \textit{Oberintegral} und $ \underline{S} (f) = \sup \left\{ \underline{S_{z}}
+(f)  : Z \text{ Zerlegung}\right\}  $ \textit{Unterintegral} 	
 \end{ibox}
 
-\end{document}
+\begin{ibox}[]{Definition}{CDefinition}
+	$ f : Q = [a_1,b_1] \times \cdots \times [a_n,b_n] \to \mathbb{R}$ sei beschränkt. Dann heißt $ f $ auf $ Q $ \textit{Riemann-integrierbar}, falls
+$ \underline{S} (f) = \overline{S} (f)$, und man schreibt 
+$$ \int_{ Q } f (x) \, \mathrm{d}x := \underline{S} (f) = \overline{S} (f) $$
+\end{ibox}
+
+\begin{ibox}[]{Definition}{CDefinition}
+    Sei $ f : B \to \mathbb{R} $ beschränkt und $ B \subset \mathbb{R}^n $ kompakt, d.h abgeschlossen und beschränkt. Außerdem sei
+		$ Q \subset \mathbb{R}^n $ ein Quader, der $ B $ enthält. Wir setzen
+		$$\tilde{f} = \begin{cases}
+			f (x) & \text{ falls } x \in B\\
+			0 & \text{ falls } x \in Q\setminus B
+		\end{cases}$$
+		und definieren, falls $ \tilde{f} $ auf $ Q $ integrierbar ist, $ \int_{ Q } f (x) \d{x} = \int_{ Q } \tilde{f} (x) \d{x} $.
+		Wir nennen $ f $, \textit{integrierbar auf $ B $ }, wenn $ \tilde{f} $ auf $ Q $ integrierbar ist.
+		Eine kompakte Menge $ B \subset \mathbb{R}^n $ heißt \textit{(Jordan)-messbar}, wenn das Integral $ \int_{ B } \d{x} $ 
+		existiert. $ |B| = \int_{ B } 1 \d{x} $ heißt dann \textit{Volumen von $ B $ } 
+\end{ibox}
+\begin{ibox}[53]{Satz}{CTheorem}
+    $ f: Q \to \mathbb{R} $ ist genau dann integrierbar, wenn eine Zahl $ s \in \mathbb{R} $ existiert, sodass zu jedem 
+		$ \varepsilon > 0 \text{ ein } \delta > 0  $ gibt derart, dass für jede Zerlegung $ z \text{ von } Q $ mit Feinheit 
+$ \|z \| < \delta $ und jede Wahl von Stützstellen $ \xi \text{ zu } z $ gilt: $ \left| S - S_{z} \left( \xi,f \right)  \right| <
+\varepsilon$. In diesem Fall ist dann $ S = \int_{ Q } f (x) \d{x} $ 
+\end{ibox}
+\begin{ibox}[54]{Satz (Fubini)}{CTheorem}
+	Es sei $ f :Q \to \mathbb{R} $ eine integrierbare Funktion auf dem Quader $ Q = [a , b] \times [c,b] $. Existieren die Integrale 
+	$ F (x_1) = \int_{ c }^{ d } f (x_1,x_2) \d{x_2} \forall x \in [a,b] $  und $ G (x_2) = \int_{ a }^{ b } f (x_1,x_2) \d{x_1}
+	\forall x_2 \in [c,d]$. So folgt 
+	$$ \int_{ Q } f (x) \d{x} = \int_{ a }^{ b } \left( \int_{ c }^{ d } f (x_1,x_2) \d{x_2} \right) \d{x_1} = 
+	\int_{ c }^{ d } \left( \int_{ a }^{ b } f (x_1,x_2) \d{x_1} \right) \d{x_2}$$
+	Analoges gilt für $ n $-dimensionale Integrale für $ Q = [a_1,b_1] \times \cdots \times [a_n,b_n] $ falls die auftreffenden 
+	Integrale Existieren
+	$$ \int_{ Q } f (x) \d{x} = \int_{ a_1 }^{ b_1 } \left( \int_{ a_2 }^{ b_2 } \left( \cdots \left( \int_{ a_n }^{ b_n } 
+	f \left( x_1, \cdots , x_n  \right)\d{x_n}\right)\cdots\right)\d{x_2}\right)\d{x_1}$$
+bzw. mit Vertauschung auf der rechten Seite.	
+\end{ibox}
+\begin{ibox}[55]{Satz}{CTheorem}
+	Seien $ g, h \in C^{0} ([a,b]), g \leq h  $ und sie $ B = \left\{  \left( x_1, x_2 \right) | a \leq x_1 \leq b, g (x_1)
+	\leq x_2 \leq h (x_1)\right\}  $. Ist $ f : B \to \mathbb{R} $ stetig, so gilt 
+	$$ \int_{ B } f (x) \d{x} = \int_{ a }^{ b } \left( \int_{ g (x_1) }^{ h (x_1) } f (x_1,x_2) \d{x_2} \right) \d{x_1} $$
+\end{ibox}
+
+\smalltitle[]{Bemerkung}
+Unter geeigneten Voraussetzungen gilt für den Normalbereich $ B  = \{ (x_1, \cdots,  x_n) : a \leq x_1 \leq b$,\\ $  
+g_2 (x_1) \leq x_2 \leq h_2 (x_1), g_3 (x_1,x_2) \leq x_3 \leq h_3 (x_1,x_2) , \cdots, \; g_n ( x_1, \cdots,  x_n) \leq x_n \leq
+h_n (x_1, \cdots,  x_{n-1})\} $ 
+$$ \int_{ B } f (x) \d{x} = \int_{ a }^{ b } \left( \int_{ g_2 (x_1) }^{ h_2 (x_1)} \left( \int_{ h_3 (x_1,x_2) }^{ g_2 (x_1,x_2) }
+\cdots \left( \int_{ g_n (x_1, \cdots, x_n)  }^{ h_n (x_1, \cdots, x_n)}  f \left( x_1, \cdots, x_n \right) \d{x_n} \right) 
+\cdots \d{x_3}\right)\d{x_2}\right) \d{x_1}$$
+\smalltitle[]{Folgerung}
+Für $ B = \left\{ x \in \mathbb{R}^{n+1} : \left( x_1 , \cdots,  x_n \right) \in B^{*} \right\}  $ ist $ |B| = \int_{ B^{*}}
+f (x_1, \cdots,  x_n) \d{x_1}\cdots\d{x_1} $ das Volumen zwischen der Ebene $ x_{n+1} = 0 $ und der durch $ f $ gegebenen Fläche.
+
+\begin{ibox}[56]{Satz}{CTheorem}
+    \begin{enumerate}[label=\alph*)]
+    	\item Jede Stetige Funktion auf einer messbaren kompakten Menge $ B $ ist integrierbar.
+			\item Sind $ f, g $ auf $ B $ integrierbar und ist $ c \in \mathbb{R} $, so sind $ f + g $ und $ c f $ integrierbar
+				und es gilt: 
+				$$ \int_{ B } (f+g) \d{x} =  \int_{ B } f \d{x} + \int_{ B } g \d{x} \qquad \qquad \int_{ B } c f \d{x} = 
+			c	\int_{ B } f \d{x} $$
+		\item Die kompakte Menge $ B $ sie zerlegt in kompakte Teilbereiche $ B_1 , \cdots,  B_m $ das heißt $ B = B_1 \cup B_2 \cup 
+			\cdots \cup B_m$ und $ mathring{B_i} \cap \mathring{B_j} = \emptyset  $. Ist $ f $ auf jedem $ B_i $ integrierbar, so ist
+			$ f $ auch auf $ B $ integrierbar und
+			$$
+			\int_{ B } f \d{x} = \int_{ B_1 } f \d{x} +  \cdots + \int_{ B_m }f \d{x}
+			$$
+		\item Ist auf $ B $ integrierbar, so ist es auch $ |f| \text{ und }  \left| \int_{ B } f \d{x}  \right| \leq \int_{ B }
+			|f| \d{x}$ 
+    \end{enumerate}
+\end{ibox}
+\begin{ibox}[]{Definition}{CDefinition}
+    $ E \subset \mathbb{R}^n $ heißt Tordanische Nullmenge in $ \mathbb{R}^n $, wenn es zu jedem $ \varepsilon > 0  $ endlich
+		viele Quader $ Q_k $, für $ k = 1, 2 , \cdots \text{ und } N = N (\varepsilon) $ gibt, so dass $ E \subset \cup_{k=1}^{N} Q_k
+		\text{ und }  \sum_{k=1}^{N}|Q_k| < \varepsilon$. \\
+		 Nimmt man unendliche viele Quader $ Q_k $ anstelle für endliche viele, bekommt man Lebegsche Nullmenge.
+\end{ibox}
+%\end{document}
 

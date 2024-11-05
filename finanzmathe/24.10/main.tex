@@ -1,0 +1,253 @@
+\documentclass[11.5 pt, a4paper]{memoir}
+\input{../../modal_minimal/note.tex}
+
+\title{Finanzmathe Mitschrift vom 24.10.24}
+\author{Sisam Khanal}
+\date{\today}
+\begin{document}
+\raggedright
+\color{Black}
+\maketitle
+
+
+\smalltitle[II.1]{Einführung des Einperiodenmodells} 
+Sei $ d,p \in \mathbb{N} $. Wir betrachten einen Finanzmarkt mit $ d+1 $ Wertpapieren. Beim Einperiodenmodell gibt es genau zwei Zweitpunkt, den Anfangszeitpunkt $ 0 $ und der Endzeitpunkt $ 1 $. Es kann nur zum Zeitpunkt $ 0 $ gehandelt werden
+wobei man die Preise zum Zeitpunkt $ 0 $  kennt, aber i.A noch nicht klar ist, welches von $ l $ Szenarien für die Preise zum Zeitpunkt $ 1 $ eintreten wird. \break
+
+Preisvektor zur Zeit $ 0 $ :
+$$ \overline{ S_0} = \left( S_0^0, S_0^1 , \cdots,  S_0^d \right)^T = \left( S_0^0, S_0^T \right)^T \in \mathbb{R}^{d+1}  $$
+wobei $ S_0^i $ der Preis des $ i $-ten Wertpapiers zur Zeit $ 0 $ für $ i \in \left\{ 0, 1 , \cdots,  d \right\}  $ ist.\break
+
+Sei $ \left( \Omega , \mathcal{F}, \mathbb{P}  \right)$ ein endlicher Wahrscheinlichkeitsraum mit 
+\begin{align*}
+	&\left| \Omega  \right| = l,  \Omega  = \left\{ \omega_1 , \cdots, \omega_l \right\}, \\
+	&	\mathcal{F} = 2^{\Omega } = \mathcal{P} \left( \Omega  \right),\\
+	&	\mathbb{P} : \mathcal{F} \to \left[ 0, 1 \right],\\
+	&	\mathbb{P} [A] = \sum_{\omega_k \in A} \mathbb{P} \left[ \left\{ \omega_k \right\}  \right]  \text{ für  } A \subseteq \Omega,\\
+	&	\mathbb{P} \left[ \left\{ \omega_k \right\}  \right]  > 0 \;  \forall k \in \left\{ 1 , \cdots, l \right\} 
+\end{align*}
+
+Zufallsvektor der Preise zur Zeit $ l $ :
+$$ \overline{ S_1} = \left( S_1^0, S_1^1 , \cdots,  S_1^d\right) ^{T} = \left( S_1^0, S_1^T \right)^{T} : \Omega \to \mathbb{R}^{d+1}  $$
+wobei $ S_1^i \left( \omega_k \right) \in \mathbb{R} $ der Preis der $ i $-ten Wertpapiers zur Zeit $ 1 $ unter Szenario $ k $ ist für $ i \in \left( 0,1 , \cdots,  d \right) , k \in \left( 1 , \cdots,  l \right)  $ 
+
+Alternative können wir die Preise zur Zeit $ 1 $ als eine Preismatrix auffassen:
+
+$$ S_1 = \left[ \;  \overline{ S_1} (\omega_1) \;  \overline{ S_1} (\omega_2) \; \cdots \;  \overline{ S_1} (\omega_l) \;  \right] =  \begin{pmatrix}
+	S_1^0 (\omega_1) & S_1^0 (\omega_2) & \cdots & S_1^0 (\omega_l) \\
+	S_1^1 (\omega_1) & S_1^1 (\omega_2) & \cdots & S_1^1 (\omega_l) \\
+	\vdots & \vdots & & \vdots \\
+	S_1^d (\omega_1) & S_1^d (\omega_2) & \cdots & S_1^d (\omega_l) 
+\end{pmatrix} \in \mathbb{R}^{(d+1) \times l}
+ $$
+Wir nehmen an, dass das Orte Wertpapiers eine Anleihe mit fester Verzinsung $ r \geq 0 $ (Bankkonto) ist mit 
+
+$$ S_0^0 = 1 \text{ und }  \forall \omega  \in \Omega : S_1^{0}(\omega ) = 1 + r $$
+
+Diskontierte Preise: 
+$$ X_0 = \left( X_0^1 , \cdots,  X_0^{d} \right)^{T}, X_1 = \left( X_1^1 , \cdots,  X_1^{d} \right)^{T}, \Delta X_1 = \left(\Delta X_1^1 , \cdots, \Delta X_1^{d} \right)^{T},  $$
+$$ \text{ mit } X_0^i = S_0^i, X_1^i = \frac{S_1^i}{1+r} , \Delta X_1^i = X_1^{i} - X_0^i, i \in \left\{ 1 , \cdots,  d \right\}  $$
+Zum Zeitpunkt $ 0 $ nählt man ein Portfolio.
+
+\begin{ibox}[1.1]{Definition}{CDefinition}
+    Eine Handelsstrategie oder ein Portfolio (im Einperiodenmodell) ist ein Vektor 
+		$$ \overline{ H} = \left( H^0, H^1 , \cdots,  H^d \right)^{T} = \left( H^0, H^T \right)^T \in \mathbb{R}^{d+1}  $$
+\end{ibox}
+Bei einer Handelsstrategie $ \overline{ H} = \left(  H^0, H^1 , \cdots,  H^d \right)^{T}  $ beschreibt $ H^{i} \in \mathbb{R} $ die Stückzahl von Wertpapier $ i  $ in Portfolio Zwischen den beiden Zeitpunkten (für $ i \in \left\{ 0, 1 , \cdots,  d \right\}  $. Dabei ist $ H^{i} $ nicht zufällig. \\
+
+Falls $ H^0 < 0 $ : Kreditaufnahme, \\
+Falls $ H^{i} < 0 $ für ein $ i \in \left\{ 1 , \cdots,  d \right\}  $ : Leerverkauf (short sell)
+
+\begin{ibox}[1.2]{Definition}{CDefinition}
+    Sei $ \overline{ H} \in \mathbb{R}^{d+1}  $. Der Wert der Handelsstrategie $ \overline{ H}  $ ist zur Zeit $ 0 $ durch:
+		$$ V_0^{ \overline{ H} } = \left< \overline{ S_0}, \overline{ H}   \right> = \overline{ S_0^T} \overline{ H} = \sum_{i=0}^{d} S_0^i H^i   $$
+	Und zur Zeit $ 1 $ durch die Zufallsvariable $ V_1^{ \overline{ H} } : \Omega \to \mathbb{R} $,
+	$$ V_1^{ \overline{ H} } = \left< \overline{ S_1} (\omega ), \overline{ H}   \right> =  \sum_{i=0}^{d} S_0^i (\omega ) H^i   $$
+	definiert. Weiter definieren wir die diskontierten Werte als 
+	$$ D_0^{ \overline{ H} } = V_0^{ \overline{ H} } \text{ und }  D_1^{ \overline{ H} } = \frac{V_1^{ \overline{ H} }}{1 +r} $$
+\end{ibox}
+
+\begin{ibox}[1.3]{Lemma}{CLemma}
+    Sei $ \overline{ H} = \left( H^0, H^T \right)^T \in \mathbb{R}^{d+1}  $ eine Handelsstrategie. Dann gilt 
+		$$ D_1^{ \overline{ H} } = D_0 ^{ \overline{ H} } + \left< \Delta X_1, H \right> $$
+\end{ibox}
+Beweis: Übung
+
+
+\smalltitle[]{Beispiel 1.4}
+Seien $ d =1 , l=1, p \in (0,1), \mathbb{P} \left[ \left\{ \omega_1 \right\}  \right] = p, \mathbb{P} \left[ \left\{ \omega_2 \right\}  \right] = 1-p, S_0^{1} = 1, S_1^1 (\omega_1) = 2, S_1^1 (\omega_2) = \frac{1}{2}  $
+\break
+Sei $ r=2 $ und wähle die Handelsstrategie $ \overline{ H} (1,-1)  $ Dann ist,
+
+\begin{align*}
+	V_0^{ \overline{ H} } &= 1 \cdot 1 + 1 \cdot (-1) = 0, \\
+	V_1^{ \overline{ H} } (\omega_1) &= (1+r) \cdot 1 + S_1^1 (\omega_1) \cdot (-1) = 1, \\
+	V_1^{ \overline{ H} } (\omega_2) &= (1+r) \cdot 1 + S_1^1 (\omega_2) \cdot (-1) = \frac{5}{2}
+\end{align*}
+
+
+
+\smalltitle[II.2]{No-Arbitrage und FTAP1}
+\begin{itemize}
+	\item Ziel: Charakterirrung vom Markt, in dem es keine Arbitrage-Möglichkeiten gibt.
+	\item Hilfsmittel: äquivalente Martingallmaße
+	\item Hauptresultat: First Fundamental theorem of asset pricing (FTAP1)
+	\item Praktische Umsetzung: prüfe Gleichungssystem auf Lösbarkeit (unter Nebenbedingungen)
+\end{itemize}
+
+\begin{ibox}[2.1]{Definition}{CDefinition}
+	Eine Handelsstrategie $ \overline{H} \in \mathbb{R}^{d+1} $ heißt \underline{Arbitragemöglichkeit} falls gelte:
+	\begin{enumerate}[label=\alph*)]
+		\item $ V^{ \overline{ H} }_0 \leq 0$ ,
+		\item $ \forall \omega \in \Omega : V^{ \overline{H } }_{1}(\omega) \geq 0 $ und
+		\item $ \exists \omega \in \Omega :  V^{ \overline{H } } _{1}(\omega) > 0  $ 
+	\end{enumerate}
+\end{ibox}
+Wir sagen, es gilt \underline{No-Arbitrage (NA)}, falls keine Arbitragemöglichkeit existieren. 
+\begin{ibox}[2.2]{Lemma}{CLemma}
+    Folgende Aussagen sind äquivalent
+		\begin{enumerate}[label=\alph*)]
+			\item Es gibt eine Arbitragemöglichkeit.
+			\item Es gibt ein $ \alpha \in \mathbb{R}^{d} $, sodass 
+				\begin{itemize}
+					\item $ \forall \omega \in \Omega : \left<\Delta X_1(\omega), \alpha \right> \geq 0 $  und 
+					\item $ \exists \omega \in \Omega :  \left<\Delta X_1(\omega), \alpha \right> > 0  $ 
+				\end{itemize}
+			\item Es gibt eine Arbitragemöglichkeit $ \overline{ H} \in \mathbb{R}^{d+1}  $ mit $ V^{ \overline{ H} }_0 = 0 $ 	
+		\end{enumerate}
+\end{ibox}
+\subsection*{Beweis} Übung
+Eine Wahrscheinlichkeitsmaß $ Q $ auf $ \left( \Omega, \mathcal{F} \right)  $ können wir durch den Vektoren $ q \in \mathbb{R}^{l} $ 
+mit $ q_k = Q \left[ \left\{ \omega_k \right\}  \right] , k \in \left\{ 1 , \cdots,  l \right\}  $ charakterisieren. Für eine Zufallsvariable $ Y : \Omega \to \mathbb{R} $ notieren wir mit 
+$$ \mathbb{E}^{Q} \left[ Y \right] = \sum_{k=1}^{l} q_k Y \left( \omega_{k} \right)  $$
+den Erwartungswert von $ Y $ bzgl. $ Q $. Für $ m \in \mathbb{N} $ und einen $ m $-dim Zufallsvektor $ Y = \left( Y^{1}, , \cdots,  
+Y^{m}\right)^{T}: \Omega to \mathbb{R}^{m} $ setzen wir 
+$$ \mathbb{E}^{Q} \left[ Y \right] = \left( \mathbb{E}^{Q} \left[ Y^{1} \right], \cdots,  \mathbb{E}^{Q} \left[ Y^{m} \right]  \right) ^{T}  $$
+\begin{ibox}[2.3]{Definition}{CDefinition}
+	Ein Wahrscheinlichkeitsmaß $ Q $  auf $ \left( \Omega, \mathcal{F} \right) $ heißt \underline{risikoneutral} oder 
+	\underline{Martingalmaße}, falls $ \forall i \in \left\{ 1 , \cdots,  d \right\}  $ :
+	$$ \mathbb{E}^{Q} \left[ X_1^{i} \right] = X_{0}^{i}$$
+\end{ibox}
+
+\begin{ibox}[2.4]{Lemma}{CLemma}
+    Sei $ Q $ ein Wahrscheinlichkeitsmaß auf $ \left\{ \Omega, \mathcal{F} \right\}  $ und $ q_k = Q \left[ \left\{ \omega_k \right\}  \right] , k \in \left\{ 1 , \cdots,  l \right\}  $. Es bezeichne $ e_i $ den $ i$-ten Einheitsvektor im $ \mathbb{R}^{d} $. Dann sind äquivalent:
+		\begin{enumerate}[label=\alph*)]
+			\item $ Q $ ist eine Martingalmaße
+			\item $ \forall i \in \left\{ 1 , \cdots,  d \right\} : \sum_{k=1}^{l} q_k \left< \Delta X_1 (\omega_k), e_i \right>  = 0$ 
+			\item $ \forall \alpha \in \mathbb{R}^{d} : \sum_{k=1}^{l} q_k \left< \Delta X_1 (\omega_k), \alpha \right>  = 0$ 
+		\end{enumerate}
+\end{ibox}
+\subsection*{Beweis} Übung
+\begin{ibox}[2.5]{Definition}{CDefinition}
+	Ein Wahrscheinlichkeitsmaß $ Q $ auf $ \left( \Omega, \mathcal{F} \right)  $ heißt (zu $ \mathbb{P} $) \underline{äquivalentes Wahrscheinlichkeitsmaß}, wenn $ \forall k \in \left\{ 1 , \cdots,  l \right\} : q_k = Q \left[ \left\{ \omega_k \right\}  \right] > 0  $  
+\end{ibox}
+Wir hatten angenommen, dass $ \forall k \in \left\{ 1 , \cdots,  l \right\} : \mathbb{P} \left[ \left\{ \omega_k \right\}  \right] > 0 $  ein $ \mathbb{P} $ äquivalentes Wahrscheinlichkeitsmaß auf $ \left\{ \Omega, \mathcal{F} \right\}  $ ist, dann stimmen also die Mengen der möglichen Szenarien unter $ \mathbb{P} \text{ und }  Q $ überein (aber die genauen Wahrscheinlichkeiten sind in der Regel unterschiedlich)
+
+\begin{ibox}[2.6]{Definition}{CDefinition}
+	Ein Wahrscheinlichkeitsmaß $ Q $ auf $ \left\{ \Omega, \mathcal{F} \right\}  $ heißt \underline{äquivalentes Martingalmaße (ÄMM)}
+	falls $ Q $ risikoneutral und äquivalent ist. Wir definieren 
+	$$ \mathcal{P} = \left\{ Q : Q \text{ ist ÄMM }  \right\}  $$
+	
+\end{ibox}
+
+\subsection*{Beispiel 2.7:} Seien $ d = 1, l = 2, p \in (0,1), \mathbb{P} \left[ \left\{ \omega_1 \right\}  \right] = p, \mathbb{P} \left[ \left\{ \omega_2 \right\}  \right] = 1 - p, S_0^{1} = 1, S_1^{1}(\omega_1) = 2, S_1^{1}(\omega_2)= \frac{1}{2} \text{ und }  r = 0  $. Wir versuchen, ein ÄMM zu finden. Wenn $ Q $ ein ÄMM (charakterisiert durch $ q \in \mathbb{R}_2 $ ist, dann müssen gelten:  
+$ q_1 > 0, q_2 >0 $ 
+ $$ \sum_{k=1}^{2} q_k S_1^{1} (\omega_k) = q_1 \underbrace{ S_1^{1} (\omega_1)}_{=2} + q_2 \underbrace{ S_1^{1} (\omega_2)}_{=\frac{1}{2} } = 1 $$
+LGS lösen: 
+\begin{align*}
+	q_1 + q_2 &= 1 \\
+	 2q_1 + \frac{1}{2} q_2 &= 1 
+\end{align*}
+
+Andere Schreibweise: 
+\begin{align*}
+\begin{pmatrix}
+	1 & 1 \\
+	2 & \frac{1}{2} 
+\end{pmatrix} 
+\begin{pmatrix}
+	q_1 \\ q_2 
+\end{pmatrix}
+ = \begin{pmatrix}
+	 1 \\ 1  
+ \end{pmatrix} \implies \begin{pmatrix}
+ 	q_1 \\ q_2 
+ \end{pmatrix}
+ = \begin{pmatrix}
+ 	 \frac{2}{3} \\ \frac{1}{2} 
+ \end{pmatrix}
+\end{align*}
+Im ersten fundamentalsatz wird ein Zusammenhang zwischen der Existenz von ÄMMs und NA hergestellt:
+
+\begin{ibox}[2.8]{Satz (FTAP1)}{CTheorem}
+	Es gilt: $ NA \iff \mathcal{P} \neq \emptyset $.
+	Andereseits gilt: Ein Vektor $ q \in \mathbb{R}^{l} $ definiert genau dann ein ÄMM (via $ Q \left[ \left\{ \omega_k \right\}  \right] : = q_k, k \in \left\{ 1, , \cdots,  l \right\}  $ , wenn $ k \in \left\{  1, \cdots,  l \right\} : q_k > 0 $ gilt, und $ q $ 
+	eine Lösung des Systems: $ \forall i \in\left\{ 1 , \cdots,  d \right\}  $ 
+
+	\begin{align*}
+		q_1 + q_2 + \cdots + q_{l} &= 1 \\
+		\frac{1}{1+r} \left( S_1^{i} (\omega_1) q_1 +   S_1^{i} (\omega_2) q_2  + \cdots +   S_1^{i} (\omega_l) q_l \right) &= S_0^{i}
+	\end{align*}
+ist. Um zu überprüfung, ab NA gilt, kann man wegen FTAP1 also testen, ob 
+$$ S_1 q = (1+r) \overline{ S_0}  $$
+eine Lösung $ q \in \mathbb{R}^{l} $ mit $ \forall k \in \left\{ 1 , \cdots,  l \right\} : q_k > 0 $ besitzt
+\end{ibox}
+Für den Beweis des FTAP1 benötigen wir folgenden Trennungssatz (in $ \mathbb{R}^{l} $ )
+
+\begin{ibox}[2.9]{Satz (Trennungssatz)}{CTheorem}
+	Sei $ n \in \mathbb{N} $ 
+	\begin{enumerate}[label=\alph*)]
+		\item Sei $ C \subseteq \mathbb{R}^n $ abgeschlossen, konvex und nichtleer mit $ 0 \notin C $. Dann existieren $ y \in C $ und 
+			$ \delta > 0 $ sodass $ \forall x \in C : \left<x,y \right> \geq \delta > 0 $ 
+		\item Sei $ K \subseteq \mathbb{R}^n $ kompakt, konvex und nicht leer und sei $ U \subseteq \mathbb{R}^n $ eine linearen Unterraum
+			mit $ K \cap U = \emptyset $. Dann existiert $ y \in \mathbb{R}^n $ sodass
+			\begin{itemize}
+				\item $ \forall x \in K : \left<x, y \right> >0$,
+				\item $ \forall x \in U : \left<x,y \right> = 0 $ 
+			\end{itemize}
+	\end{enumerate}
+\end{ibox}
+
+\smalltitle[2.10]{Proposition}
+Die Menge $ \mathcal{P} $ aller ÄMMs ist konvex. Insbesondere gilt:
+$$ \left| \mathcal{P} \right| \implies | \mathcal{P}| = \infty $$
+Beweis: Übung
+
+\smalltitle[II.3]{Arbitragefreie Preise}
+Wir Identifizieren im Folgenden ein Derivat mit seiner Auszahlung zur Zeit $ T=1 $ 
+
+\begin{ibox}[3.1]{Definition}{CDefinition}
+    Ein \textit{Derivat} ist eine Zufallsvariable $ \xi : \Omega \to \mathbb{R} $. Für $ x, y \in \mathbb{R} $ notieren wir 
+		$$ \left( x - y \right)^{+} = \text{ max } \left\{ x - y, 0 \right\}  $$
+\end{ibox}
+
+\smalltitle[3.2]{Beispiel}
+Beispiele für Derivate:                                                                                              
+\begin{enumerate}[label=\alph*)]
+	\item \underline{Forward contract}: Vereinbarung, zu einem zukünftigen, festgelegten Termin $ T $ ein Gut (z.B Wertpapier) zu einem heute vereinbarten Preis $ k $ zu kaufen bzw. zu verkaufen. Im Einperiodenmodell: Forward auf Papier
+		$$ i: \xi = S_1^{i} - k  $$
+	\item \underline{Call-Option}: Recht, ein Gut zu festgelegt Preis $ K $ ( dem \textit{Strike} ) zu zukünftigen Zeitpunkt $T$ zu kaufen.
+		Im Einperiodenmodell: Call auf Papier 
+		$$ i : \xi = \left( S_1^{i} - k \right) ^{+} $$
+	\item \underline{Put-Option}: Analog zu Call, aber Verkaufen. Im Einperiodenmodell: Put auf Papier
+		$$ i : \xi = \left\{ k - S_1^{i} \right\} ^{+} $$
+	\item \underline{Basket-Option}: Option auf einen Index von Wertpapier z.B Basket-Call-Option mit Strike $ k $ und Gewicht
+		$ \alpha \in \mathbb{R}^{d} $ im Einperiodenmodell :
+		$$ i : \xi = \left( K - S_1^{i} \right)  $$
+	\item \underline{Basket-Option}: Option auf einen Index von Wertpapier z.B Basket-Call-Option mit Strike $ k $ und Gewicht $ \alpha
+		\in \mathbb{R}^{d}$ im Einperiodenmodell :
+		$$ \left(  \left< S_1, \alpha \right> - k \right) ^{+} $$
+\end{enumerate}
+\smalltitle[3.3]{Beispiel}
+Seien $ d = 1, l =2, \mathbb{P} \left[ \left\{ \omega_1 \right\}  \right] = \frac{1}{2} = \mathbb{P} \left[ \left\{ \omega_1 \right\}  \right] , S_0^{0} = 1, S_1^{0} = 1 (r=0), S_0^{1} = 1, S_1^{1}\left( \omega_1 \right) = 2, S_1^{1} (\omega_1) = \frac{1}{2}  $.
+Betrachte Call $ \xi = \left( S_1^{1} \right)^{+} $. Was ist ein angemessener Preis $ P_0 (\xi) $ für $ \xi $ zur Zeit 0? \break
+\underline{Ersten Ansatz}: Preis von $ \xi $ ist mittlere Auszahlung von $ \xi $ bei wiederhaltern Spiel, d.h 
+$$ p_0 (\xi) = \mathbb{E} ^{ \mathbb{P} } \left[ \xi \right] = \frac{1}{2} \cdot \left( 2 - 1 \right)^{+} + \frac{1}{2} \cdot 
+\left( \frac{1}{2} -1 \right)^{+} = \frac{1}{2}  $$
+Dadurch ergibt sich allerdings eine Arbitragemöglichkeit.
+\break 
+\underline{Zeit 0}: Verkaufe $ 6 \times $ Call zum Preis $ \frac{1}{2}  $, Kaufe $ 3 \times $ die Aktie; Startkapital 0. \\
+\underline{Zeit 1} Szenario $ \omega_1 $ : Endkapital ist $ 3 \cdot 2 - 6 \cdot 1 (2-1)^{+} = 0 $ \\
+Szenario $ \omega_2 $: Endkapital ist $ 3 \cdot \frac{1}{2} - 6 \cdot 1 \left( \frac{1}{2} - 1 \right) ^{+} = 1,5 $ 
+
+\end{document}

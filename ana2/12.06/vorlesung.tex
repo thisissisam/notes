@@ -24,7 +24,7 @@ hat.
 	heißt die symmetrische Matrix : 
 	$$ \text{ Hess}f \left(x_0\right) := \begin{pmatrix}
 		\frac{\partial ^{2} f}{\partial x_1 \partial x_1} \left(x_0\right) & \cdots    
-	 	&\frac{\partial ^{2} f}{\partial x_n \partial x_1} \left(x_0\right) \\
+	 	&\frac{\partial ^{2} f}{\partial x_1 \partial x_n} \left(x_0\right) \\
 		\vdots & & \vdots \\
 		\frac{\partial ^{2} f}{\partial x_n \partial x_1} \left(x_0\right) & \cdots    
 	 	&\frac{\partial ^{2} f}{\partial x_n \partial x_n} \left(x_0\right) \\
@@ -154,7 +154,7 @@ dieses $ g $ eindeutig? In diesem Fall sagen wir, dass die Abbildung $ g $ durch
  \begin{ibox}[44]{Satz}{CTheorem}
      Seien $ U_1 \subset \mathbb{R}^{k},\, U_2 \subset \mathbb{R}  $ offene Mengen, $ a \in U_1, b \in U_2 $ und sei 
 		 $ F: U_{1} \times U_2 \to \mathbb{R} \; (x,y) \mapsto F (x,y) $ eine differenzierbar Funktion mit 
-		 $$ \frac{\partial F}{\partial y} (a,b) = 0 $$
+		 $$ \frac{\partial F}{\partial y} (a,b) \neq 0 $$
 		 Es gebe eine differenzierbare Funktion $ g: U_1 \to U_2  $ mit $ g (a) = b $ und $ F \left( x,g (x) \right) = 0 \; x \in U_1 $ 
 		 Dann gilt: $ \forall j = 1, \cdots,  k $ 
 		 $$ \frac{\partial g}{\partial x_j} (a) = \frac{ - \frac{\partial F}{\partial x_j} (a,b)}{ \frac{\partial F}{\partial y} (a,b)}  $$

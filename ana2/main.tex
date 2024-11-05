@@ -115,7 +115,7 @@ Eigenschaften der euklidischen Metrik auf $ \mathbb{R}^{n} $ sind:
     \begin{enumerate}[label=\alph*)]
         \item $ d(x,y) \geq 0 \text{ und } d(x,y) = 0 \iff x = y $ 
         \item $ d(x,y) = d(y,x) $ (Symmetrie)
-        \item $ d(x,y) \geq d(x,y) + d(y,z) $ (Dreiecksgleichung)
+        \item $ d(x,y) \leq d(x,z) + d(z,y) $ (Dreiecksgleichung)
     \end{enumerate}
     
 \end{ibox}
@@ -521,7 +521,7 @@ lokal-gleichmäßig konvergiert gegen $ 0 $, aber nicht gleichmäßig.
 	\begin{enumerate}[label=\alph*)]
 		\item Eine Familie $ \left( V_j \right)_{j \in J} $ von offenen Menge $ V_{j} \subset  \mathbb{R}^n  $ heißt (offene)
 			Überdeckung von $ K $ wenn $ K \subset  \cup V_{j}$ gibt.
-		\item $ K $ heißt \textit{kompakt}, wenn es $ zu jeder $ offenen Überdeckung $ \left( U_{i} \right)_{i \in  I} $ der Menge
+		\item $ K $ heißt \textit{kompakt}, wenn es \textit{ zu jeder} offenen Überdeckung $ \left( U_{i} \right)_{i \in  I} $ der Menge
 			$ K $ endlich viele Indizes $ i_1, \cdots , i_{m} \in  I $ gibt, so dass bereits 
 			$$ K \subset  \bigcup_{p = 1}^{m} U_{i_{p}}  $$gibt. Mann nennt ein solches endliches Mengensystem 
 			$ \left\{ U_{i_{p}}; \; p = 1,2, \cdots m \right\}  $ offener Menge der Überdeckung $ \left( V_{i} \right)_{i \in  I} $ 
@@ -544,5 +544,6 @@ lokal-gleichmäßig konvergiert gegen $ 0 $, aber nicht gleichmäßig.
 \input{12.06/vorlesung.tex}
 \input{1906/main.tex}
 \input{2606/main.tex}
+\input{0207/main.tex}
 \printindex
 \end{document}
