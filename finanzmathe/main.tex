@@ -249,5 +249,223 @@ Dadurch ergibt sich allerdings eine Arbitragemöglichkeit.
 \underline{Zeit 0}: Verkaufe $ 6 \times $ Call zum Preis $ \frac{1}{2}  $, Kaufe $ 3 \times $ die Aktie; Startkapital 0. \\
 \underline{Zeit 1} Szenario $ \omega_1 $ : Endkapital ist $ 3 \cdot 2 - 6 \cdot 1 (2-1)^{+} = 0 $ \\
 Szenario $ \omega_2 $: Endkapital ist $ 3 \cdot \frac{1}{2} - 6 \cdot 1 \left( \frac{1}{2} - 1 \right) ^{+} = 1,5 $ 
+\break
+
+\textbf{Fischer Ansatz}: Preis von $\xi$ ist im Mittelwert unabhängig von $\xi$ bei wiederholtem Spiel, d.h.
+\[
+p_0(\xi) = \mathbb{E}^{ \mathbb{P} } \left[ \xi \right] = \frac{1}{2} \left(2 - 1\right)^+ + \frac{1}{2} \left(\frac{1}{2} - 1\right)^+ = \frac{1}{2}
+\]
+Dadurch ergibt sich allerdings eine Arbitragemöglichkeit:
+
+\textbf{Zeit 0}:
+\begin{itemize}
+	\item Verkaufe $6 \times$ Call zum Preis $\frac{1}{2}$.
+	\item Kaufe $3 \times$ die Aktie; Startkapital 0.
+\end{itemize}
+\textbf{Zeit 1}: 
+\begin{itemize}
+    \item Szenario $w_1$: Endkapital ist $3 \cdot 2 - 6 \left(2 - 1\right)^+ = 0$
+    \item Szenario $w_2$: Endkapital ist $3 \cdot \frac{1}{2} - 6 \left(\frac{1}{2} - 1\right)^+ = 1.5$
+\end{itemize}
+Wir verwenden im Folgenden das No-Arbitrage-Prinzip zur Bewertung von Derivaten. Wähle den Preis $P_0(\xi)$ von $\xi$ so, dass sich im um $\left( S_0^{d^0}, S_1^{d^1} \right) = \left( p_0(\xi), \xi \right)$ erweiterten Modell keine Arbitragemöglichkeit ergibt.
+
+\begin{ibox}[3.4]{Definition}{CDefinition}
+Sei $\xi$ ein Derivat. Der Wert $p_0(\xi) \in \mathbb{R}$ heißt arbitragefreier/fairer Preis von $\xi$, falls das um 
+$\left( S_0^{d+0}, S_1^{d+1} \right) = \left( p_0(\xi), \xi \right)$ erweiterte Marktmodell mit den Preisen 
+$\left( S_0^0, \dots, S_0^d, S_0^{d+1} \right)^T$ und $\left( S_1^0, \dots, S_1^{d+1} \right)^T$ NA erfüllt.
+Wir bezeichnen mit $\Pi(\xi)$ die Menge aller arbitragefreien Preise von $\xi$.
+\end{ibox}
+\textbf{Beachte:} Wenn $\Pi(\xi)$ nicht leer ist, dann gilt im ursprünglichen Modell NA.
+
+\textbf{Also:} Falls NA im ursprünglichen Modell nicht erfüllt ist, dann ist $\Pi(\xi) = \emptyset$.
+
+Im Folgenden sei $ \mathcal{P}$ bezeichnet die Menge aller ÄMMs im ursprünglichen Modell.
+
+\begin{ibox}[3.5]{Satz}{CTheorem}
+Es gelte NA. Sei $\xi$ ein Derivat. Dann ist $\Pi(\xi)$ nicht leer, und es gilt
+\[
+\Pi(\xi) = \left\{ \mathbb{E}^Q \left[ \frac{\xi}{1+r} \right] \middle| Q \in \mathcal{P} \right\}.
+\]
+\end{ibox}
+
+\smalltitle{Beweis:}
+$ " \subseteq" $: Sei $Q \in \mathcal{P}$ und $p_0(\xi) = \mathbb{E}^Q \left[ \frac{\xi}{1+r} \right]$.
+Dann ist $Q$ auch ein ÄMM in dem um $\left( p_0(\xi), \xi \right)$ erweiterten Markt. FTAP1 impliziert, dass im erweiterten 
+Markt NA gilt, also $p_0(\xi) \in \Pi(\xi)$.\break
+
+$ "\supseteq"$: $p_0(\xi) \in \mathbb{R}$ ist ein arbitragefreier Preis. Der um $\left( p_0(\xi), \xi \right)$ erweiterte Modell 
+erfüllt dann NA. Wende FTAP1 auf dem erweiterten Markt an. Dann existiert ein Wahrscheinlichkeitsmaß auf $ Q $ auf $ \left( \Omega , 
+\mathcal{F}\right) $ sodass $\forall k \in \{1, \dots, l \} : Q \left[ \left\{ \omega_k \right\}  \right] > 0$ und
+$\forall k \in \{1, \dots, d\}: \mathbb{E}^Q \left[ X_1^{i} \right] = X_0^{i} = 0$ 
+
+Insbesondere gilt $ Q \in \mathcal{P} $ 
+\[
+p_0(\xi) = S_0^{d+1} = X_0^{d+1} = \mathbb{E}^{Q} \left[ X_1^{d+1} \right] =  \mathbb{E}^Q \left[ \frac{S_1^{d+1}}{1+r} \right] = \mathbb{E}^Q \left[ \frac{\xi}{1+r} \right].
+\]
+\smalltitle[3.6]{Beispiel} Fortsetzung von Bsp 3.3
+
+\underline{Neuer Ansatz}: NA-Prinzip Aus Bsp 2.7 ist bekannt, dass $ q = \left( \frac{1}{3} , \frac{2}{3}  \right) ^{T}
+\in \mathbb{R}^{2 }$ in diesem Marktmodell ein ÄMM $ Q $ def. Somit ist (siehe Satz 3.5)
+$ p_0 (\xi) = \mathbb{E} ^{Q} \left[ \frac{S}{1+r}  \right] =  \mathbb{E} ^{Q} \left[  \left( S_1^{1} - 1 \right) ^{+}
+\right] = \frac{1}{3} \left( S_1^{1} (\omega_1) -1 \right)^{+} + \frac{2}{3} \left( S_1^{1} (\omega_2) -1 \right)^{+}
+= \frac{1}{3} $ ein arbitragefreier Preis. 
+
+\smalltitle[3.5]{Proposition}
+Es gelte NA. Sei $ \xi $ ein Derivat. Dann $ \emptyset \neq \Pi (\xi) \subset \mathbb{R} $ Konvex und somit ein Intervall. \\
+\underline{Beweis}: Übung
+
+Zum Folgenden wollen wir die Intervallgrenzen $ \Pi ^{X} (\xi_j) := \text{ sup } \Pi (\xi) $ und $ \Pi_{X} (\xi) $ 
+für ein keivert $ \xi $ 
+
+\begin{ibox}[3.5]{Definition}{CDefinition}
+    Wir sagen, es gilt Nicht-Redundanz \textit{NR} wenn die Vektoren 
+		$$ \begin{pmatrix}
+			\Delta x_1^{i} (\omega_1) \\
+			\vdots \\
+			\Delta x_1^{i} (\omega_l) 
+		\end{pmatrix}
+	, i \in \left( 1 , \cdots,  d \right) 	 $$
+linear unabhängig sind.		
+\end{ibox}
+Damit NR erfüllt sein kann, muss notwendigerweise $ d \leq l $ gelten. Falls NR nicht erfüllt ist, dann existiert
+eine strikte  Teilmenge dieser Vektoren. 
+		\begin{align*}
+		\begin{pmatrix}
+			\Delta x_1^{i} (\omega_1) \\
+			\vdots \\
+			\Delta x_1^{i} (\omega_l) 
+		\end{pmatrix}
+	, i \in \left( 1 , \cdots,  d \right) &\text{ s.d } \forall j \in \left\{ m +1 , \cdots,  d \right\} \exists 
+	\alpha_1 , \cdots,  \alpha_n \in \mathbb{R} \text{ mit } \\	
+	&\begin{pmatrix}
+			\Delta x_1^{j} (\omega_1) \\
+			\vdots \\
+			\Delta x_1^{j} (\omega_l) 
+		\end{pmatrix} = \sum_{i = 1}^{m} \alpha_i  \begin{pmatrix}
+			\Delta x_1^{i} (\omega_1) \\
+			\vdots \\
+			\Delta x_1^{i} (\omega_l) 
+		\end{pmatrix}
+		\end{align*}
+Die Vektoren (Wertpapier) für $ j \in \left\{ m +1 , \cdots,  d \right\}  $ sind also überflüssig redundant. Durch 
+\textit{Wegwerfen} von redundanten Wertpapieren können wir jeden Markt zu einem Markt, in dem NR gilt reduzieren.
+
+\smalltitle[]{Erinnerung:}
+Für eine Handelsstrategie $ \overline{ H} = \left( H^{O}, H^{T} \right)^{T}  $ ist 
+$$ V_{0}^{ \overline{ H} } = \left< \Delta_1, H \right> = \frac{V_1^{ \overline{ H} }}{1 +r }  $$
+
+\begin{ibox}[3.9]{Definition}{CDefinition}
+    Sei $ \xi $ ein Derivat. Ein Vektor $ \left( X, H^{T} \right) ^{T} \in \mathbb{R}^{d+1} $ mit $  x \in \mathbb{R}$
+		(Anfangskapital) und $ H \in \mathbb{R}^{d}  $ (Position in Aktien) wird als \underline{Superhedging-Strategie} 
+		für $ \xi $ bezeichnet, wenn 
+
+\end{ibox}
+
+\smalltitle[]{Vorlesung \today}
+\begin{ibox}[5.3]{Definition}{CDefinition}
+    Seien $ K, L \in \mathbb{R} $ mit $ K \geq L $, sei $ \lambda \in \left[ 0,1 \right]  $ und sei $ M = \lambda K + \left( 1- \lambda \right)L  $. Wir nehem an, dass zur Zeit 0 die Call-Option $ \left( S_1^1 - K \right)^{+}, \left( S_1^1 -L \right)^{+} $ zu dem Preisen $ C (K), C (L) \text{ und }  C (M) $ gehandelt werden. Der um $ \left( C (K), \left( S_1^1 - K \right)^{+} \right) , \left( C (L), \left( S_1^1 - L \right)^{+} \right)  $ erweiterte Markt NA. Dann gilt: 
+		\begin{enumerate}[label=\alph*)]
+			\item $ C (K) \leq C (L) $ 
+			\item $ \left( 1 + r \right) \left( C (K) - C (L) \right) \leq L - K $ 
+			\item $ C \left( \lambda K + (1- \lambda) L \right) \leq \lambda C (K) + (1- \lambda) C (L)  $ 
+		\end{enumerate}
+\end{ibox}
+
+\para{3}{Elemente der Wahrscheinlichkeitstheorie}
+Wahrscheinlichkeitstheoretische Grundlagen, um das Einperiodenmodell auf mehrere Handelszeitpunkte zu erweitern und Informationszunahme im Lauf der Zeit zu modellieren.
+
+\smalltitle[]{Literatur:}
+\begin{itemize}
+	\item Kremer - Einführung in die diskrete Finanzmathe 
+	\item Shiryaev - Probability-1
+	\item Klenke - Wahrscheinlichkeitstheorie
+	\item Mentrup und Schäffler - Stochastik
+\end{itemize}
+
+\smalltitle[III.1]{ $ \sigma $-Algebra}
+Sei $ \Omega \neq \emptyset $ eine Menge. Bezeichne mit $ \mathcal{P} (\Omega) $ die Potenzmenge von $ \Omega $ 
+
+\begin{ibox}[1.1]{Definition}{CDefinition}
+	Ein Mengensystem $ G \subseteq \mathcal{P} (\Omega) $ heißt \underline{Algebra} auf $ \Omega  $, falls gelten:
+	\begin{enumerate}[label=\alph*)]
+		\item $ \Omega  \in G $ 
+		\item $ A \in G \implies A^{c} \in G $ 
+		\item $ A, B \in G \implies A \cup B \in G $ 
+	\end{enumerate}
+\end{ibox}
+\begin{ibox}[1.2]{Definition}{CDefinition}
+	Eine Algebra $ G $ auf $ \Omega  $ heißt \underline{ $ \sigma $-Algebra} auf $ \Omega $, falls zusätzlich gilt:
+	$$ A_n \in G \forall n \in \mathbb{N} \implies \cup_{ n \in \mathbb{N}} A_n \in G $$
+\end{ibox}
+Beispiele für $ \sigma $-Algebra (und damit auch für Algebra) sind die "triviale" 	$ \sigma $-Algebra und die Potenzmenge $ \mathcal{P} (\Omega) $. \\
+Wenn $ G $ eine Algebra ist, dann gilt $ \emptyset \in G $ und $ \forall A, B \in G $ sind $ A \cap B = \left( A^\complement \cup B^\complement \right)^\complement \in G $ und $ A \setminus B = A \cap B^\complement \in G $. Wenn $ G $ eine $ \sigma $-Algebra ist, dann gilt
+zusätzlich $ A_n \in G \; \forall n \in \mathbb{N} \implies \cap_{n \in \mathbb{N}}A_n \in G $ 
+
+\begin{ibox}[1.3]{Lemma}{CLemma}
+    Sei $ \Omega \neq \emptyset $ eine Menge und $ \left\{ G_{\lambda} \right\}_{\lambda \in \Omega } $ eine Familie von Algebren
+		(bzw. $ \sigma $-Algebra) auf $ \Omega  $. Dann ist auch $ \cap_{\lambda \in \Omega } G_{\lambda} $ eine Algebra (bzw. $ \sigma $-Algebra) auf $ \Omega  $.
+\end{ibox}
+Beweis: Übung
+
+\begin{ibox}[1.4]{Definition}{CDefinition}
+    Sei $ \mathcal{A} \subseteq \mathcal{P} (\Omega) $ eine Mengensystem. Wir definieren: 
+		\begin{align*}
+			\mathcal{B}^{ \mathcal{A}}_{\sigma} &= \left\{ G \subseteq \mathcal{P} (\Omega) : G \text{ Algebra und  } G \supseteq \mathcal{A} \right\} \\
+			\mathcal{B}^{ \mathcal{A}}_{\sigma} &= \left\{ G \subseteq \mathcal{P} (\Omega) : G \; \sigma -\text{ Algebra und  } G \supseteq \mathcal{A} \right\} \\
+		\end{align*}
+		Weiter definieren wir die \underline{durch $ \mathcal{A} $ erzeugte Algebra}:
+		$$ \alpha ( \mathcal{A}) = \bigcap_{G \in 	\mathcal{B}^{ \mathcal{A}}_{\sigma}} G $$
+\end{ibox}
+Lemma 13 Zeigt, dass $ \alpha (A) $ eine Algebra und $ \sigma (A) $ eine $ \sigma $ -Algebra ist.
+
+\begin{ibox}[1.5]{Lemma}{CLemma}
+    Es gelte $ |\Omega | < \infty $  Sei $ G $ ein Algebra. Dann ist $ G  $ eine $ \sigma $ -Algebra.
+\end{ibox}
+\underline{Beweis}: Seien $ A_n, n \in \mathbb{N} $, Elemente von $ G $ und $ B = \cup_{n \in \mathbb{N}}A_n $. Weil $ \Omega  $ 
+endlich ist, hat $ G $ nur endlich viele Element und daher geht die Vereinigung nur über endlich viele verschieden Elemente von $ G $.
+Per Induktion und (iii) in Def 1.1 folgt, dass $ B \in G $  
+
+
+Also, Auf endlichen $ \Omega  $ sind Algebren $ \sigma $ -Algebren äquivalent. Für allgemeines $ \Omega  $ gibt es aber Algebra , die
+keine $ \sigma $ -Algebra sind z.B:
+
+\smalltitle[1.6]{Bsp.}
+Sei $ \Omega = \mathbb{N}, \mathcal{A} = \left\{ A \subseteq \mathbb{N} : |A| = 1 \right\} \text{ und }  G := \alpha (A) $. Dann
+gilt (Übung). 
+$$ G = \left\{ B \subseteq \mathbb{N} : |B| < \infty \text{ oder } |B^\mathsf{c}| < \infty  \right\} $$.
+Aus Lemma 1.2 wissen wir, dass $ G $ eine Algebra ist. Aber $ G $ ist keine $ \sigma $ -Algebra, denn $ \forall k \in \mathbb{N}:
+\left\{ 2k \right\} \in G$ und (wir setzen $ \cup_{\lambda \in \emptyset} \cdots = \emptyset $ 
+$$ \bigcup_{k \in \mathbb{N}} \left\{ 2k \right\} = 2 \mathbb{N} \notin G $$
+
+\begin{ibox}[1.7]{Definition}{CDefinition}
+	Sei $ \Omega  $ ein Menge. Ein Mengensystem $ D = \left\{ D_{\lambda} \right\}_{\lambda \in \Omega } $ heißt \underline{Partition}
+	oder \underline{Zerlegung} von $ \Omega  $, falls gelten:
+	\begin{enumerate}[label=\alph*)]
+		\item $ \forall \lambda \in \Omega : D_{\lambda} \neq \emptyset $ 
+		\item $ \forall \lambda_1, \lambda_2 \in \omega  $ mit $ \lambda_1 \neq \lambda_2: D_{\lambda_1} \cap D_{\lambda_2} = \emptyset $ 
+		\item $ \cup_{\lambda \in \omega } D_{\lambda} = \Omega $ 
+	\end{enumerate}
+\end{ibox}
+\smalltitle[1.8]{Proposition}
+	Sei $ \Omega  $ höchstens abzählbar und $ D = \left\{ D_{\lambda} \right\}_{\lambda \in \Omega } $ eine Partition. Dann gilt 
+	$$ \sigma (\mathcal{D}) = \left\{ \bigcup_{\lambda \in A} D_{\lambda} : A \subseteq \Omega  \right\}$$
+	\underline{Beweis:} Sei $ \mathcal{F} := \left\{ \cup_{\lambda \in A} D_{\lambda}: A \subseteq \Omega \right\} $  \\
+	" \underline{$ \supseteq $} "\\
+
+	" \underline{$ \subseteq $} ": Zeige, dass $ \mathcal{F} \in \mathcal{B}^{ \mathcal{D}}_{\sigma}  $. Klar: $ \mathcal{D} \subset 
+	\mathcal{F}$. Noch zu zeigen: $ \mathcal{F} $ ist $ \sigma $ -Algebra.
+	\begin{enumerate}[label=\alph*)]
+		\item Wegen (iii) in Def 1.7 gilt $ \Omega  = \cup_{\lambda \in \Omega } D_{\lambda} \in \mathcal{F} $ 
+		\item Sei $ A \subseteq \mathcal{A} $. Es gilt (wegen (ii) in Def 1.7)
+			$$ \left( \bigcup_{\lambda \in A} D_{\lambda} \right)^{\mathsf{c}} = \bigcap_{\lambda \in A}D_{\lambda}^{\mathsf{c}} = 
+			\bigcup_{\lambda \in \Omega \setminus A} D_{\lambda} \in \mathcal{F} $$
+		\item Seien $ \mathcal{B}_{n} \in \mathcal{F}, n \in \mathbb{N} $. Für jedes $ n \in \mathbb{N} $  gibt es dann $ A_n \subseteq \Omega  $ sodass $ \mathcal{B}_{n}
+			= \cup_{\lambda \in A_n} D_{\lambda}$. Es folgt, dass 
+			$$ \bigcup_{n \in \mathbb{N}} \mathcal{B}_{n} = \bigcup_{n \in \mathbb{N}} \bigcup_{\lambda \in A_n} D_{\lambda} = \bigcup_{\lambda \in \cup_{n \in \mathbb{N}}A_n} D_{\lambda} \in \mathcal{F} $$
+			
+			
+	\end{enumerate}
+	
+
 
 \end{document}
