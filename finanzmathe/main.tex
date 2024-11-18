@@ -450,9 +450,9 @@ $$ \bigcup_{k \in \mathbb{N}} \left\{ 2k \right\} = 2 \mathbb{N} \notin G $$
 	Sei $ \Omega  $ höchstens abzählbar und $ D = \left\{ D_{\lambda} \right\}_{\lambda \in \Omega } $ eine Partition. Dann gilt 
 	$$ \sigma (\mathcal{D}) = \left\{ \bigcup_{\lambda \in A} D_{\lambda} : A \subseteq \Omega  \right\}$$
 	\underline{Beweis:} Sei $ \mathcal{F} := \left\{ \cup_{\lambda \in A} D_{\lambda}: A \subseteq \Omega \right\} $  \\
-	" \underline{$ \supseteq $} "\\
+	 \underline{$ \supseteq $} : \;   Trivial\\
 
-	" \underline{$ \subseteq $} ": Zeige, dass $ \mathcal{F} \in \mathcal{B}^{ \mathcal{D}}_{\sigma}  $. Klar: $ \mathcal{D} \subset 
+	 \underline{$ \subseteq $} : Zeige, dass $ \mathcal{F} \in \mathcal{B}^{ \mathcal{D}}_{\sigma}  $. Klar: $ \mathcal{D} \subset 
 	\mathcal{F}$. Noch zu zeigen: $ \mathcal{F} $ ist $ \sigma $ -Algebra.
 	\begin{enumerate}[label=\alph*)]
 		\item Wegen (iii) in Def 1.7 gilt $ \Omega  = \cup_{\lambda \in \Omega } D_{\lambda} \in \mathcal{F} $ 
@@ -463,9 +463,122 @@ $$ \bigcup_{k \in \mathbb{N}} \left\{ 2k \right\} = 2 \mathbb{N} \notin G $$
 			= \cup_{\lambda \in A_n} D_{\lambda}$. Es folgt, dass 
 			$$ \bigcup_{n \in \mathbb{N}} \mathcal{B}_{n} = \bigcup_{n \in \mathbb{N}} \bigcup_{\lambda \in A_n} D_{\lambda} = \bigcup_{\lambda \in \cup_{n \in \mathbb{N}}A_n} D_{\lambda} \in \mathcal{F} $$
 			
-			
 	\end{enumerate}
-	
+\begin{ibox}[1.9]{Lemma}{CLemma} 
+	Es gelte $ \left| \Omega  \right| \leq \infty $. Seien $ \mathcal{D} \text{ und }  \tilde{\mathcal{D}} $ zwei Partitionen mit $ \sigma (\mathcal{D}) = \sigma (\tilde{\mathcal{D}}) $. Dann gilt $ \mathcal{D} = \tilde{\mathcal{D}} $ 
+\end{ibox}
+\underline{Beweis: }	Betrachte, dass die Partitionen nur endlich viele Elemente haben, und daher die Darstellung aus Proposition 
+1.8 gilt. Angenommen, es gibt ein $ B \in \tilde{\mathcal{D}} \text{  mit } B \notin \mathcal{D} $.
+\begin{itemize}
+	\item Falls es ein $ D \in \mathcal{D} $ gibt, sodass $ B \subsetneq D $, dann ist $ B \notin \sigma ( \mathcal{D}) = \sigma ( \tilde{
+		\mathcal{D}}$. Widerspruch.
+	\item Andernfalls gilt $ \forall D \in \mathcal{D} $, dass $ B $ keine Teilmenge von $ D $ ist.
+		\begin{itemize}
+			\item Falls es ein $ C \in \mathcal{D} $ gibt mit $ C \subsetneq B $, dann ist $ C \notin \sigma (\tilde{ \mathcal{D}}) 
+				= \sigma ( \mathcal{D})$. Widerspruch.  
+			\item Falls es kein $ C \in \mathcal{D} $ gibt, das Teilmenge von $ B $ ist, dann folgt $ B \notin \sigma ( \mathcal{D}) = \sigma
+				(\tilde{ \mathcal{D}})$. Widerspruch. $ \qed $ 
+		\end{itemize}
+\end{itemize}
 
+Jede $ \sigma $ -Algebra auf einem endlichen $ \Omega $ kann durch eine Partition erzeugt werden: 
+
+\smalltitle[1.10]{Proposition}
+Es gelte $ \left| \Omega  \right| < \infty $. Sei $ G $ eine $ \sigma $-Algebra auf $ \Omega  $. Dann existiert genau eine Partition 
+$ \mathcal{D} $ von $ \Omega  $, sodass $ G = \sigma ( \mathcal{D}) $ 
+
+\underline{Beweis: } Für alle $ x \in \Omega  $ sei $ \mathcal{M}_{x} := \left\{ A \in G : x \in A \right\} $ und $ A_{x} := \cap_{A \in \mathcal{M}_{x}} A $. Für $ x, y \in \Omega $ definiere $ x ~ y : \iff y \in A_{x} $. Dann ist $ ~ $ eine Äquivalenzrelation auf $\Omega$
+denn: \begin{itemize}
+	\item Reflexivität: Sei $ x \in \Omega  $. Es gilt $ \forall A \in \mathcal{M}_{x} $, dass $ x \in A $ also $ x \in A_{x} $. Somit 
+		gilt $ x \sim x $ 
+	\item Symmetrie: Seien $ x, y \in \Omega  $ mit $ x \sim y $. Dann ist $ y \in A_{x} $. Deshalb gilt $ \forall A \in G $ mit $ x \in A $, dass $ y \in A $. Angenommen, $ x \notin A_{y} $. Dann ist $ x \in A_{x} \setminus A_{y} $ . Da $ G $ endlich ist, gilt $ A_{x} \setminus A_{y} \in G $. Es folgt, dass $ y \in A_{x} \setminus A_{y} $ Widerspruch zu $ y \in A_{y} $. Somit gilt $ y \sim x $. 
+	\item Transitivität: Seien $ x, y, z \in \Omega  $ mit $ x \sim y $ und $ y \sim z $. Sei $ C \in \mathcal{M}_{x} $. Dann ist $ C \in G $ und $ x \in C $. Wegen $ y \in A_{x} $ folgt heraus $ y \in C $, also $ C \in \mathcal{M}_{y} $. Hieraus folgt mit $ z \in A_{y} $, dass $ z \in C $. Somit gilt $ x \sim z $. 
+\end{itemize}
+
+Die Menge der Äquivalenzklassen $ \left\{ A_{x} : x \in \Omega  \right\} $ ist eine Partition $ \mathcal{D} $ von $ \Omega  $. Sei 
+$ G' \in G $. Dann gilt $ G' = \cup_{x \in G} \{x\} \subseteq \cup_{x \in G} A_{x} $. Für alle $ x \in G' $ ist $ G' \in \mathcal{M}_{x}
+$ und daher $ A_{x} = \cap_{A \in \mathcal{M}_{x}} A \subseteq G' $. Also ist $ G = \cup_{x \in G} A_{x} \in \sigma ( \mathcal{D}) $. 
+Es folgt $ G \subseteq \sigma ( \mathcal{D}) $. Für alle $ x \in \Omega  $ gilt $ A_{x} = \cap_{A \in \mathcal{M}_{x}} A \in G $ und 
+$ G $ ist eine $ \sigma $-Algebra, somit $ \sigma ( \mathcal{D})  \in G $. Eindeutigkeit folgt aus Lemma 1.9. \qed
+
+\begin{ibox}[1.11]{Definition}{CDefinition}
+    Es gelte $ \left| \Omega  \right| < \infty $. Sei $ G $ eine $ \sigma $-Algebra auf $ \Omega  $. Die Partition $ \mathcal{D} $,
+		für die $ G = \sigma ( \mathcal{D}) $ gilt, bezeichnen wir mit $ \mathcal{D} (G) $ und sagen dass $ \mathcal{D} (G) $ die $ \sigma $ 
+		-Algebra $ G $ erzeugt.
+\end{ibox}
+
+\smalltitle[1.12]{Beispiel}
+Wenn $ \left| \Omega  \right| < \infty $ gilt, dass ist $ \mathcal{D} ( \mathcal{P} ( \Omega )) = \left\{ \left\{ \omega  \right\}: \omega  \in \Omega  \right\} $.
+
+\begin{ibox}[1.13]{Definition}{CDefinition}
+	Es gelte  $ \left| \Omega  \right| < \infty $. Sei $ G $ eine $ \sigma $ -Algebra auf $ \Omega  $. Eine Abbildung $ \xi : \Omega  \to \mathbb{R} $ heißt \underline{$ \mathcal{G}$-messbar}, falls $ \xi $ konstant auf den Mengen von $ \mathcal{D} ( \mathcal{G}) $ ist.
+	(genauer: falls es für jedes $ D \in \mathcal{D} ( \mathcal{G}) $ ein $ c \in \mathbb{R} $ gibt, sodass $ \forall \omega \in D :
+	\xi (\omega) = c$ )
+\end{ibox}
+
+Beachte: Wenn  $ \left| \Omega  \right| < \infty $ gilt und $ \xi : \Omega  \in \mathbb{R} $ eine Abbildung ist, dann gibt es $ m \in
+\mathbb{N}$ und $ x_1 , \cdots,  x_m \in \mathbb{R} $, sodass $ \xi (\Omega) := \left\{ \xi (\omega): \omega \in \Omega  \right\}
+= \left\{ x_1 , \cdots, x_m \right\}$ 
+
+\begin{ibox}[1.14]{Lemma}{CLemma}
+    Es gelte $ \left| \Omega  \right| < \infty $. Sei $ \mathcal{G} $ eine $ \sigma $-Algebra auf $ \Omega  $. Seien $ m \in \mathbb{N} $
+	, $ x_1 , \cdots, x_{m} \in \mathbb{R} $ und $ \xi : \Omega  \to \left\{ x_1 , \cdots,  x_{m} \right\} $. Dann sind äquivalent:
+	\begin{enumerate}[label=\alph*)]
+		\item $ \xi $ ist $ \mathcal{G} $-messbar
+		\item Für alle $ A \subseteq \left\{ x_1 , \cdots,  x_m \right\} $ gilt $ \xi^{-1} (A) := \left\{ \omega \in \Omega : \xi (\omega) \in A \right\} \in \mathcal{G} $ 
+	\end{enumerate}
+\end{ibox}
+Beweis: Übung. 
+
+Im Allgemeinen (also auch wenn $ \left| \Omega  \right| = \infty $ definiert man Messbarkeit ähnlich zu (ii) in Lemma 1.14.) 
+
+\begin{ibox}[1.15]{Definition}{CDefinition}
+    Sei $ \Omega \neq \emptyset $ eine Menge. Für jedes $ \lambda \in \Omega  $ sei $ \xi_{\lambda}: \Omega  \to \mathbb{R} $ eine 
+		Abbildung. Dann definieren wir 
+		$$ \sigma \left( \xi_{\lambda} ; \lambda \in \Omega  \right) := \cap \left\{ \mathcal{G} \subseteq \mathcal{P} ( \Omega ) : 
+		\mathcal{G} \text{ ist } \sigma \text{-messbar und } \forall \lambda \in \Omega : \xi_\lambda \text{ ist } \mathcal{G} \text{-messbar }   \right\} $$
+\end{ibox}
+In der Def 1.15 kann $ \sigma \left( \xi_\lambda ; \lambda \in \Omega  \right) $ interpretiert werden als die kleinste $ \sigma $-Algebra
+$ \mathcal{G} $, sodass alle $ \xi_\lambda , \lambda \in \Omega \; \mathcal{G} $-messbar sind. 
+
+\smalltitle[1.16]{Beispiel}
+Wir betrachten einen Würfelwurf: Sei $ \Omega  = \left\{ 1, 2, 3,4,5,6 \right\} $ und $ \xi : \Omega  \to \left\{ 0 ,1 \right\} $ und 
+$ \xi ( \omega ) $ ist $ 1 $, wenn $ \omega  $ und $ 0 $, wenn $ \omega  $ ungerade. \\
+Dann ist $ \mathcal{D} = \left\{ \left\{ 1,3,5 \right\}, \left\{ 2,4,6 \right\} \right\} $ eine Partition von $ \Omega  $ und es gilt 
+$ \sigma (\xi) = \sigma( \mathcal{D}) = \left\{ \emptyset, \omega , \left\{ 1,3,5 \right\}, \left\{ 2,4,6 \right\} \right\} $ 
+
+Interpretation:  Nach Beobachtung von $ \xi (\omega ) $ können wir für jedes Ereignis $ A \in \sigma (\xi) $ sagen, ob es eingetreten ist oder nicht. Mit anderen Worten: Wir kennen zwar das eingetretene $ \omega  $ nicht, aber wir wissen, ob $ \omega  \in \emptyset $ (nie), $ \omega  \in \left\{ 1,3,5 \right\}, \omega \in \left\{ 2,4,6 \right\} $ und $ \omega  \in \Omega  $ (immer). In diesen Sinne spiegelt 
+$ \sigma (\xi) $ die Information wider, die durch $ \xi $ erzeugt wird. Jede $ \sigma (\xi) $-messbare Zufallsvariable $ \hat{\xi}: \Omega  \to \mathbb{R} $ verwendet nur Information, die bereits in $ \xi $ enthalten ist. Man kann zeigen, dass $ \hat{\xi} = g \circ \xi $ für eine geeignete Funktion $ g : \left\{ 0 ,1 \right\} \to \mathbb{R} $.
+
+\begin{ibox}[1.17]{Lemma}{CLemma}
+  Es gelte $ \left| \Omega  \right| < \infty $. Sei $ \mathcal{G} $ eine $ \sigma $-Algebra auf $ \Omega $ und seien $ \xi , \eta :
+	\Omega \to \mathbb{R} \; \mathcal{G}$-messbar. Dann:
+	\begin{enumerate}[label=\alph*)]
+		\item $ \xi + \eta, \xi - \eta \text{ und } \xi \cdot \eta $ sind $ \mathcal{G} $ -messbar.
+		\item Falls $ \forall \omega \in \Omega : \eta (\omega ) \neq 0 $ so ist $ \frac{\xi}{\eta} \; \mathcal{G} $-messbar.
+		\item Für eine Funktion $ f : \mathbb{R} \to \mathbb{R} $ ist $ f (\xi) = f \circ \xi : \Omega  \to \mathbb{R} \; \mathcal{G} $-messbar.
+	\end{enumerate}
+\end{ibox}
+	\underline{Beweis}: 
+	\begin{enumerate}[label=\alph*)]
+		\item Sei $ D \in \mathcal{D} ( \mathcal{G} ) $. Es gibt $ a, c \in \mathbb{R} $, sodass $ \forall \omega  \in D: \xi ( \omega ) = c \text{ und } \eta (\omega ) = a$. Somit gilt $ \omega  \in D: \left(  \xi + \eta  \right) (\omega ) = \xi (\omega ) + \eta (\omega ) = c + a$. Rest analog.
+		\item Analog
+		\item Sei $ D \in \mathcal{D} \left( \mathcal{G} \right). $ Es gibt $ c \in \mathbb{R} $, sodass $ \forall \omega \in D : \xi  (\omega ) = c $. Also : $ \forall \omega \in D: \left( f \circ \xi \right)  (\omega ) = f \left( \xi  (\omega ) \right) = f (c) $ \qed
+	\end{enumerate}
+
+	\smalltitle[]{Wiederholung:}
+	Wenn $ \mathcal{G}$ eine $ \sigma $-Algebra auf $ \Omega  $ ist, dann heißt ein Abbildung $ \mathbb{P} : \mathcal{G} \to \left[ 0,1 \right] $  Wahrscheinlichkeitsmaß (auf dem messbaren Raum $ \left( \Omega , \mathcal{G} \right) $ ), falls $ \mathbb{P} [\omega ] = 1 $ 
+	und aus $ A_j \in \mathcal{G}, \forall j \in \mathbb{N} $ mit $ \forall i \neq j : A_i \cap A_j = \emptyset $ folgt, dass 
+ $$ \mathbb{P} \left[ \bigcup_{j = 1}^{\infty} A_j \right] = \sum_{j = 1}^{\infty} \mathbb{P} \left[ A_j \right] $$
+ Weiter heißt dann $ \left( \Omega , \mathcal{G}, \mathbb{P}  \right) $ Wahrscheinlichkeitsraum.
+
+ \begin{ibox}[1.18]{Definition}{CDefinition}
+    Sei $ \left( \Omega , \mathcal{G}, \mathbb{P}  \right) $ Wahrscheinlichkeitsraum mit $ \left| \Omega  \right| < \infty $. Zwei 
+		$ \sigma $ -Algebren $ \mathcal{G}_{1}, \mathcal{G}_{2} $ heißen \underline{unabhängig}, falls $ \forall A_1 \in \mathcal{G}_{1} $ 
+		und $ A_2 \in \mathcal{G}_{i}, \; \mathbb{P} \left[ A_1 \cap A_2 \right] = \mathbb{P} \left[ A_1 \right] \cdot \mathbb{P} \left[ A_2 \right] $. Eine Zufallsvariable $ \xi : \Omega \to \mathbb{R} $ heißt \underline{unabhängig} von einer $ \sigma $-Algebra $ \mathcal{G} $
+		wenn die $\sigma$-Algebra $ \sigma (\xi) \text{ und } \mathcal{G} $ unabhängig sind. Zwei Zufallsvariable $ \xi, \eta : \sigma \to 
+		\mathbb{R} $ heißen \underline{unabhängig}, wenn die $\sigma$-Algebra $ \sigma (\xi) \text{ und } \sigma (\eta) $ unabhängig sind.
+ \end{ibox}
+ 
 
 \end{document}
