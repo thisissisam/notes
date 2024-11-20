@@ -1,0 +1,119 @@
+\smalltitle[1.19]{Bemerkung}
+Sei $ \left( \Omega , \mathcal{P} (\Omega), \mathbb{P}  \right) $ eine Wahrscheinlichkeitsraum mit $ \left| \Omega  \right| < \infty $ und
+$ \mathcal{G} $ eine $\sigma$-Algebra  auf $ \Omega  $. Wenn $ \xi : \Omega \to \mathbb{R} $ unabhängig von $ \mathcal{G} $ ist, dann 
+gilt $ \forall A \in \mathcal{G} $ und $ \forall x \in \xi (\Omega) $, dass $ \mathcal{P} \left[ \left\{ \xi = x \right\} \cap A \right]
+= \mathbb{P}  \left[ \left\{ \xi = x \right\} \right] \mathbb{P} [A]$. 
+
+\para{III.2}{Bedingte Erwartung}
+In diesen Abschnitt setzen wir einen Wahrscheinlichkeitsraum $ \left( \Omega , \mathcal{P} (\Omega), \mathbb{P}  \right) $  mit 
+$ \left| \Omega  \right| < \infty $ und $ \forall \omega  \in \Omega : \mathbb{P} [{ \omega }] > 0 $ voraus. 
+
+\smalltitle[]{Wiederholung:}
+Betrachte $ m \in \mathbb{N}, x_1 , \cdots,  x_m \in \mathbb{R} \text{ und } X : \Omega  \to \left\{ x_1 , \cdots,  x_m \right\} $. Dann 
+ist der Erwartungswert von $ X $ gegeben durch 
+$$ \mathbb{E} \left[ X \right] = \sum_{\omega \in \Omega } X (\omega ) \mathbb{P} [\{\omega \}] = \sum_{j = 1}^{m} x_j \mathbb{P} 
+\left[ X = x_j \right] $$
+
+\smalltitle[2.1]{Beispiel}
+Wir betrachten einen Würfelwurf, also $ \Omega = \left\{ 1, 2,3,4,5,6 \right\} \text{ und }  \mathbb{P} [\{ \omega  \}] = \frac{1}{6}, 
+\omega  \in \Omega $ mit $ X : \Omega \to \left\{ 1, 2,3,4,5,6 \right\}, X (\omega) = \omega   $, beschreiben wir die geworfene Augenzahl. 
+Dann ist $ \mathbb{E} [X] = \sum_{\omega = 1}^{6} \omega \cdot \frac{1}{6} = \frac{21}{6} = 3,5 $ .\\
+Man kann $ \mathbb{E}  $ als die "beste" Schätzung von $ X $ ohne weitere Informationen interpretieren. 
+
+\smalltitle[]{Wiederholung:}
+Wenn $ D \in \Omega  $ ist mit $ \mathbb{P} [D] >0 \left( \iff D \neq \emptyset \text{ hier }  \right) $ und $ A \subseteq \Omega  $
+dann ist: 
+$$ \mathbb{P} \left[ A | D \right] := \frac{ \mathbb{P} \left[ A \cap D \right]}{ \mathbb{P} \left[ D \right]}  $$
+die elementare bedingte Wahrscheinlichkeit. Die Abbildung $ \mathbb{P} \left[ \cdot | D  \right] : \mathcal{P} (\omega) \to [0,1] $ ist 
+ein Wahrscheinlichkeitsmaß.
+
+\smalltitle[2.2]{Bsp}
+Fortsetzung von Bsp. 2.1.  Für $ \omega \in \left\{ 1, 3, 5 \right\} $ gilt:
+$$ \mathbb{P} \left[ \{\omega \} | \left\{ 1, 3, 5 \right\} \right] = \frac{ \mathbb{P} \left[ \left\{ \omega  \right\} \cap \left\{ 1,3,5 \right\} \right]}{ \mathbb{P} \left[ \left\{ 1,3,5 \right\} \right]} = \frac{\frac{1}{6} }{\frac{3}{6} } = \frac{1}{3} $$
+
+\begin{ibox}[2.3]{Definition}{CDefinition}
+    Die IndikatorFunktion einer Menge $ A \in \Omega  $  ist definiert als 
+		$$ \mathbb{1}_A : \Omega  \to \mathbb{R} , \mathbb{1}_{A} = \begin{cases*}
+			1,  & $\omega \in A$, \\ 
+			0, & $\omega \notin A $
+		\end{cases*}
+		 $$
+\end{ibox}
+		 Für $ A, D \subseteq \Omega   $ mit $ \mathbb{P} \left[ D \right]> 0 $ gilt $ \mathbb{E} [ \mathbb{1}_A ] = \mathbb{P} \left[ A \right]$ und 
+		 $$ \frac{ \mathbb{P} \left[ A \cap D \right]}{ \mathbb{P} \left[ D \right]} = \frac{ \mathbb{E} \left[ \mathbb{1}_{A} \mathbb{1}_{D} \right]}{ \mathbb{P} \left[ D \right]}  $$
+		 
+\begin{ibox}[2.4]{Definition}{CDefinition}
+    Sei $ X : \omega  \to \mathbb{R} $ eine Zufallsvariable und sei $ D \subseteq \Omega  $ mit $ \mathbb{P} \left[ D \right] >0 $. Dann
+		heißt die reelle Zahl  
+		$$ \mathbb{E} \left[ X | D \right] = \frac{ \mathbb{E} \left[ X \mathbb{1}_D \right]}{ \mathbb{P} \left[ D \right]}  $$
+		\underline{elementare bedingte Erwartung}
+\end{ibox}
+
+\smalltitle[2.5]{Bemerkung}
+Seien $ m \in \mathbb{N}, x_1 , \cdots,  x_m \in \mathbb{R} $  und $ X : \Omega  \to \left\{ x_1 , \cdots,  x_m \right\} $. Sei $ D \in 
+\Omega $ und $ \mathbb{P} \left[ D \right] >0 $. Dann ist 
+\begin{align*}
+	\mathbb{E} \left[ X | D \right] &= \sum_{\omega \in \Omega } X (\omega) \mathbb{1}_{D} (\omega) \frac{\mathbb{P} \left[ \left\{ \omega  \right\} \right]}{\mathbb{P} \left[ D \right]}  =  \sum_{\omega \in \Omega }X (\omega) \frac{\mathbb{P} \left[ \left\{ \omega  \right\} \cap D \right]}{ \mathbb{P} \left[ D \right]} \\ 
+	&= \sum_{\omega \in \Omega } X (\omega) \mathbb{P} \left[ \left\{ \omega  \right\} | D \right] = \sum_{j=1}^{m}x_j \mathbb{P} \left[ X = x_j | D \right]
+\end{align*}
+
+\smalltitle[]{Erinnerung:}
+Zu jeder $\sigma$-Algebra $ \mathcal{G} $ auf $ \Omega  $ gibt es eine (eindeutige) Partition mit endliche vielen Elementen, die $ \mathcal{G} $ erzeugt (wegen $ \left| \omega  \right| < \infty $ und Proposition III.1.10)
+
+\begin{ibox}[2.7]{Definition}{CDefinition}
+    Sei $ X : \Omega  \to \mathbb{R} $ eine Zufallsvariable. Sei $ \mathcal{ G} $ eine $\sigma$-Algebra auf $ \Omega  \text{ und }  
+		\mathcal{D} (y) = \left\{ D_1 , \cdots, \; D_n \right\}$. Die \underline{bedingte Erwartung} $ \mathbb{E} \left[ X | Y \right] $ ist
+		die Zufallsvariable $ \mathbb{E} \left[ X | Y \right]: \Omega  \to \mathbb{R} $, 
+\begin{align*}
+	\mathbb{E} \left[ X | Y \right] (\omega) &:= \begin{cases*}
+		 \mathbb{E} \left[ X | D_1 \right] , \; \; \; \; &falls  $\omega  \in D_1$  \\   
+		 \vdots \\
+		 \mathbb{E} \left[ X | X_n \right], & falls $ \omega \in D_n $ 
+	\end{cases*}\\
+																					 &= \sum_{i = 1}^{n}\mathbb{E} \left[ E | D_i \right] \mathbb{1}_{D_i}(\omega)
+\end{align*}
+\end{ibox}
+Beachte: Die elementare bedingte Erwartung ist eine reelle Zahl, nährend die bedingte Erwartung $ \mathbb{E} \left[ X | \mathcal{G} \right] $ (vgl. Def 2.7) eine $ \mathcal{G}$-messbare Abbildung 
+
+\smalltitle[2.8]{Bsp}
+Fortsetzung von Bsp 1.16, 2.1, 2.6 mit $ \mathcal{G} = \sigma (\xi) $ also $ \mathcal{D} ( \mathcal{G}) = \left\{  \left\{ 1,3,4 \right\},
+\left\{ 2,4,6 \right\} \right\} $  ist 
+$$ \mathbb{E} \left[ X | \mathcal{G} \right] (\omega) = \begin{cases*}
+	\mathbb{E} \left[ X | \left\{ 1,3,5 \right\} \right] = 3, & falls $ \omega  \in \left\{ 1,3,5 \right\} $  \\
+	\mathbb{E} \left[ X | \left\{ 2,4,6 \right\} \right] = 4, &falls $ \omega  \in \left\{ 2,4,6 \right\} $ 
+\end{cases*}
+ $$
+Die bedingte Erwartung $ \mathbb{E} \left[ X | \mathcal{G} \right] $ kann als die "beste" Schätzung von $ X $ (der Augenzahl)	unter der 
+Information $ \mathcal{G}	$ (gerade oder ungerade) interpretiert werden.
+
+Einige wichtige Eigenschaften der bedingten Erwartung: 
+
+\smalltitle[2.9]{Proposition}
+Seien $ X, Y : \Omega  \to \mathbb{R} $ Zufallsvariablen, $ a,b \in \mathbb{R} $ und $ \mathcal{G}, \mathcal{H}  $ $\sigma$-Algebren auf 
+$ \Omega  $. Dann gelten:
+\begin{enumerate}[label=\alph*)]
+	\item Linearität: $ \mathbb{E} \left[ aX + bY | \mathcal{G} \right] = a \mathbb{E} \left[ X | \mathcal{G} \right] + b \mathbb{E} \left[ Y | \mathcal{G}\right] $ 
+	\item Monotonie: $ X \leq Y \implies \mathbb{E} \left[ X | \mathcal{G} \right] \leq \mathbb{E} \left[ Y | \mathcal{G} \right] $ 
+	\item $ X  $ $ \mathcal{G}$-messbar $ \implies \mathbb{E} \left[ X | \mathcal{G} \right] = X $  
+	\item $ X $ unabhängig von $ \mathcal{G}  \implies \mathbb{E} \left[ X  | \mathcal{G} \right] \mathbb{E} \left[ X \right]$ 
+	\item Turmeigenschaft: $ \mathcal{H} \subseteq \mathcal{G} \implies \mathbb{E} \left[ \mathbb{E} \left[ X | Y \right] | \mathcal{H} \right] = \mathbb{E} \left[ X | \mathcal{H} \right] $ und $ \mathbb{E} \left[ \mathbb{E} \left[ X | H \right]| \mathcal{G} \right] = \mathbb{E} \left[ X | \mathcal{H} \right] $ 
+	\item $ Y \; \mathcal{G}$-messbar $ \implies \mathbb{E} \left[ X Y | \mathcal{G} \right] = Y \mathbb{E} \left[ X | \mathcal{G} \right] $
+	\item Jensen-Ungleichung: $ f : \mathbb{R} \to \mathbb{R}  $ konvex $ \implies \mathbb{E} \left[ f (x) | \mathcal{G} \right] \geq 
+		f \left( \mathbb{E} \left[ X | \mathcal{G} \right] \right)$ 
+\end{enumerate}
+
+\underline{Beweis:} \begin{enumerate}[label=\alph*)]
+	\item Übungsaufgabe
+	\item Es gelte $ \forall \omega  \in \Omega  $, dass $ X (\omega) \leq Y (\omega) $. Sei $ \mathcal{D} \mathcal{G} \left\{ D_1 , \cdots,  D_n \right\}$. Es gilt $ \forall i \in \left\{ 1 , \cdots,  n \right\} $, dass 
+		$$ \mathbb{E} \left[ X | D_i \right] = \sum_{\omega  \in \Omega } X (\omega) \mathbb{P} \left[ \left\{ \omega  \right\} | D_i \right] \leq \sum_{\omega  \in \Omega } Y (\omega) \mathbb{P} \left[ \left\{ \omega  \right\} | D_i \right] = \mathbb{E} \left[ Y | D_i \right] $$
+Es gilt $ \forall \omega  \in \Omega  $ dass
+$$ \mathbb{E} \left[ X | \mathcal{G} \right] (\omega) = \sum_{i=1}^{n} \mathbb{E} \left[ X | D_i \right] \mathbb{1}_{D_i} (\omega) \leq \sum_{i=1}^{n} \mathbb{E} \left[ Y | D_i \right] \mathbb{1}_{D_i} (\omega) = \mathbb{E} \left[ Y | \mathcal{G} \right] (\omega)$$
+\item Sei $ X \; \mathcal{G}$-messbar und $ \mathcal{D} ( \mathcal{G)} = \left\{ D_1 , \cdots,  D_n \right\} $. Dann gibt es für alle 
+	$ j \in \left\{ 1 , \cdots,  n \right\} $ ein $ c_j \in \mathbb{R} $ sodass $ \forall \omega  \in D_j $ ]
+
+
+
+		
+\end{enumerate}
+
+
