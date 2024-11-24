@@ -96,7 +96,7 @@ $ \Omega  $. Dann gelten:
 	\item Monotonie: $ X \leq Y \implies \mathbb{E} \left[ X | \mathcal{G} \right] \leq \mathbb{E} \left[ Y | \mathcal{G} \right] $ 
 	\item $ X  $ $ \mathcal{G}$-messbar $ \implies \mathbb{E} \left[ X | \mathcal{G} \right] = X $  
 	\item $ X $ unabhängig von $ \mathcal{G}  \implies \mathbb{E} \left[ X  | \mathcal{G} \right] \mathbb{E} \left[ X \right]$ 
-	\item Turmeigenschaft: $ \mathcal{H} \subseteq \mathcal{G} \implies \mathbb{E} \left[ \mathbb{E} \left[ X | Y \right] | \mathcal{H} \right] = \mathbb{E} \left[ X | \mathcal{H} \right] $ und $ \mathbb{E} \left[ \mathbb{E} \left[ X | H \right]| \mathcal{G} \right] = \mathbb{E} \left[ X | \mathcal{H} \right] $ 
+	\item Turmeigenschaft: $ \mathcal{H} \subseteq \mathcal{G} \implies \mathbb{E} \left[ \mathbb{E} \left[ X | Y \right] | \mathcal{H} \right] = \mathbb{E} \left[ X | \mathcal{H} \right] $ und $ \mathbb{E} \left[ \mathbb{E} \left[ X | \mathcal{H} \right]| \mathcal{G} \right] = \mathbb{E} \left[ X | \mathcal{H} \right] $ 
 	\item $ Y \; \mathcal{G}$-messbar $ \implies \mathbb{E} \left[ X Y | \mathcal{G} \right] = Y \mathbb{E} \left[ X | \mathcal{G} \right] $
 	\item Jensen-Ungleichung: $ f : \mathbb{R} \to \mathbb{R}  $ konvex $ \implies \mathbb{E} \left[ f (x) | \mathcal{G} \right] \geq 
 		f \left( \mathbb{E} \left[ X | \mathcal{G} \right] \right)$ 
@@ -110,4 +110,100 @@ Es gilt $ \forall \omega  \in \Omega  $ dass
 $$ \mathbb{E} \left[ X | \mathcal{G} \right] (\omega) = \sum_{i=1}^{n} \mathbb{E} \left[ X | D_i \right] \mathbb{1}_{D_i} (\omega) \leq \sum_{i=1}^{n} \mathbb{E} \left[ Y | D_i \right] \mathbb{1}_{D_i} (\omega) = \mathbb{E} \left[ Y | \mathcal{G} \right] (\omega)$$
 \end{enumerate}
 
+\smalltitle[2.10]{Bemerkung}
+Als spezialfälle in Proposition 2.9 erhält man $ \left| \mathbb{E} \left[ X | Y \right] \right| \leq \mathbb{E} \left[ X | \mathcal{G} \right] $ (aus 2. oder 7), $ \mathbb{E} \left[ X | \mathcal{P} (\omega) \right] $ (aus 3.) und $ \mathbb{E} \left[ X | \left\{ \emptyset, \Omega \right\} \right] = \mathbb{E} \left[ X \right] $ (aus 4) sowie $ \mathbb{E} \left[ \mathbb{E} \left[ X | \mathcal{G} \right] \right] = \mathbb{E} \left[ X \right]$ (aus 4 und 5)
+
+\begin{ibox}[2.11]{Lemma}{CLemma}
+    Sei $ X : \Omega \to \mathbb{R} $ eine Zufallsvariable und $ \mathcal{G} $ eine $\sigma$-Algebra auf $ \Omega $. Dann gelten: 
+		\begin{enumerate}[label=\alph*)]
+			\item $ \mathbb{E} \left[ X | \mathcal{G} \right] $ ist $ \mathcal{G}$-messbar und 
+			\item $ \forall A \in \mathcal{G}: \mathbb{E} \left[ X \mathds{1}_A \right] = \mathbb{E} \left[ \mathbb{E} \left[ X | \mathcal{G} \right] \mathds{1}_A \right] $ 
+		\end{enumerate}
+\end{ibox}
+\underline{Beweis:} 
+\begin{enumerate}[label=\alph*)]
+	\item klar.
+	\item Sei $ A \in \mathcal{G} $. Dann gilt $ \mathbb{E} \left[ X \mathds{1}_{A} \right] = \mathbb{E} \left[ \mathbb{E} \left[ X \mathds{1}_{A} | \mathcal{G} \right] \right] = \mathbb{E} \left[ \mathds{1}_{A} \mathbb{E} \left[ X | \mathcal{G} \right] \right]$ 
+\end{enumerate}
+Im Allgemeinen (also auch wenn $ |\Omega| = \infty $ ) definiert man die bedingte Erwartung über die Eigenschaft (i) und (ii) aus Lemma 2.11 
+
+
+Außerdem kann man die bedingte Erwartung als eine $ L^2 $-Projektion auffassen (vgl. auch "beste" Schätzung von $ X $ unter der
+Information $ \mathcal{G} $)
+
+\smalltitle[2.12]{Proposition}
+Seien $ X, Y : \Omega \to \mathbb{R} $ Zufallsvariablen, $ \mathcal{G} $ eine $\sigma$-Algebra auf $ \Omega $ und $ Y \; \mathcal{G}$-messbar. Dann gilt: 
+$$ \mathbb{E} \left[ \left( X - \mathbb{E} \left[ X | \mathcal{G} \right] \right)^{2} \right] \leq \mathbb{E} \left[  \left( X - Y \right)^{2} \right] $$
+
+\centerline{\includesvg[width=0.8\linewidth]{./figures/fima1.svg}}
+
+\underline{Beweis:}
+Für alle $ \mathcal{G}$-messbaren $ Z: \Omega \to \mathbb{R} $ gilt
+\begin{align*}
+	\mathbb{E} \left[ Z \left( \mathbb{E} \left[ X | \mathcal{G} \right] - X \right) \right] \stackrel{ \text{2.9 (6)}}{=} 
+	\mathbb{E} \left[ \mathbb{E} \left[ Z X | \mathcal{G} \right] - Z X \right] = \mathbb{E} \left[ \mathbb{E} \left[ ZX | \mathcal{G}
+	\right]\right] - \mathbb{E} \left[ Z X \right] \stackrel{ \text{Bem. 2.10}}{=} \mathbb{E} \left[ Z X \right] - \mathbb{E} \left[ Z X \right] = 0
+\end{align*}
+Verwende dies man mit 
+\begin{align*}
+Z &= \mathbb{E} \left[ Y - X | \mathcal{G} \right] = \mathbb{E} \left[ Y | \mathcal{G} \right] - \mathbb{E} \left[ X | \mathcal{G} \right]
+= Y - \mathbb{E} \left[ X | \mathcal{G} \right] \\
+	&= \mathbb{E} \left[ \left( Y - X \right)^{2} \right] = \mathbb{E} \left[ \left( Y - \mathbb{E} \left[ X | \mathcal{G} \right] + \mathbb{E} \left[ X | \mathcal{G} \right] - X \right)^{2} \right] \\
+	&=\mathbb{E} \left[ \left( Z + \left( \mathbb{E} \left[ X | \mathcal{G} \right] - X \right) \right)^{2} \right] \cdots \cdots
+\end{align*}
+
+\para{III.3}{Prozesse}
+Sie  $ \left( \Omega , \mathcal{P} (\Omega), \mathbb{P}  \right) $ ein Wahrscheinlichkeitsraum   mit 
+$ \left| \Omega  \right| < \infty $ und $ N \in \mathbb{N} $ . 
+
+\begin{ibox}[3.1]{Definition}{CDefinition}
+	Eine Abbildung $ X : \left\{ 0 , \cdots, N \right\} \times \Omega \to \mathbb{R} $ heißt \underline{stochastischer Prozess}.
+	Schreibweise: $ X = \left( X_n \right)_{n \in \left( 0 , \cdots, N \right)} $ 
+\end{ibox}
+Wenn  $ X = \left( X_n \right)_{n \in \left( 0 , \cdots, N \right)} $ stochastischer Prozess:
+\begin{itemize}
+	\item Für festes $ n \in \left( 0 , \cdots, N \right) $ ist $ X_n : \Omega \to \mathbb{R}, X_n (\omega) = X (n,\omega) $, eine 
+		Zufallsvariable. 
+	\item Für festes $ \omega \in \Omega $ ist $ X (\omega): \left\{ 0 , \cdots, N \right\} \to \mathbb{R}, X (\omega) (n) = X (n,\omega) $ 
+		ein "Pfand"
+\end{itemize}
+
+\begin{ibox}[3.2]{Definition}{CDefinition}
+	Eine \underline{filtration} ist eine aufsteigende Folge $ \left( \mathcal{F}_{n} \right)_{n \in \left\{ 0 , \cdots, N \right\}} $ von
+	$\sigma$-Algebra d.h 
+	\begin{align*}
+		\forall n \in \left\{ 0 , \cdots, N \right\}:& \mathcal{F}_{n} \text{ ist eine $\sigma$-Algebra und }  \\
+		\forall n \in \left\{ 0 , \cdots, N \right\}:& \mathcal{F}_{n-1} \subseteq \mathcal{F}_n 
+	\end{align*}
+Weiter heißt dann $ \left( \Omega, \mathcal{P} (\Omega), \left( \mathcal{F}_{n \in \left( 0 , \cdots, N \right)} \right), \mathbb{P}  \right) $ eine \underline{filtrierter Wahrscheinlichkeitsraum}.
+\end{ibox}
+
+\begin{ibox}[3.3]{Definition}{CDefinition}
+    Sei $ x = \left( X_n \right)_{n \in \left\{ 0 , \cdots, N \right\}} $ ein stochastischer Prozess: Die \underline{von $ X $ erzeugte
+		Filtration} $ \left( \mathcal{F}_{n}^{\times} \right)_{n \in \left\{ 0 , \cdots, N \right\}}$ ist gegeben durch :
+		$$ \mathcal{F}_{n}^{\times} := \sigma \left( X_0, X_1 , \cdots, X_n \right) := \sigma \left( X_k ; k \in \left\{ 0 , \cdots, n \right\} \right), n \in \left\{ 0 , \cdots, N \right\} $$
+\end{ibox}
+
+\begin{ibox}[3.4]{Definition}{CDefinition}
+	Sei $ \left( \mathcal{F}_{n}^{\times} \right)_{n \in \left\{ 0 , \cdots, N \right\}}$ eine Filtration und $ x = \left( X_n \right)_{n \in \left\{ 0 , \cdots, N \right\}} $ ein stoch. Prozess. Dann heißt $ X  $ \underline{adaptiert} ( an $ \left( \mathcal{F}_{n}^{\times} \right)_{n \in \left\{ 0 , \cdots, N \right\}}$  ) falls gilt: 
+	$$ \forall n \in \left\{ 0 , \cdots, N \right\} : X_n \text{ ist } \mathcal{F}_{n} \text{ -messbar }   $$
+
+	$ X $ heißt \underline{vorhersagbar} (bzgl. $ \left( \mathcal{F}_{n}^{\times} \right)_{n \in \left\{ 0 , \cdots, N \right\}}$ ), falls 
+	$ X_0 $ konstant ist und gilt: 
+	$$ \forall n \in \left\{ 1 , \cdots, N \right\} : X_n \text{ ist } \mathcal{F}_{n-1} \text{ -messbar }   $$
+\end{ibox}
+
+\para{III.4}{Martingale}
+In diesem Abschnitt setzen wir einen filtrierten Wahrscheinlichkeitsraum $ \left( \Omega, \mathcal{P} (\Omega), \left( \mathcal{F}_{n \in \left( 0 , \cdots, N \right)} \right), \mathbb{P}  \right) $ mit $ \left| \Omega \right| < \infty $ und $ \forall \omega \in \Omega : 
+\mathbb{P} \left[ \left\{ \omega \right\} \right] > 0 $ voraus.
+
+\begin{ibox}[4.1]{Definition}{CDefinition}
+	Ein stochastischer Prozess $ X = \left( X_n \right)_{n \in \left\{  0 , \cdots, N \right\}} $ heißt \underline{Martingal} (bzw.
+	\underline{Submartingal} bzw. \underline{Supermartingal}), falls gelten: 
+	\begin{itemize}
+		\item $ X $ ist adaptiert ( an $ \left( \mathcal{F}_{n} \right)^{n \in \left\{ 0 , \cdots, N \right\}} $ und 
+		\item $ \forall n \in \left\{  1 , \cdots, N \right\} $ : $ \mathbb{E} \left[ X_n | \mathcal{F}_{n-1} \right] = X_{n-1} $ (bzw. 
+			$ \mathbb{E} \left[ X_n | \mathcal{F}_{n-1} \right] \geq  X_{n-1}$ bzw. $ \mathbb{E} \left[ X_n | \mathcal{F}_{n-1} \geq X_{n-1} \right] $ 
+	\end{itemize}
+\end{ibox}
 
