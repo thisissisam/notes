@@ -1,0 +1,93 @@
+\smalltitle[4.2]{Bemerkung}
+$ \left( X_n \right)_{n \in \left\{ 0 , \cdots, N \right\}} $ ist genau dann ein Supermartingal, wenn $ \left( - X_n \right)_{n \in \left\{ 0 , \cdots, N \right\} } $l Submartingal ist. $ X =  \left( X_n \right)_{n \in \left\{ 0 , \cdots, N \right\}}  $ ist genau dann ein Martingal, wenn $ X $ sowohl ein Sub- als auch ein Supermartingal ist.
+
+\smalltitle[4.3]{Beispiel}
+Seien $ \xi_0 , \cdots, \xi_N $ unabhängige Zufallsvariablen,
+$$ X_n := \sum_{j=0}^{n} \xi_j, \; \; n \in \left\{ 0 , \cdots, N \right\} $$
+und $ \mathcal{F}_{n} = \mathcal{F}^{\times}_{n} n \in \left\{ 0 , \cdots, N \right\} $. Dann ist $   X =  \left( X_n \right)_{n \in \left\{ 0 , \cdots, N \right\}}  $  adaptiert und es gilt $ \forall n \in \left\{ 1 , \cdots, N \right\} \text{, dass  } X_n = X_{n+1} + \xi_n $ 
+und damit (da $ \xi_n \text{ und }  \mathcal{F}_{n-1} $ unabhängige)
+$$ \mathbb{E} \left[ X_n | \mathcal{F}_{n-1} \right] = \mathbb{E} \left[ X_{n-1} | \mathcal{F}_{n-1} \right] + \mathbb{E} \left[ \xi_n | \mathcal{F}_{n-1} \right] = X_{n-1} + \mathbb{E} \left[ \xi_n \right]. $$
+Also:
+\begin{align*}
+	X \text{ Martingal }    &\iff  \forall n \in \left\{ 1 , \cdots, N \right\}: \mathbb{E} \left[ \xi_n \right] = 0 \\
+	X \text{ Submartingal }    &\iff  \forall n \in \left\{ 1 , \cdots, N \right\}: \mathbb{E} \left[ \xi_n \right] \geq 0 \\
+	X \text{ Supermartingal }    &\iff  \forall n \in \left\{ 1 , \cdots, N \right\}: \mathbb{E} \left[ \xi_n \right] \leq 0 \\
+\end{align*}
+
+\smalltitle[4.4]{Proposition}
+Sei $    X =  \left( X_n \right)_{n \in \left\{ 0 , \cdots, N \right\}}  $ ein adaptierter stochastischer Prozess. $ X $ ist genau dann ein Martingal (bzw. Sub-, Supermartingal), wenn für alle $ n, m \in \left\{ 0 , \cdots,  N \right\} $ mit $ m < n $ gilt, dass $\mathbb{E} \left[ X_n | \mathcal{F}_{m} \right] = X_{m} $   ( \text{ bzw. }  $ \mathbb{E} \left[ X_n | \mathcal{F}_{m} \right] \geq X_{m} 
+\text{ bzw. } \mathbb{E} \left[ X_n | \mathcal{F}_{m} \right] \leq X_{m}$ )
+
+\underline{Beweis} Betrachte Submartingal, sonst analog. \\
+$ \impliedby  $ : Klar (wähle $ m = n -1 $ )\\
+$ \implies $ : Sei $ n \in \left\{ 1 , \cdots, N \right\} $. Wir zeigen per Induktion, dass $ \forall m \in \left\{ 0 , \cdots, n-1 \right\}: \mathbb{E} \left[ X_n | \mathcal{F}_{m} \right] \geq X_m $. Für $ m = n-1 $ klar. Sei $ m + 1 \in \left\{ 0 , \cdots, n-2 \right\}. $ 
+Wegen $ \mathbb{E} \left[ X_n | \mathcal{F}_{m+1} \right] \geq X_{m+1} $ (IV) und (ii) in Def 4.1 gilt :
+$$ \mathbb{E} \left[ X_n | \mathcal{F}_{n} \right] = \mathbb{E} \left[ \mathbb{E} \left[ X_n | \mathcal{F}_{m+1} \right] | \mathcal{F}_{m}\right] \geq \mathbb{E} \left[ X_{m+1}| \mathcal{F}_{m} \right] \geq X_m \qed $$
+
+\smalltitle[4.5]{Bemerkung}
+Bei endlichen Zeithorizont $ N < \infty $ ist ein Martingal $ \left( X_n \right)_{n \in \left\{ 0 , \cdots, N \right\}} $ schon durch die Zufallsvariable $ X_{N} $ eindeutig bestimmt, da $ \forall n \in \left\{ 0 , \cdots, N-1 \right\}: X_n = \mathbb{E} \left[ X_n | \mathcal{F}_{n} \right] $. 
+
+\smalltitle[4.6]{Beispiel}
+Sei $ Y : \Omega \to \mathbb{R} $ eine Zufallsvariable und $ X_n := \mathbb{E} \left[ Y | \mathcal{F}_{n} \right], n \in \left\{  0 , \cdots, N \right\} $. Dann ist $ \left\{ X_n \right\}_{n \in \left\{ 0 , \cdots, N \right\}} $ ein Martingal. (folgt aus der Turmeigenschaft.)
+
+\begin{ibox}[4.7]{Lemma}{CLemma}
+    Sei $     X =  \left( X_n \right)_{n \in \left\{ 0 , \cdots, N \right\}}   $ ein Martingal ( bzw. Sub- Supermartingal). Dann ist 
+		$ \left\{ 0 , \cdots, N \right\} \ni  n \mapsto \mathbb{E} \left[ X_n \right] $ konstant (bzw. wachsend bzw. fallend).
+\end{ibox}
+
+\underline{Beweis} Sei $ X =  \left( X_n \right)_{n \in \left\{ 0 , \cdots, N \right\}} $ ein Submartingal (sonst analog) und $  n \in \left\{ 1 , \cdots, N \right\} $ Dann gilt :
+$$ \mathbb{E} \left[ X_{n-1} \right] \geq \mathbb{E} \left[ \mathbb{E} \left[ X_n | \mathcal{F}_{n-1} \right] \right] = \mathbb{E} \left[ X_n \right] $$ \qed
+
+\smalltitle[4.8]{Bemerkung}
+Seien $ \mathcal{H} \subseteq \mathcal{G} $ $\sigma$-Algebra. Aus Lemma 1.17 erhalten wir, dass Linearkombinationen $ \mathcal{G} $-messbarer Abbildungen wieder $ \mathcal{G} $-messbar sind. Wenn $ Y  $ eine $ \mathcal{H} $-messbare Abbildung ist, dann zeigt Lemma 1.14, dass 
+$ Y $ auch $ \mathcal{G} $ -messbar ist.
+
+\begin{ibox}[4.9]{Lemma}{CLemma}
+    Seien $X =  \left( X_n \right)_{n \in \left\{ 0 , \cdots, N \right\}} $ und $ Y = \left\{ Y_n \right\}_{n \in \left\{ 0 , \cdots, N \right\}} $ Martingal.
+		\begin{enumerate}[label=\alph*)]
+			\item Seien $ a, b \in \mathbb{R} $. Dann ist $ Z = aX + bY = \left( \left( aX_n + bY_n \right) \right)_{n \in \left\{ 0 , \cdots, N \right\}}$ ein Martingal.
+			\item Sei $ f : \mathbb{R} \to \mathbb{R} $ eine konvexe Funktion. Dann ist $ f (X) = \left( f (X_n) \right)_{n \in \left\{ 0 , \cdots,  N \right\}} $ ein Submartingal.
+		\end{enumerate}
+\end{ibox}
+
+\underline{Beweis:}
+\begin{enumerate}[label=\alph*)]
+	\item Folgt aus Bem. 4.8 und der Linearität der bedingter Erwartung. 
+	\item Folgt aus Lemma 1.17 und der Jensen-Ungleichung : $ \forall n \in \left\{ 1 , \cdots, N \right\}: \mathbb{E} \left[ f (X_n) | \mathcal{F}_{n-1} \right] \geq f \left( \mathbb{E} \left[ X_n | \mathcal{F}_{n-1} \right] \right) = f \left( X_{n-1} \right)  $ 
+\end{enumerate}
+
+\begin{ibox}[4.10]{Lemma}{CLemma}
+    Sei $ \left( X_n \right)_{n \in \left\{ 0 , \cdots, N \right\}} $ ein vorhersagbares Martingal. Dann gilt $ \forall n \in \left\{ 0 , \cdots, N \right\}: X_n = X_0 $ .
+\end{ibox}
+
+\underline{Beweis:} Übung.
+
+\begin{ibox}[4.11]{Satz (Doob-Zerlegung}{CTheorem}
+   Sei  $ X =  \left( X_n \right)_{n \in \left\{ 0 , \cdots, N \right\}}  $ ein adaptierter Prozess. Dann existiert eine eindeutige Zerlegung 
+	 $$ X = X_0 + M + A $$
+	derart, dass  $  M =  \left( M_n \right)_{n \in \left\{ 0 , \cdots, N \right\}}$ ein Martingal mit $ M_0 = 0 $ und $ A =  \left( A_n \right)_{n \in \left\{ 0 , \cdots, N \right\}} $ ein vorhersagbarer Prozess mit $ A_0 = 0 $ ist. Die Prozesse sind gegeben durch:
+	\begin{align*}
+		A_n &= \sum_{k=1}^{n} \left( \mathbb{E} \left[ X_k | \mathcal{F}_{k-1} \right] - X_{k-1} \right), \; \; n \in \left\{ 1 , \cdots, N \right\} A_0 = 0 \\ 
+		M_n &= \sum_{k=1}^{n} \left( X_k \mathbb{E} \left[ X_k | \mathcal{F}_{k-1} \right] \right), \; \; n \in \left\{ 1 , \cdots, N \right\} M_0 = 0 \\ 
+	\end{align*}
+\end{ibox}
+
+\underline{Beweis} :
+\begin{enumerate}[label=\alph*)]
+	\item Sei $ n \in \left\{ 1 , \cdots, N \right\} $. Die $ \mathcal{F}_{n-1} $-Messbarkeit von $ A_n $ folgt aus Bem. 4.8 und der Tatsache, dass für alle $ k \in \left\{ 1 , \cdots, n \right\} $ die Abbildungen $ \mathbb{E} \left[  X_k | \mathcal{F}_{k-1} \right] $ und 
+		$ \mathcal{F}_{k-1} $-messbar sind sowie $ \mathcal{F}_{k-1} \subseteq \mathcal{F}_{n-1} $ gilt. Analog ist $ M_n \; \mathcal{M}_{n} $-messbar. Klar: $ M_0 = 0 $ ist $ \mathcal{F}_{0} $-messbar und $ A_0 = 0 $ ist konstant. Zudem gilt:
+		$$ \mathbb{E} \left[ M_n | \mathcal{F}_{n-1} \right] - M_{n-1} = \mathbb{E} \left[ M_n - M_{n-1} | \mathcal{F}_{n-1} \right] = \mathbb{E} \left[ X_n - \mathbb{E} \left[ X_n | \mathcal{F}_{n-1} \right]| \mathcal{F}_{n-1} \right] = \mathbb{E} \left[  X_n | \mathcal{F}_{n-1} \right]- \mathbb{E} \left[ X_n | \mathcal{F}_{n-1} \right]  = 0 $$
+		Außerdem gilt $ X_0 = X_0 + M_0 + A_0 $ und 
+		$$ X_0 + M_n + A_n = X_0 + \sum_{k=1}^{n} \left( X_k - X_{k-1} \right) = X_0 + X_n - X_0 = X_n. $$
+	\item Zum Beweis der Eindeutigkeit sei $ X = X_0 + \widetilde{M} + \tilde{A} $ eine weiter Zerlegung mit einem Martingal $ \widetilde{M} =  \left( \widetilde{M}_{n} \right)_{n \in \left\{ 0 , \cdots, N \right\}} $ mit $ \widetilde{M}_{0} = 0 $ und einem vorhersagbaren Prozess $ \tilde{A} = \left( \tilde{A}_{n} \right)_{n \in \left\{ 0 , \cdots, N \right\}} $ mit $ \tilde{A}_{0} = 0 $ . Dann ist  
+		$$ M - \widetilde{M} = X - X_0 A - \left( X - X_0 - \tilde{A} \right) = \tilde{A} - A $$
+		ein vorhersagbares Martingal ( Bem. 4.8 und Lemma 4.9) mit $ M_0 - \widetilde{M_0} = 0$. Es folgt aus Lemma 4.10 dass $ M = \widetilde{M} $. Hieraus folgt weiter, dass $ \tilde{A} = A $ \qed 
+\end{enumerate}
+
+
+\smalltitle[4.12]{Bemerkung}
+Wenn $ X = \left( X_n \right)_{n \in \left\{ 0 , \cdots, N \right\}} $ ein Submartingal (bzw. Supermartingal) ist, dann ist der vorhersagbare Prozess $ A $ aus der Doob-Zerlegung von $ X $ wachsend ( bzw. fallend).
+
+
+
+
