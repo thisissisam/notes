@@ -4,7 +4,7 @@ $ \left( X_n \right)_{n \in \left\{ 0 , \cdots, N \right\}} $ ist genau dann ein
 \smalltitle[4.3]{Beispiel}
 Seien $ \xi_0 , \cdots, \xi_N $ unabhängige Zufallsvariablen,
 $$ X_n := \sum_{j=0}^{n} \xi_j, \; \; n \in \left\{ 0 , \cdots, N \right\} $$
-und $ \mathcal{F}_{n} = \mathcal{F}^{\times}_{n} n \in \left\{ 0 , \cdots, N \right\} $. Dann ist $   X =  \left( X_n \right)_{n \in \left\{ 0 , \cdots, N \right\}}  $  adaptiert und es gilt $ \forall n \in \left\{ 1 , \cdots, N \right\} \text{, dass  } X_n = X_{n+1} + \xi_n $ 
+und $ \mathcal{F}_{n} = \mathcal{F}^{\times}_{n} n \in \left\{ 0 , \cdots, N \right\} $. Dann ist $   X =  \left( X_n \right)_{n \in \left\{ 0 , \cdots, N \right\}}  $  adaptiert und es gilt $ \forall n \in \left\{ 1 , \cdots, N \right\} \text{, dass  } X_n = X_{n-1} + \xi_n $ 
 und damit (da $ \xi_n \text{ und }  \mathcal{F}_{n-1} $ unabhängige)
 $$ \mathbb{E} \left[ X_n | \mathcal{F}_{n-1} \right] = \mathbb{E} \left[ X_{n-1} | \mathcal{F}_{n-1} \right] + \mathbb{E} \left[ \xi_n | \mathcal{F}_{n-1} \right] = X_{n-1} + \mathbb{E} \left[ \xi_n \right]. $$
 Also:
